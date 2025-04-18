@@ -206,7 +206,7 @@ class ManagerListPage extends StatelessWidget {
                                         child: Text(
                                           "${manager.desc.v}",
                                           maxLines: 3,
-                                          style: Get.theme.textTheme.bodyText1!
+                                          style: Get.theme.textTheme.bodyMedium!
                                               .copyWith(
                                             color: Colors.grey[900],
                                             fontSize: 12,
@@ -226,7 +226,7 @@ class ManagerListPage extends StatelessWidget {
                           child: Center(
                             child: Text(
                               "${isExpense ? '-' : ''}${x.numberFormat(manager.amount.v!)}",
-                              style: Get.theme.textTheme.bodyText1!.copyWith(
+                              style: Get.theme.textTheme.bodyMedium!.copyWith(
                                   color: isExpense
                                       ? Colors.redAccent
                                       : Colors.green,

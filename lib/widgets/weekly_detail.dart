@@ -217,7 +217,7 @@ class WeeklyDetailWidget extends StatelessWidget {
                           x.thisManagerB.value.managerIncome!.amount.v != null
                       ? Text(
                           "${x.numberFormat(x.thisManagerB.value.managerIncome!.amount.v!)}",
-                          style: Get.theme.textTheme.bodyText1!.copyWith(
+                          style: Get.theme.textTheme.bodyMedium!.copyWith(
                               fontSize: 18,
                               color: Colors.green,
                               fontWeight: FontWeight.w800),
@@ -268,7 +268,7 @@ class WeeklyDetailWidget extends StatelessWidget {
                           x.thisManagerB.value.managerExpense!.amount.v != null
                       ? Text(
                           "${x.numberFormat(x.thisManagerB.value.managerExpense!.amount.v!)}",
-                          style: Get.theme.textTheme.bodyText1!.copyWith(
+                          style: Get.theme.textTheme.bodyMedium!.copyWith(
                               fontSize: 18,
                               color: Colors.redAccent,
                               fontWeight: FontWeight.w800),
@@ -395,7 +395,7 @@ class WeeklyDetailWidget extends StatelessWidget {
                           ),
                           Text(
                             "Click + button to add new transaction",
-                            style: Get.theme.textTheme.bodyText1!.copyWith(
+                            style: Get.theme.textTheme.bodyMedium!.copyWith(
                                 fontSize: 18,
                                 color: Colors.grey[500],
                                 fontWeight: FontWeight.w800),
@@ -504,7 +504,7 @@ class WeeklyDetailWidget extends StatelessWidget {
                                     () => Text(
                                       //"${manager.amount.v! / x.itemTotalDetail.value.totalAmount!}",
                                       "${countPercentTotal(x, manager.amount.v!, x.itemTotalDetail.value.totalAmount!)}",
-                                      style: Get.theme.textTheme.bodyText1!
+                                      style: Get.theme.textTheme.bodyMedium!
                                           .copyWith(
                                         color: Colors.grey[900],
                                         fontSize: 12,
@@ -523,7 +523,7 @@ class WeeklyDetailWidget extends StatelessWidget {
                         child: Center(
                           child: Text(
                             "${isExpense ? '-' : ''}${x.numberFormat(manager.amount.v!)}",
-                            style: Get.theme.textTheme.bodyText1!.copyWith(
+                            style: Get.theme.textTheme.bodyMedium!.copyWith(
                                 color:
                                     isExpense ? Colors.redAccent : Colors.green,
                                 fontWeight: FontWeight.w800),

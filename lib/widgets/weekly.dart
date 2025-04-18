@@ -119,7 +119,7 @@ class WeeklyWidget extends StatelessWidget {
                           x.thisManagerA.value.managerIncome!.amount.v != null
                       ? Text(
                           "${x.numberFormat(x.thisManagerA.value.managerIncome!.amount.v!)}",
-                          style: Get.theme.textTheme.bodyText1!.copyWith(
+                          style: Get.theme.textTheme.bodyMedium!.copyWith(
                               fontSize: 18,
                               color: Colors.green,
                               fontWeight: FontWeight.w800),
@@ -171,7 +171,7 @@ class WeeklyWidget extends StatelessWidget {
                           x.thisManagerA.value.managerExpense!.amount.v != null
                       ? Text(
                           "${x.numberFormat(x.thisManagerA.value.managerExpense!.amount.v!)}",
-                          style: Get.theme.textTheme.bodyText1!.copyWith(
+                          style: Get.theme.textTheme.bodyMedium!.copyWith(
                               fontSize: 18,
                               color: Colors.redAccent,
                               fontWeight: FontWeight.w800),
@@ -296,7 +296,7 @@ class WeeklyWidget extends StatelessWidget {
                           ),
                           Text(
                             "Click + button to add new transaction",
-                            style: Get.theme.textTheme.bodyText1!.copyWith(
+                            style: Get.theme.textTheme.bodyMedium!.copyWith(
                                 fontSize: 18,
                                 color: Colors.grey[500],
                                 fontWeight: FontWeight.w800),
@@ -345,7 +345,6 @@ class WeeklyWidget extends StatelessWidget {
                   if (getcallback != null) {
                     refreshClick();
                     //onClickItemToRefresh();
-
                   }
                 },
                 child: Container(
@@ -398,7 +397,7 @@ class WeeklyWidget extends StatelessWidget {
                               ),
                               Text("$dateFormat",
                                   style:
-                                      Get.theme.textTheme.bodyText1!.copyWith(
+                                      Get.theme.textTheme.bodyMedium!.copyWith(
                                     color: Colors.grey[900],
                                     fontSize: 12,
                                   ))
@@ -411,7 +410,7 @@ class WeeklyWidget extends StatelessWidget {
                         margin: EdgeInsets.only(top: 8),
                         child: Text(
                           "${isIncome ? '' : '-'}${x.numberFormat(manager.amount.v!)}",
-                          style: Get.theme.textTheme.bodyText1!.copyWith(
+                          style: Get.theme.textTheme.bodyMedium!.copyWith(
                               color: isIncome ? Colors.green : Colors.redAccent,
                               fontWeight: FontWeight.w800),
                         ),

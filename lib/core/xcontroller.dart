@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -9,7 +11,6 @@ import 'package:mmanager/main.dart';
 import 'package:mmanager/model/model.dart';
 import 'package:mmanager/model/model_constant.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:tekartik_common_utils/common_utils_import.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share/share.dart';
 import 'package:uuid/uuid.dart';
@@ -56,7 +57,7 @@ class ItemThreeMonth {
 
 class UserLogin {
   UserLogin();
-  dynamic? userLogin;
+  dynamic userLogin;
   int? status;
 }
 
@@ -1187,7 +1188,7 @@ class XController extends GetxController {
   static Widget photoView(photoUrl) {
     return Scaffold(
       appBar: AppBar(
-        brightness: Get.theme.brightness,
+        // brightness: Get.theme.brightness,
         leading: BackButton(
           color: Colors.white,
           onPressed: () {
@@ -1197,7 +1198,7 @@ class XController extends GetxController {
         backgroundColor: Colors.black,
       ),
       body: Container(
-        color: Get.theme.backgroundColor,
+        color: Get.theme.scaffoldBackgroundColor,
         padding: const EdgeInsets.all(0.0),
         alignment: Alignment.topLeft,
         child: PhotoView(

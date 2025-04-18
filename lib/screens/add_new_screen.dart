@@ -108,7 +108,7 @@ class AddNewScreen extends StatelessWidget {
                     padding: EdgeInsets.only(top: 10, left: 20, right: 20),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: mainColor,
+                        backgroundColor: mainColor,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18)),
                         padding: EdgeInsets.only(bottom: 5, top: 5),
@@ -272,7 +272,7 @@ class AddNewScreen extends StatelessWidget {
             Row(
               children: [
                 Text("${x.defCurrency.value}",
-                    style: Get.theme.textTheme.headline6!
+                    style: Get.theme.textTheme.bodyMedium!
                         .copyWith(fontWeight: FontWeight.bold)),
                 SizedBox(width: 10),
                 Flexible(

@@ -207,7 +207,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: GoogleFonts.nunito().fontFamily,
         primaryColor: mainColor,
-        accentColor: softMainColor,
+        // accentColor: softMainColor,
       ),
       home: x.isFirst.value ? IntroScreen() : HomePage(),
       builder: (BuildContext? context, Widget? child) {

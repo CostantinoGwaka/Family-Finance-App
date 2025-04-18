@@ -28,7 +28,7 @@ class AmountIncome extends StatelessWidget {
               () => Text(
                 "${x.defCurrency.value} ${totalAmount(x, this.type!, x.itemTotalCateg.value.total!)}",
                 //"IDR ${x.numberFormat(x.itemTotal.value.total!)}",
-                style: Get.theme.textTheme.headline6!.copyWith(
+                style: Get.theme.textTheme.bodyMedium!.copyWith(
                     fontSize: 22,
                     color: Colors.white,
                     fontWeight: FontWeight.w800),

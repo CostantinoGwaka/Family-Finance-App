@@ -50,23 +50,23 @@ class FeedbackPage extends StatelessWidget {
                     child: Text(
                       "Your genius feedback",
                       textAlign: TextAlign.center,
-                      style: Get.theme.textTheme.headline6,
+                      style: Get.theme.textTheme.headlineMedium,
                     ),
                   ),
                   Container(
                     child: Text(
                       "Follow on Twitter @MManager2021",
                       textAlign: TextAlign.center,
-                      style:
-                          Get.theme.textTheme.headline6!.copyWith(fontSize: 14),
+                      style: Get.theme.textTheme.headlineMedium!
+                          .copyWith(fontSize: 14),
                     ),
                   ),
                   Container(
                     child: Text(
                       "Telegram @rullyhasibuan",
                       textAlign: TextAlign.center,
-                      style:
-                          Get.theme.textTheme.headline6!.copyWith(fontSize: 14),
+                      style: Get.theme.textTheme.headlineMedium!
+                          .copyWith(fontSize: 14),
                     ),
                   ),
                   SizedBox(
@@ -164,14 +164,16 @@ class FeedbackPage extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Get.theme.buttonColor
+                                        color: Get.theme.buttonTheme
+                                            .colorScheme!.onPrimary
                                             .withOpacity(0.2),
                                         blurRadius: 1.0,
                                         offset: Offset(0.0, 6),
                                       )
                                     ],
-                                    color:
-                                        Get.theme.accentColor.withOpacity(.8),
+                                    color: Get.theme.buttonTheme.colorScheme!
+                                        .onPrimary
+                                        .withOpacity(0.8),
                                     //Theme.of(context).bottomAppBarColor,
                                     borderRadius: BorderRadius.circular(42),
                                   ),
@@ -194,7 +196,7 @@ class FeedbackPage extends StatelessWidget {
                                         ),
                                         Text(
                                           "Submit",
-                                          style: Get.theme.textTheme.subtitle2!
+                                          style: Get.theme.textTheme.labelSmall!
                                               .copyWith(color: Colors.white),
                                         ),
                                       ],

@@ -221,7 +221,7 @@ class ProfilePage extends StatelessWidget {
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                          color: Get.theme.accentColor,
+                          color: Get.theme.primaryColor,
                           borderRadius: BorderRadius.circular(5.0),
                         ),
                         child: Text(
@@ -406,7 +406,7 @@ class ProfilePage extends StatelessWidget {
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(10.0),
                         decoration: BoxDecoration(
-                          color: Get.theme.accentColor,
+                          color: Get.theme.primaryColor,
                           borderRadius: BorderRadius.circular(5.0),
                         ),
                         child: Text(
@@ -692,7 +692,7 @@ class ProfilePage extends StatelessWidget {
         androidUiSettings: AndroidUiSettings(
             toolbarTitle: 'Crop Image',
             toolbarColor: Colors.white,
-            toolbarWidgetColor: Get.theme.accentColor,
+            toolbarWidgetColor: Get.theme.primaryColor,
             initAspectRatio: CropAspectRatioPreset
                 .ratio3x2, //CropAspectRatioPreset.original,
             lockAspectRatio: false),

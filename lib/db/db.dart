@@ -1,6 +1,6 @@
 import 'package:mmanager/model/model_constant.dart';
 import 'package:mmanager/utils/utils.dart';
-import 'package:tekartik_common_utils/model/model.dart';
+// import 'package:tekartik_common_utils/model/model.dart';
 
 abstract class DbRecord {
   /// to override something like [name, description]
@@ -21,11 +21,13 @@ abstract class DbRecord {
     return Field<T>(name);
   }
 
-  Model toMap({List<Field>? fields}) {
+  dynamic toMap({List<Field>? fields}) {
     fields ??= this.fields;
-    var model = Model();
+    var model = <String, dynamic>{};
     for (var field in fields) {
-      model.setValue(field.name, field.v, presentIfNull: field.hasValue);
+      if (field.v != null || field.hasValue) {
+        model[field.name] = field.v;
+      }
     }
     return model;
   }
@@ -33,9 +35,9 @@ abstract class DbRecord {
   void fromMap(Map map, {List<Field>? fields, int? id}) {
     this.id.v = id;
     fields ??= this.fields;
-    var model = Model(map);
+    var model = <String, dynamic>{};
     for (var field in fields) {
-      var entry = model.getModelEntry(field.name);
+      var entry = model[field.name];
       if (entry != null) {
         field.v = entry.value;
       }

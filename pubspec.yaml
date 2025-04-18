@@ -57,20 +57,20 @@ dependencies:
         
   tekartik_app_flutter_sqflite:
     git:
-      url: git://github.com/tekartik/app_flutter_utils.dart
+      url: https://github.com/tekartik/app_flutter_utils.dart
       path: app_sqflite
-      ref: null_safety
+      ref: master
       version: '>=0.4.2'
 
   tekartik_common_utils:
     git:
-      url: git://github.com/tekartik/common_utils.dart
-      ref: null_safety
+      url: https://github.com/tekartik/common_utils.dart
+      ref: dart3a
       
   tekartik_app_platform:
     git:
-      url: git://github.com/tekartik/app_flutter_utils.dart
-      ref: null_safety
+      url: https://github.com/tekartik/app_flutter_utils.dart
+      ref: master
       path: app_platform
     version: '>=0.1.0'
     
