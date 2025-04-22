@@ -42,7 +42,7 @@ dependencies:
   percent_indicator:
 
   modal_bottom_sheet:  
-  share:
+  share_plus:
 
   google_mobile_ads:
   firebase_core: 

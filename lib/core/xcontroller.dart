@@ -12,7 +12,7 @@ import 'package:mmanager/model/model.dart';
 import 'package:mmanager/model/model_constant.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:uuid/uuid.dart';
 import 'package:http/http.dart' as http;
 
@@ -1144,9 +1144,10 @@ class XController extends GetxController {
     String text = "Download $APP_NAME\nDownload $linkToDownload";
 
     if (path == null) {
+      // ignore: deprecated_member_use
       Share.share(text, subject: 'Share $APP_NAME');
     } else {
-      Share.shareFiles([path], subject: "Image Share $APP_NAME", text: text);
+      // Share.shareFiles([path], subject: "Image Share $APP_NAME", text: text);
     }
   }
 
