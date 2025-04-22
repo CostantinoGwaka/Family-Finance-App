@@ -47,7 +47,6 @@ dependencies:
   google_mobile_ads:
   firebase_core: 
   firebase_messaging:
-  cloud_firestore:
     
   flutter_local_notifications:  
   image_cropper:

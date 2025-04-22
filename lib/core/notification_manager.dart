@@ -133,40 +133,40 @@ class NotificationManager {
 
   var androidPlatformChannelSpecifics =
       new AndroidInitializationSettings('app_icon');
-  var iOSPlatformChannelSpecifics = new IOSInitializationSettings(
-      requestAlertPermission: false,
-      requestBadgePermission: false,
-      requestSoundPermission: false,
-      onDidReceiveLocalNotification:
-          (int? id, String? title, String? body, String? payload) async {
-        print("onDidReceiveRunning Notification... ");
-        var notif = {
-          "title": title,
-          "body": body,
-        };
+  // var iOSPlatformChannelSpecifics = new IOSInitializationSettings(
+  //     requestAlertPermission: false,
+  //     requestBadgePermission: false,
+  //     requestSoundPermission: false,
+  //     onDidReceiveLocalNotification:
+  //         (int? id, String? title, String? body, String? payload) async {
+  //       print("onDidReceiveRunning Notification... ");
+  //       var notif = {
+  //         "title": title,
+  //         "body": body,
+  //       };
 
-        try {
-          if (payload != null) {
-            dynamic data = jsonDecode(payload);
-            String keyname = data['keyname'];
-            createNotification(keyname, notif, true, jsonEncode(payload));
-          }
-        } catch (e) {
-          print("Error onDidReceiveRunning $e");
-        }
-      });
+  //       try {
+  //         if (payload != null) {
+  //           dynamic data = jsonDecode(payload);
+  //           String keyname = data['keyname'];
+  //           createNotification(keyname, notif, true, jsonEncode(payload));
+  //         }
+  //       } catch (e) {
+  //         print("Error onDidReceiveRunning $e");
+  //       }
+  //     });
 
   initNotification() {
-    var initSetttings = new InitializationSettings(
-        android: androidPlatformChannelSpecifics,
-        iOS: iOSPlatformChannelSpecifics,
-        macOS: null);
-    flutterLocalNotificationsPlugin.initialize(initSetttings,
-        onSelectNotification: (String? payload) async {
-      print("onSelectNotification checking payload $payload");
-    });
+    // var initSetttings = new InitializationSettings(
+    //     android: androidPlatformChannelSpecifics,
+    //     iOS: iOSPlatformChannelSpecifics,
+    //     macOS: null);
+    // flutterLocalNotificationsPlugin.initialize(initSetttings,
+    //     onSelectNotification: (String? payload) async {
+    //   print("onSelectNotification checking payload $payload");
+    // });
 
-    print("[NotificationManager] init.... initNotification done... ");
+    // print("[NotificationManager] init.... initNotification done... ");
   }
 
   parsingOnSelectPayload(dynamic _payload, bool isForce) {
@@ -330,18 +330,18 @@ class NotificationManager {
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
       channelID,
       'Notification Broadcast',
-      'Notification Broadcast Apps',
+      // 'Notification Broadcast Apps',
       importance: Importance.max,
       priority: Priority.high,
       largeIcon: DrawableResourceAndroidBitmap('logoapp_330'),
       autoCancel: true,
       styleInformation: bigTextStyleInformation,
     );
-    var platformChannelSpecifics = NotificationDetails(
-        android: androidPlatformChannelSpecifics,
-        iOS: IOSNotificationDetails());
-    await flutterLocalNotificationsPlugin.show(
-        int.parse(channelID), '$title', '$body', platformChannelSpecifics);
+    // var platformChannelSpecifics = NotificationDetails(
+    //     android: androidPlatformChannelSpecifics,
+    //     iOS: IOSNotificationDetails());
+    // await flutterLocalNotificationsPlugin.show(
+    //     int.parse(channelID), '$title', '$body', platformChannelSpecifics);
   }
 
   Future<void> cancelAllNotifications() async {

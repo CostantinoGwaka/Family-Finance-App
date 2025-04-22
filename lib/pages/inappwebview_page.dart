@@ -83,7 +83,7 @@ class _InAppWebviewPageState extends State<InAppWebviewPage> {
             //fit: StackFit.expand,
             children: <Widget>[
               InAppWebView(
-                initialUrlRequest: URLRequest(url: Uri.parse("$getUrl")),
+                initialUrlRequest: URLRequest(url: WebUri("$getUrl")),
                 //initialUrl: '$getUrl',
                 //initialHeaders: {},
                 initialOptions: InAppWebViewGroupOptions(

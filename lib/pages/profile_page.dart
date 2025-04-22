@@ -659,51 +659,51 @@ class ProfilePage extends StatelessWidget {
   // additional photo uploader
   final picker = ImagePicker();
   pickImageSource(int tipe) {
-    Future<PickedFile?>? file = picker.getImage(
-        source: tipe == 1 ? ImageSource.gallery : ImageSource.camera);
-    file.then((PickedFile? pickFile) {
-      Future.delayed(Duration(milliseconds: 500), () {
-        if (pickFile != null) {
-          _cropImage(File(pickFile.path));
-        }
-      });
-    });
+    // Future<PickedFile?>? file = picker.getImage(
+    //     source: tipe == 1 ? ImageSource.gallery : ImageSource.camera);
+    // file.then((PickedFile? pickFile) {
+    //   Future.delayed(Duration(milliseconds: 500), () {
+    //     if (pickFile != null) {
+    //       _cropImage(File(pickFile.path));
+    //     }
+    //   });
+    // });
   }
 
   Future<Null> _cropImage(File? imageFile) async {
-    File? croppedFile = await ImageCropper.cropImage(
-        sourcePath: imageFile!.path,
-        aspectRatioPresets: Platform.isAndroid
-            ? [
-                CropAspectRatioPreset.square,
-                CropAspectRatioPreset.ratio3x2,
-                CropAspectRatioPreset.ratio4x3,
-                CropAspectRatioPreset.ratio16x9
-              ]
-            : [
-                CropAspectRatioPreset.square,
-                CropAspectRatioPreset.ratio3x2,
-                CropAspectRatioPreset.ratio4x3,
-                CropAspectRatioPreset.ratio5x3,
-                CropAspectRatioPreset.ratio5x4,
-                CropAspectRatioPreset.ratio7x5,
-                CropAspectRatioPreset.ratio16x9
-              ],
-        androidUiSettings: AndroidUiSettings(
-            toolbarTitle: 'Crop Image',
-            toolbarColor: Colors.white,
-            toolbarWidgetColor: Get.theme.primaryColor,
-            initAspectRatio: CropAspectRatioPreset
-                .ratio3x2, //CropAspectRatioPreset.original,
-            lockAspectRatio: false),
-        iosUiSettings: IOSUiSettings(
-          title: 'Crop Image',
-        ));
-    if (croppedFile != null) {
-      File? tmpFile = croppedFile;
-      String? base64Image = base64Encode(tmpFile.readAsBytesSync());
-      startUpload(base64Image, tmpFile);
-    }
+    // File? croppedFile = await ImageCropper.cropImage(
+    //     sourcePath: imageFile!.path,
+    //     aspectRatioPresets: Platform.isAndroid
+    //         ? [
+    //             CropAspectRatioPreset.square,
+    //             CropAspectRatioPreset.ratio3x2,
+    //             CropAspectRatioPreset.ratio4x3,
+    //             CropAspectRatioPreset.ratio16x9
+    //           ]
+    //         : [
+    //             CropAspectRatioPreset.square,
+    //             CropAspectRatioPreset.ratio3x2,
+    //             CropAspectRatioPreset.ratio4x3,
+    //             CropAspectRatioPreset.ratio5x3,
+    //             CropAspectRatioPreset.ratio5x4,
+    //             CropAspectRatioPreset.ratio7x5,
+    //             CropAspectRatioPreset.ratio16x9
+    //           ],
+    //     androidUiSettings: AndroidUiSettings(
+    //         toolbarTitle: 'Crop Image',
+    //         toolbarColor: Colors.white,
+    //         toolbarWidgetColor: Get.theme.primaryColor,
+    //         initAspectRatio: CropAspectRatioPreset
+    //             .ratio3x2, //CropAspectRatioPreset.original,
+    //         lockAspectRatio: false),
+    //     iosUiSettings: IOSUiSettings(
+    //       title: 'Crop Image',
+    //     ));
+    // if (croppedFile != null) {
+    //   File? tmpFile = croppedFile;
+    //   String? base64Image = base64Encode(tmpFile.readAsBytesSync());
+    //   startUpload(base64Image, tmpFile);
+    // }
   }
 
   startUpload(String? base64Image, File? tmpFile) {
