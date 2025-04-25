@@ -4,7 +4,7 @@ import '../../coinpay_gloabelclass/coinpay_icons.dart';
 import 'coinpay_onboarding.dart';
 
 class CoinpaySpalsh extends StatefulWidget {
-  const CoinpaySpalsh({Key? key}) : super(key: key);
+  const CoinpaySpalsh({super.key});
 
   @override
   State<CoinpaySpalsh> createState() => _CoinpaySpalshState();
@@ -38,8 +38,12 @@ class _CoinpaySpalshState extends State<CoinpaySpalsh> {
     return Scaffold(
       body: Center(
           child: SizedBox(
-              width: width /3,
-              child: Image.asset(CoinpayPngimage.splashhicon,height: height/6,fit: BoxFit.fitHeight,))),
+              width: width / 3,
+              child: Image.asset(
+                CoinpayPngimage.splashhicon,
+                height: height / 6,
+                fit: BoxFit.fitHeight,
+              ))),
     );
   }
 }

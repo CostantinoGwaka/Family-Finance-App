@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CoinpayNotfound extends StatefulWidget {
-  const CoinpayNotfound({Key? key}) : super(key: key);
+  const CoinpayNotfound({super.key});
 
   @override
   State<CoinpayNotfound> createState() => _CoinpayNotfoundState();
@@ -23,27 +23,42 @@ class _CoinpayNotfoundState extends State<CoinpayNotfound> {
     width = size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-     appBar: AppBar(
-       leading: InkWell(
-           splashColor: CoinpayColor.transparent,
-           highlightColor: CoinpayColor.transparent,
-           onTap: () {
-             Navigator.pop(context);
-           },
-           child: const Icon(Icons.chevron_left,size: 30)),
-     ),
+      appBar: AppBar(
+        leading: InkWell(
+            splashColor: CoinpayColor.transparent,
+            highlightColor: CoinpayColor.transparent,
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.chevron_left, size: 30)),
+      ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: width/36,vertical: height/36),
+        padding:
+            EdgeInsets.symmetric(horizontal: width / 36, vertical: height / 36),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset(CoinpayPngimage.notfound,height: height/3,),
-            SizedBox(height: height/26,),
-            Text("Error 404\nPage Not Found".tr,style: pbold.copyWith(fontSize: 25),textAlign: TextAlign.center),
-            SizedBox(height: height/96,),
-            Text("Oops! It looks like the page you're loking for doesn't exist or has been moved.Please try again or go back to the home page.",
-              style: pregular.copyWith(fontSize: 12),textAlign: TextAlign.center,),
-            SizedBox(height: height/16,),
+            Image.asset(
+              CoinpayPngimage.notfound,
+              height: height / 3,
+            ),
+            SizedBox(
+              height: height / 26,
+            ),
+            Text("Error 404\nPage Not Found".tr,
+                style: pbold.copyWith(fontSize: 25),
+                textAlign: TextAlign.center),
+            SizedBox(
+              height: height / 96,
+            ),
+            Text(
+              "Oops! It looks like the page you're loking for doesn't exist or has been moved.Please try again or go back to the home page.",
+              style: pregular.copyWith(fontSize: 12),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: height / 16,
+            ),
             InkWell(
               splashColor: CoinpayColor.transparent,
               highlightColor: CoinpayColor.transparent,
@@ -56,7 +71,7 @@ class _CoinpayNotfoundState extends State<CoinpayNotfound> {
               },
               child: Container(
                 height: height / 15,
-                width: width/1,
+                width: width / 1,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: CoinpayColor.appcolor,

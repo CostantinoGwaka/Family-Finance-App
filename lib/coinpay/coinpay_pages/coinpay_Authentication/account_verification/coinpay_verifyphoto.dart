@@ -5,7 +5,7 @@ import '../../../coinpay_gloabelclass/coinpay_fontstyle.dart';
 import '../../../coinpay_gloabelclass/coinpay_icons.dart';
 
 class CoinpayVerifyPhoto extends StatefulWidget {
-  const CoinpayVerifyPhoto({Key? key}) : super(key: key);
+  const CoinpayVerifyPhoto({super.key});
 
   @override
   State<CoinpayVerifyPhoto> createState() => _CoinpayVerifyPhotoState();
@@ -63,10 +63,13 @@ class _CoinpayVerifyPhotoState extends State<CoinpayVerifyPhoto> {
                 height: height / 20,
               ),
               const CircleAvatar(
-                radius: 28,
-                backgroundColor: CoinpayColor.appcolor,
-                child:Icon(Icons.camera_alt_outlined,size: 25,color: CoinpayColor.white,)
-              ),
+                  radius: 28,
+                  backgroundColor: CoinpayColor.appcolor,
+                  child: Icon(
+                    Icons.camera_alt_outlined,
+                    size: 25,
+                    color: CoinpayColor.white,
+                  )),
               SizedBox(
                 height: height / 96,
               ),

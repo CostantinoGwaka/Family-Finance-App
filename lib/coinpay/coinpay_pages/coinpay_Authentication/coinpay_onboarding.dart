@@ -6,7 +6,7 @@ import '../../coinpay_gloabelclass/coinpay_icons.dart';
 import 'coinpay_welcome.dart';
 
 class CoinpayOnboarding extends StatefulWidget {
-  const CoinpayOnboarding({Key? key}) : super(key: key);
+  const CoinpayOnboarding({super.key});
 
   @override
   State<CoinpayOnboarding> createState() => _CoinpayOnboardingState();
@@ -24,6 +24,7 @@ class _CoinpayOnboardingState extends State<CoinpayOnboarding> {
   void initState() {
     super.initState();
   }
+
   init() {
     size = MediaQuery.of(context).size;
     height = size.height;
@@ -31,7 +32,7 @@ class _CoinpayOnboardingState extends State<CoinpayOnboarding> {
     pages = [
       Padding(
         padding:
-        EdgeInsets.symmetric(horizontal: width / 16, vertical: height / 36),
+            EdgeInsets.symmetric(horizontal: width / 16, vertical: height / 36),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -81,7 +82,7 @@ class _CoinpayOnboardingState extends State<CoinpayOnboarding> {
       ),
       Padding(
         padding:
-        EdgeInsets.symmetric(horizontal: width / 16, vertical: height / 36),
+            EdgeInsets.symmetric(horizontal: width / 16, vertical: height / 36),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -131,7 +132,7 @@ class _CoinpayOnboardingState extends State<CoinpayOnboarding> {
       ),
       Padding(
         padding:
-        EdgeInsets.symmetric(horizontal: width / 16, vertical: height / 36),
+            EdgeInsets.symmetric(horizontal: width / 16, vertical: height / 36),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

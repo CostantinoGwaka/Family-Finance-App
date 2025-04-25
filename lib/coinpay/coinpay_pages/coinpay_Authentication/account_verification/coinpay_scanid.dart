@@ -6,7 +6,7 @@ import '../../../coinpay_gloabelclass/coinpay_icons.dart';
 import 'coinpay_scanner.dart';
 
 class CoinpayScanId extends StatefulWidget {
-  const CoinpayScanId({Key? key}) : super(key: key);
+  const CoinpayScanId({super.key});
 
   @override
   State<CoinpayScanId> createState() => _CoinpayScanIdState();
@@ -64,15 +64,20 @@ class _CoinpayScanIdState extends State<CoinpayScanId> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const CoinpayScanner();
-                  },));
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const CoinpayScanner();
+                    },
+                  ));
                 },
                 child: const CircleAvatar(
                     radius: 28,
                     backgroundColor: CoinpayColor.appcolor,
-                    child:Icon(Icons.qr_code_scanner_rounded,size: 25,color: CoinpayColor.white,)
-                ),
+                    child: Icon(
+                      Icons.qr_code_scanner_rounded,
+                      size: 25,
+                      color: CoinpayColor.white,
+                    )),
               ),
               SizedBox(
                 height: height / 96,

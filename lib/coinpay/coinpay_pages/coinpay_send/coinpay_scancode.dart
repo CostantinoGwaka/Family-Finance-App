@@ -6,7 +6,7 @@ import '../../coinpay_gloabelclass/coinpay_fontstyle.dart';
 import '../../coinpay_gloabelclass/coinpay_icons.dart';
 
 class CoinpayScanCode extends StatefulWidget {
-  const CoinpayScanCode({Key? key}) : super(key: key);
+  const CoinpayScanCode({super.key});
 
   @override
   State<CoinpayScanCode> createState() => _CoinpayScanCodeState();
@@ -32,34 +32,55 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
             onTap: () {
               Navigator.pop(context);
             },
-            child: const Icon(Icons.chevron_left,size: 30)),
+            child: const Icon(Icons.chevron_left, size: 30)),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: width/36,vertical: height/36),
+        padding:
+            EdgeInsets.symmetric(horizontal: width / 36, vertical: height / 36),
         child: Column(
           children: [
             Container(
-              width: width/1,
+              width: width / 1,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: themedata.isdark ?  CoinpayColor.darkblack : CoinpayColor.white,
-                  boxShadow:  [
+                  color: themedata.isdark
+                      ? CoinpayColor.darkblack
+                      : CoinpayColor.white,
+                  boxShadow: [
                     BoxShadow(
                       blurRadius: 5,
-                      color: themedata.isdark ?  CoinpayColor.transparent : CoinpayColor.textgray,
+                      color: themedata.isdark
+                          ? CoinpayColor.transparent
+                          : CoinpayColor.textgray,
                     )
-                  ]
-              ),
+                  ]),
               child: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: width/26,vertical: height/20),
+                padding: EdgeInsets.symmetric(
+                    horizontal: width / 26, vertical: height / 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset(CoinpayPngimage.qrcode,height: height/4.5,fit: BoxFit.fitHeight,color: CoinpayColor.appcolor,),
-                    SizedBox(height: height/26,),
-                    Text("Scan to get Paid",style: psemiBold.copyWith(fontSize: 18),),
-                    SizedBox(height: height/96,),
-                    Text("Hold the code inside the frame,it will be \nscanned automatically",textAlign: TextAlign.center,style: pregular.copyWith(fontSize: 12),),
+                    Image.asset(
+                      CoinpayPngimage.qrcode,
+                      height: height / 4.5,
+                      fit: BoxFit.fitHeight,
+                      color: CoinpayColor.appcolor,
+                    ),
+                    SizedBox(
+                      height: height / 26,
+                    ),
+                    Text(
+                      "Scan to get Paid",
+                      style: psemiBold.copyWith(fontSize: 18),
+                    ),
+                    SizedBox(
+                      height: height / 96,
+                    ),
+                    Text(
+                      "Hold the code inside the frame,it will be \nscanned automatically",
+                      textAlign: TextAlign.center,
+                      style: pregular.copyWith(fontSize: 12),
+                    ),
                   ],
                 ),
               ),
@@ -77,7 +98,7 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
               },
               child: Container(
                 height: height / 15,
-                width: width/1,
+                width: width / 1,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: CoinpayColor.appcolor,
@@ -91,18 +112,27 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
                 ),
               ),
             ),
-            SizedBox(height: height/56,),
+            SizedBox(
+              height: height / 56,
+            ),
             Container(
               height: height / 15,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  border: Border.all(color: CoinpayColor.appcolor,)
-              ),
+                  border: Border.all(
+                    color: CoinpayColor.appcolor,
+                  )),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(CoinpayPngimage.send,height: height/36,color: CoinpayColor.appcolor,),
-                  SizedBox(width: width/36,),
+                  Image.asset(
+                    CoinpayPngimage.send,
+                    height: height / 36,
+                    color: CoinpayColor.appcolor,
+                  ),
+                  SizedBox(
+                    width: width / 36,
+                  ),
                   Text(
                     "Share to Receive Money",
                     style: pmedium.copyWith(
@@ -111,8 +141,6 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
                 ],
               ),
             ),
-
-
           ],
         ),
       ),

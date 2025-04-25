@@ -36,20 +36,20 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   get:
-  sizer: ^2.0.15
+  sizer: ^3.0.5
   intl:
   shared_preferences: ^2.0.15
   flutter_svg: ^2.0.4
-  dots_indicator: ^2.1.0
-  pinput: ^2.2.31
-  nb_utils: ^4.6.25
+  dots_indicator: ^4.0.1
+  pinput: ^5.0.1
+  nb_utils: ^7.1.4
   intl_phone_field: ^3.1.0
-  carousel_slider: ^4.1.1
+  carousel_slider: ^5.0.0
   table_calendar: ^3.0.9
   country_picker: ^2.0.20
-  i69n: ^2.1.0
+  i69n: ^3.1.0
   build_runner: ^2.1.5
-  flutter_slidable: ^1.2.0
+  flutter_slidable: ^4.0.0
   fluttertoast: ^8.2.2
 
 
@@ -62,7 +62,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

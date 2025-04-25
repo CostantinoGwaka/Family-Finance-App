@@ -7,10 +7,11 @@ import '../../../coinpay_gloabelclass/coinpay_fontstyle.dart';
 import 'coinpay_createpassword.dart';
 
 class CoinpayCountryResidence extends StatefulWidget {
-  const CoinpayCountryResidence({Key? key}) : super(key: key);
+  const CoinpayCountryResidence({super.key});
 
   @override
-  State<CoinpayCountryResidence> createState() => _CoinpayCountryResidenceState();
+  State<CoinpayCountryResidence> createState() =>
+      _CoinpayCountryResidenceState();
 }
 
 class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
@@ -26,24 +27,45 @@ class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-  splashColor: CoinpayColor.transparent,
-  highlightColor: CoinpayColor.transparent,
-    onTap: () {
-      Navigator.pop(context);
-    },
-    child: const Icon(Icons.chevron_left,size: 30)),
+            splashColor: CoinpayColor.transparent,
+            highlightColor: CoinpayColor.transparent,
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.chevron_left, size: 30)),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: width/36,vertical: height/36),
+        padding:
+            EdgeInsets.symmetric(horizontal: width / 36, vertical: height / 36),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Country of residence",style: psemiBold.copyWith(fontSize: 20,),),
-            SizedBox(height: height/120,),
-            Text("This info needs to be accurate with your ID\ndocument",style: pregular.copyWith(fontSize: 12,color: CoinpayColor.textgray),),
-            SizedBox(height: height/36,),
-            Text("Country",style: psemiBold.copyWith(fontSize: 14,),),
-            SizedBox(height: height/65,),
+            Text(
+              "Country of residence",
+              style: psemiBold.copyWith(
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(
+              height: height / 120,
+            ),
+            Text(
+              "This info needs to be accurate with your ID\ndocument",
+              style:
+                  pregular.copyWith(fontSize: 12, color: CoinpayColor.textgray),
+            ),
+            SizedBox(
+              height: height / 36,
+            ),
+            Text(
+              "Country",
+              style: psemiBold.copyWith(
+                fontSize: 14,
+              ),
+            ),
+            SizedBox(
+              height: height / 65,
+            ),
             InkWell(
               onTap: () {
                 showCountryPicker(
@@ -53,8 +75,7 @@ class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
                   favorite: <String>['SE'],
                   //Optional. Shows phone code before the country name.
                   showPhoneCode: true,
-                  onSelect: (Country country) {
-                  },
+                  onSelect: (Country country) {},
                   // Optional. Sets the theme for the country list picker.
                   countryListTheme: CountryListThemeData(
                     // Optional. Sets the border radius for the bottomsheet.
@@ -85,9 +106,13 @@ class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
                 enabled: false,
                 style: pmedium.copyWith(fontSize: 14),
                 decoration: InputDecoration(
-                  hintStyle: pmedium.copyWith(fontSize: 14,color: CoinpayColor.bggray),
+                  hintStyle: pmedium.copyWith(
+                      fontSize: 14, color: CoinpayColor.bggray),
                   hintText: "Select Country",
-                  suffixIcon: const Icon(Icons.keyboard_arrow_down_rounded,size: 20,),
+                  suffixIcon: const Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    size: 20,
+                  ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(color: CoinpayColor.bggray),
@@ -96,7 +121,6 @@ class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
                     borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(color: CoinpayColor.bggray),
                   ),
-
                 ),
               ),
             ),
@@ -105,9 +129,11 @@ class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
               splashColor: CoinpayColor.transparent,
               highlightColor: CoinpayColor.transparent,
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const CoinpayCreatePassword();
-                },));
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const CoinpayCreatePassword();
+                  },
+                ));
               },
               child: Container(
                 height: height / 15,

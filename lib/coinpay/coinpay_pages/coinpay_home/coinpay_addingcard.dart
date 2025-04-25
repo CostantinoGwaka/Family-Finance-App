@@ -7,7 +7,7 @@ import '../../coinpay_gloabelclass/coinpay_icons.dart';
 import 'coinpay_addcard.dart';
 
 class CoinpayAddingCard extends StatefulWidget {
-  const CoinpayAddingCard({Key? key}) : super(key: key);
+  const CoinpayAddingCard({super.key});
 
   @override
   State<CoinpayAddingCard> createState() => _CoinpayAddingCardState();
@@ -25,26 +25,32 @@ class _CoinpayAddingCardState extends State<CoinpayAddingCard> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back_ios_new,size: 22,color: CoinpayColor.black,),
+        leading: const Icon(
+          Icons.arrow_back_ios_new,
+          size: 22,
+          color: CoinpayColor.black,
+        ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: width/36,vertical: height/36),
+        padding:
+            EdgeInsets.symmetric(horizontal: width / 36, vertical: height / 36),
         child: Column(
           children: [
-
             Image.asset(
               CoinpayPngimage.addingcard,
-              height: height /3,
+              height: height / 3,
               fit: BoxFit.fitHeight,
             ),
-            SizedBox(height: height/16,),
+            SizedBox(
+              height: height / 16,
+            ),
             Text(
               "Let's add your card",
               style: pbold.copyWith(fontSize: 25),
               textAlign: TextAlign.center,
             ),
             SizedBox(
-              height: height /56,
+              height: height / 56,
             ),
             Text(
               "Experiences the power of financial organization\nwith the our platform",
@@ -71,8 +77,14 @@ class _CoinpayAddingCardState extends State<CoinpayAddingCard> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.add,size: 22,color: CoinpayColor.white,),
-                    SizedBox(width: width/36,),
+                    const Icon(
+                      Icons.add,
+                      size: 22,
+                      color: CoinpayColor.white,
+                    ),
+                    SizedBox(
+                      width: width / 36,
+                    ),
                     Text(
                       "Add_your_card".tr,
                       style: pmedium.copyWith(

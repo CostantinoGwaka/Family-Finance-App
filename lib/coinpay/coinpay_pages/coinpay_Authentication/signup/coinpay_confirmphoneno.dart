@@ -7,7 +7,7 @@ import '../../../coinpay_gloabelclass/coinpay_fontstyle.dart';
 import '../account_verification/coinpay_settingaccount.dart';
 
 class CoinpayConfirmPhoneno extends StatefulWidget {
-  const CoinpayConfirmPhoneno({Key? key}) : super(key: key);
+  const CoinpayConfirmPhoneno({super.key});
 
   @override
   State<CoinpayConfirmPhoneno> createState() => _CoinpayConfirmPhonenoState();
@@ -26,23 +26,36 @@ class _CoinpayConfirmPhonenoState extends State<CoinpayConfirmPhoneno> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-  splashColor: CoinpayColor.transparent,
-  highlightColor: CoinpayColor.transparent,
-    onTap: () {
-      Navigator.pop(context);
-    },
-    child: const Icon(Icons.chevron_left,size: 30)),
+            splashColor: CoinpayColor.transparent,
+            highlightColor: CoinpayColor.transparent,
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.chevron_left, size: 30)),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: width/36,vertical: height/36),
+        padding:
+            EdgeInsets.symmetric(horizontal: width / 36, vertical: height / 36),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Confirm your phone",style: psemiBold.copyWith(fontSize: 20,),),
-            SizedBox(height: height/120,),
-            Text("We send 6 digit code to +881 1720 84 57 57",style: pregular.copyWith(fontSize: 12,color: CoinpayColor.textgray),),
-            SizedBox(height: height/36,),
-
+            Text(
+              "Confirm your phone",
+              style: psemiBold.copyWith(
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(
+              height: height / 120,
+            ),
+            Text(
+              "We send 6 digit code to +881 1720 84 57 57",
+              style:
+                  pregular.copyWith(fontSize: 12, color: CoinpayColor.textgray),
+            ),
+            SizedBox(
+              height: height / 36,
+            ),
             Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: width / 26, vertical: height / 36),
@@ -61,20 +74,18 @@ class _CoinpayConfirmPhonenoState extends State<CoinpayConfirmPhoneno> {
                           }
                         },
                         onSaved: (pin1) {},
-                        decoration:  const InputDecoration(
+                        decoration: const InputDecoration(
                             border: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.bggray),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.bggray),
                             ),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.appcolor),
-                            )
-                        ),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.appcolor),
+                            )),
                         //  style: Theme.of(context).textTheme.headline6,
                         style: psemiBold.copyWith(
-                            fontSize: 16,
-                            color: CoinpayColor.appcolor),
+                            fontSize: 16, color: CoinpayColor.appcolor),
                         cursorColor: CoinpayColor.black,
                         keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
@@ -95,20 +106,18 @@ class _CoinpayConfirmPhonenoState extends State<CoinpayConfirmPhoneno> {
                           }
                         },
                         onSaved: (pin2) {},
-                        decoration:  const InputDecoration(
+                        decoration: const InputDecoration(
                             border: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.bggray),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.bggray),
                             ),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.appcolor),
-                            )
-                        ),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.appcolor),
+                            )),
                         //  style: Theme.of(context).textTheme.headline6,
                         style: psemiBold.copyWith(
-                            fontSize: 16,
-                            color: CoinpayColor.appcolor),
+                            fontSize: 16, color: CoinpayColor.appcolor),
                         cursorColor: CoinpayColor.black,
                         keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
@@ -129,20 +138,18 @@ class _CoinpayConfirmPhonenoState extends State<CoinpayConfirmPhoneno> {
                           }
                         },
                         onSaved: (pin3) {},
-                        decoration:  const InputDecoration(
+                        decoration: const InputDecoration(
                             border: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.bggray),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.bggray),
                             ),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.appcolor),
-                            )
-                        ),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.appcolor),
+                            )),
                         //  style: Theme.of(context).textTheme.headline6,
                         style: psemiBold.copyWith(
-                            fontSize: 16,
-                            color: CoinpayColor.appcolor),
+                            fontSize: 16, color: CoinpayColor.appcolor),
                         cursorColor: CoinpayColor.black,
                         keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
@@ -163,20 +170,18 @@ class _CoinpayConfirmPhonenoState extends State<CoinpayConfirmPhoneno> {
                           }
                         },
                         onSaved: (pin4) {},
-                        decoration:  const InputDecoration(
+                        decoration: const InputDecoration(
                             border: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.bggray),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.bggray),
                             ),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.appcolor),
-                            )
-                        ),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.appcolor),
+                            )),
                         //  style: Theme.of(context).textTheme.headline6,
                         style: psemiBold.copyWith(
-                            fontSize: 16,
-                            color: CoinpayColor.appcolor),
+                            fontSize: 16, color: CoinpayColor.appcolor),
                         cursorColor: CoinpayColor.black,
                         keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
@@ -197,20 +202,18 @@ class _CoinpayConfirmPhonenoState extends State<CoinpayConfirmPhoneno> {
                           }
                         },
                         onSaved: (pin5) {},
-                        decoration:  const InputDecoration(
+                        decoration: const InputDecoration(
                             border: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.bggray),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.bggray),
                             ),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.appcolor),
-                            )
-                        ),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.appcolor),
+                            )),
                         //  style: Theme.of(context).textTheme.headline6,
                         style: psemiBold.copyWith(
-                            fontSize: 16,
-                            color: CoinpayColor.appcolor),
+                            fontSize: 16, color: CoinpayColor.appcolor),
                         cursorColor: CoinpayColor.black,
                         keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
@@ -231,20 +234,18 @@ class _CoinpayConfirmPhonenoState extends State<CoinpayConfirmPhoneno> {
                           }
                         },
                         onSaved: (pin6) {},
-                        decoration:  const InputDecoration(
-                           border: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.bggray),
+                        decoration: const InputDecoration(
+                            border: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.bggray),
                             ),
                             focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: CoinpayColor.appcolor),
-                            )
-                        ),
+                              borderSide:
+                                  BorderSide(color: CoinpayColor.appcolor),
+                            )),
                         //  style: Theme.of(context).textTheme.headline6,
                         style: psemiBold.copyWith(
-                            fontSize: 16,
-                            color: CoinpayColor.appcolor),
+                            fontSize: 16, color: CoinpayColor.appcolor),
                         cursorColor: CoinpayColor.black,
                         keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
@@ -258,13 +259,23 @@ class _CoinpayConfirmPhonenoState extends State<CoinpayConfirmPhoneno> {
                 ),
               ),
             ),
-            SizedBox(height: height/96,),
+            SizedBox(
+              height: height / 96,
+            ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't get a code? ",style: psemiBold.copyWith(fontSize: 14,color: CoinpayColor.textgray),),
-                Text("Resend",style: psemiBold.copyWith(fontSize: 14,color: CoinpayColor.appcolor),),
+                Text(
+                  "Don't get a code? ",
+                  style: psemiBold.copyWith(
+                      fontSize: 14, color: CoinpayColor.textgray),
+                ),
+                Text(
+                  "Resend",
+                  style: psemiBold.copyWith(
+                      fontSize: 14, color: CoinpayColor.appcolor),
+                ),
               ],
             ),
             const Spacer(),
@@ -272,9 +283,11 @@ class _CoinpayConfirmPhonenoState extends State<CoinpayConfirmPhoneno> {
               splashColor: CoinpayColor.transparent,
               highlightColor: CoinpayColor.transparent,
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const CoinpaySettingAccount();
-                },));
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const CoinpaySettingAccount();
+                  },
+                ));
               },
               child: Container(
                 height: height / 15,

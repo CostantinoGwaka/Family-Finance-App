@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CoinpayChatting extends StatefulWidget {
-  const CoinpayChatting({Key? key}) : super(key: key);
+  const CoinpayChatting({super.key});
 
   @override
   State<CoinpayChatting> createState() => _CoinpayChattingState();
@@ -26,22 +26,29 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-          splashColor: CoinpayColor.transparent,
-          highlightColor: CoinpayColor.transparent,
+            splashColor: CoinpayColor.transparent,
+            highlightColor: CoinpayColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
-            child: const Icon(Icons.chevron_left,size: 30)),
-        title: Text("Support".tr,style: pmedium.copyWith(fontSize: 18),),
+            child: const Icon(Icons.chevron_left, size: 30)),
+        title: Text(
+          "Support".tr,
+          style: pmedium.copyWith(fontSize: 18),
+        ),
       ),
       body: Padding(
         padding:
-        EdgeInsets.symmetric(horizontal: width / 36, vertical: height / 36),
+            EdgeInsets.symmetric(horizontal: width / 36, vertical: height / 36),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: Text("Sunday at 4:20 PM",style: pregular.copyWith(fontSize: 12,color: CoinpayColor.grey),)),
-            SizedBox(height: height/26),
+            Center(
+                child: Text(
+              "Sunday at 4:20 PM",
+              style: pregular.copyWith(fontSize: 12, color: CoinpayColor.grey),
+            )),
+            SizedBox(height: height / 26),
             Container(
               width: width / 1.5,
               decoration: BoxDecoration(
@@ -53,7 +60,9 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 5,
-                      color:  themedata.isdark ?  CoinpayColor.transparent : CoinpayColor.bggray,
+                      color: themedata.isdark
+                          ? CoinpayColor.transparent
+                          : CoinpayColor.bggray,
                     )
                   ],
                   color: themedata.isdark
@@ -86,9 +95,11 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                   ),
                   boxShadow: [
                     BoxShadow(
-                    blurRadius: 5,
-                    color:  themedata.isdark ?  CoinpayColor.transparent : CoinpayColor.bggray,
-                  )
+                      blurRadius: 5,
+                      color: themedata.isdark
+                          ? CoinpayColor.transparent
+                          : CoinpayColor.bggray,
+                    )
                   ],
                   color: themedata.isdark
                       ? CoinpayColor.darkblack
@@ -179,7 +190,9 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 5,
-                      color:  themedata.isdark ?  CoinpayColor.transparent : CoinpayColor.bggray,
+                      color: themedata.isdark
+                          ? CoinpayColor.transparent
+                          : CoinpayColor.bggray,
                     )
                   ],
                   color: themedata.isdark
@@ -205,19 +218,24 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(CoinpayPngimage.paperclip,height: height/36,color: CoinpayColor.grey,),
+                Image.asset(
+                  CoinpayPngimage.paperclip,
+                  height: height / 36,
+                  color: CoinpayColor.grey,
+                ),
                 Container(
                   width: width / 1.2,
-                  height: height/15,
+                  height: height / 15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 5,
-                        color:  themedata.isdark ?  CoinpayColor.transparent : CoinpayColor.bggray,
-                      )
-                    ]
-                  ),
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 5,
+                          color: themedata.isdark
+                              ? CoinpayColor.transparent
+                              : CoinpayColor.bggray,
+                        )
+                      ]),
                   child: TextField(
                       scrollPadding: EdgeInsets.only(
                           bottom: MediaQuery.of(context).viewInsets.bottom),
@@ -230,7 +248,7 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                               ? CoinpayColor.white
                               : CoinpayColor.black),
                       decoration: InputDecoration(
-                        suffixIcon:   CircleAvatar(
+                        suffixIcon: CircleAvatar(
                           radius: 25,
                           backgroundColor: CoinpayColor.appcolor,
                           child: Image.asset(
@@ -252,14 +270,14 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(50),
                             borderSide:
-                            const BorderSide(color: CoinpayColor.appcolor)),
+                                const BorderSide(color: CoinpayColor.appcolor)),
                       )),
                 ),
               ],
             ),
           ],
         ),
-      ) ,
+      ),
     );
   }
 }

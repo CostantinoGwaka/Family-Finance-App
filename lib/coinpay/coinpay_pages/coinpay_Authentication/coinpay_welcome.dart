@@ -8,7 +8,7 @@ import '../../coinpay_gloabelclass/coinpay_color.dart';
 import 'coinpay_login.dart';
 
 class CoinpayWelcome extends StatefulWidget {
-  const CoinpayWelcome({Key? key}) : super(key: key);
+  const CoinpayWelcome({super.key});
 
   @override
   State<CoinpayWelcome> createState() => _CoinpayWelcomeState();
@@ -27,16 +27,39 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: width/36,vertical: height/36),
+          padding: EdgeInsets.symmetric(
+              horizontal: width / 36, vertical: height / 36),
           child: Column(
             children: [
-              SizedBox(height: height/26,),
-              Image.asset(CoinpayPngimage.welcome,width: width/1,fit: BoxFit.fitHeight,),
-              SizedBox(height: height/36,),
-              Text("Create your\nCoinpay account",textAlign: TextAlign.center,style: psemiBold.copyWith(fontSize: 25),),
-              SizedBox(height: height/36,),
-              Text("Coinpay is powerful tool that allows use to easily send,receive and track all yout transaction",textAlign: TextAlign.center,style: psemiBold.copyWith(fontSize: 12),maxLines: 2,overflow: TextOverflow.ellipsis,),
-              SizedBox(height: height/20,),
+              SizedBox(
+                height: height / 26,
+              ),
+              Image.asset(
+                CoinpayPngimage.welcome,
+                width: width / 1,
+                fit: BoxFit.fitHeight,
+              ),
+              SizedBox(
+                height: height / 36,
+              ),
+              Text(
+                "Create your\nCoinpay account",
+                textAlign: TextAlign.center,
+                style: psemiBold.copyWith(fontSize: 25),
+              ),
+              SizedBox(
+                height: height / 36,
+              ),
+              Text(
+                "Coinpay is powerful tool that allows use to easily send,receive and track all yout transaction",
+                textAlign: TextAlign.center,
+                style: psemiBold.copyWith(fontSize: 12),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(
+                height: height / 20,
+              ),
               InkWell(
                 splashColor: CoinpayColor.transparent,
                 highlightColor: CoinpayColor.transparent,
@@ -62,7 +85,9 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                   ),
                 ),
               ),
-              SizedBox(height: height/36,),
+              SizedBox(
+                height: height / 36,
+              ),
               InkWell(
                 splashColor: CoinpayColor.transparent,
                 highlightColor: CoinpayColor.transparent,
@@ -76,9 +101,10 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                 child: Container(
                   height: height / 15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(color: CoinpayColor.appcolor,)
-                  ),
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(
+                        color: CoinpayColor.appcolor,
+                      )),
                   child: Center(
                     child: Text(
                       "Login".tr,
@@ -88,9 +114,15 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                   ),
                 ),
               ),
-              SizedBox(height: height/26,),
-              Text("By continuing you accepts our\nTerms of services and Privacy Policy",textAlign: TextAlign.center,style: psemiBold.copyWith(fontSize: 12,color: CoinpayColor.bggray),),
-
+              SizedBox(
+                height: height / 26,
+              ),
+              Text(
+                "By continuing you accepts our\nTerms of services and Privacy Policy",
+                textAlign: TextAlign.center,
+                style: psemiBold.copyWith(
+                    fontSize: 12, color: CoinpayColor.bggray),
+              ),
             ],
           ),
         ),

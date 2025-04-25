@@ -5,7 +5,7 @@ import '../../../coinpay_gloabelclass/coinpay_fontstyle.dart';
 import '../../../coinpay_gloabelclass/coinpay_icons.dart';
 
 class CoinpayScanner extends StatefulWidget {
-  const CoinpayScanner({Key? key}) : super(key: key);
+  const CoinpayScanner({super.key});
 
   @override
   State<CoinpayScanner> createState() => _CoinpayScannerState();
@@ -19,7 +19,6 @@ class _CoinpayScannerState extends State<CoinpayScanner> {
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
@@ -70,16 +69,19 @@ class _CoinpayScannerState extends State<CoinpayScanner> {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-                  SizedBox(height: height/26,),
-                  SizedBox(
-                    width: width/1.5,
-                    child: const LinearProgressIndicator(
-                      backgroundColor: Colors.black,
-                      valueColor: AlwaysStoppedAnimation<Color>(CoinpayColor.appcolor),
-                      value: 0.5,
-                      minHeight: 6,
-                    ),
-                  ),
+              SizedBox(
+                height: height / 26,
+              ),
+              SizedBox(
+                width: width / 1.5,
+                child: const LinearProgressIndicator(
+                  backgroundColor: Colors.black,
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(CoinpayColor.appcolor),
+                  value: 0.5,
+                  minHeight: 6,
+                ),
+              ),
             ],
           ),
         ),

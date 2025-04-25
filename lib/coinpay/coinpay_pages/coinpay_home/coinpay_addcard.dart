@@ -8,7 +8,7 @@ import '../../coinpay_theme/coinpay_themecontroller.dart';
 import 'coinpay_verifycard.dart';
 
 class CoinpayAddcard extends StatefulWidget {
-  const CoinpayAddcard({Key? key}) : super(key: key);
+  const CoinpayAddcard({super.key});
 
   @override
   State<CoinpayAddcard> createState() => _CoinpayAddcardState();
@@ -33,12 +33,12 @@ class _CoinpayAddcardState extends State<CoinpayAddcard> {
             onTap: () {
               Navigator.pop(context);
             },
-            child: const Icon(Icons.chevron_left,size: 30)),
+            child: const Icon(Icons.chevron_left, size: 30)),
       ),
-
       body: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: width/36,vertical: height/36),
+          padding: EdgeInsets.symmetric(
+              horizontal: width / 36, vertical: height / 36),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -47,21 +47,29 @@ class _CoinpayAddcardState extends State<CoinpayAddcard> {
                 style: pbold.copyWith(fontSize: 20),
               ),
               SizedBox(
-                height: height /120,
+                height: height / 120,
               ),
               Text(
                 "Enter your credit card info into the box below",
                 style: pregular.copyWith(fontSize: 12),
               ),
               SizedBox(
-                height: height /56,
+                height: height / 56,
               ),
-              Text("Account Holder Name",style: psemiBold.copyWith(fontSize: 14,),),
-              SizedBox(height: height/65,),
+              Text(
+                "Account Holder Name",
+                style: psemiBold.copyWith(
+                  fontSize: 14,
+                ),
+              ),
+              SizedBox(
+                height: height / 65,
+              ),
               TextField(
                 style: pmedium.copyWith(fontSize: 14),
                 decoration: InputDecoration(
-                  hintStyle: pmedium.copyWith(fontSize: 14,color: CoinpayColor.bggray),
+                  hintStyle: pmedium.copyWith(
+                      fontSize: 14, color: CoinpayColor.bggray),
                   hintText: "Full Name",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -74,20 +82,29 @@ class _CoinpayAddcardState extends State<CoinpayAddcard> {
                 ),
               ),
               SizedBox(
-                height: height /56,
+                height: height / 56,
               ),
-              Text("Email",style: psemiBold.copyWith(fontSize: 14,),),
-              SizedBox(height: height/65,),
+              Text(
+                "Email",
+                style: psemiBold.copyWith(
+                  fontSize: 14,
+                ),
+              ),
+              SizedBox(
+                height: height / 65,
+              ),
               TextField(
                 style: pmedium.copyWith(fontSize: 14),
                 decoration: InputDecoration(
-                  hintStyle: pmedium.copyWith(fontSize: 14,color: CoinpayColor.bggray),
+                  hintStyle: pmedium.copyWith(
+                      fontSize: 14, color: CoinpayColor.bggray),
                   hintText: "yourname@example.com",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(color: CoinpayColor.bggray),
                   ),
-                  prefixIcon: const Icon(Icons.email_outlined,size: 22,color: CoinpayColor.bggray),
+                  prefixIcon: const Icon(Icons.email_outlined,
+                      size: 22, color: CoinpayColor.bggray),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(color: CoinpayColor.bggray),
@@ -95,34 +112,50 @@ class _CoinpayAddcardState extends State<CoinpayAddcard> {
                 ),
               ),
               SizedBox(
-                height: height /56,
+                height: height / 56,
               ),
-              Text("Card Number",style: psemiBold.copyWith(fontSize: 14,),),
-              SizedBox(height: height/65,),
+              Text(
+                "Card Number",
+                style: psemiBold.copyWith(
+                  fontSize: 14,
+                ),
+              ),
+              SizedBox(
+                height: height / 65,
+              ),
               TextField(
                 style: pmedium.copyWith(fontSize: 14),
                 decoration: InputDecoration(
-                  hintStyle: pmedium.copyWith(fontSize: 14,color: CoinpayColor.bggray),
+                  hintStyle: pmedium.copyWith(
+                      fontSize: 14, color: CoinpayColor.bggray),
                   hintText: "1234 5678 9101 2345",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(color: CoinpayColor.bggray),
                   ),
-                  prefixIcon: Image.asset(CoinpayPngimage.mastercard,height: height/36,fit: BoxFit.fitHeight,),
+                  prefixIcon: Image.asset(
+                    CoinpayPngimage.mastercard,
+                    height: height / 36,
+                    fit: BoxFit.fitHeight,
+                  ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: const BorderSide(color: CoinpayColor.bggray),
                   ),
                 ),
               ),
-              SizedBox(height: height/26,),
+              SizedBox(
+                height: height / 26,
+              ),
               InkWell(
                 splashColor: CoinpayColor.transparent,
                 highlightColor: CoinpayColor.transparent,
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const CoinpayVerifycard();
-                  },));
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const CoinpayVerifycard();
+                    },
+                  ));
                 },
                 child: Container(
                   height: height / 15,
