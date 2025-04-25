@@ -1,2 +1,0 @@
-C:/Users/HP/Documents/GitHub/Family-Finance-App/android/app/.cxx/Debug/736e2e25/x86/CMakeFiles/edit_cache.dir
-C:/Users/HP/Documents/GitHub/Family-Finance-App/android/app/.cxx/Debug/736e2e25/x86/CMakeFiles/rebuild_cache.dir
