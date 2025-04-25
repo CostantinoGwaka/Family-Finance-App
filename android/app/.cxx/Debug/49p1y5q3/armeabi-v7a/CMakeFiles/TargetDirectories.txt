@@ -1,0 +1,2 @@
+C:/Users/HP/Documents/GitHub/Family-Finance-App/android/app/.cxx/Debug/49p1y5q3/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/HP/Documents/GitHub/Family-Finance-App/android/app/.cxx/Debug/49p1y5q3/armeabi-v7a/CMakeFiles/rebuild_cache.dir
