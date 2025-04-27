@@ -1,11 +1,11 @@
-class Category {
+class CategoryModel {
   final int id;
   final String userId;
   final String name;
   final String type;
   final String createdAt;
 
-  Category({
+  CategoryModel({
     required this.id,
     required this.userId,
     required this.name,
@@ -13,8 +13,8 @@ class Category {
     required this.createdAt,
   });
 
-  factory Category.fromJson(Map<String, dynamic> json) {
-    return Category(
+  factory CategoryModel.fromJson(Map<String, dynamic> json) {
+    return CategoryModel(
       id: json['id'] ?? 0,
       userId: json['userId'] ?? '',
       name: json['name'] ?? '',

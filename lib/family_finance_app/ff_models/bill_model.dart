@@ -1,4 +1,4 @@
-class Bill {
+class BillModel {
   final int id;
   final String userId;
   final String title;
@@ -8,7 +8,7 @@ class Bill {
   final String repeatInterval;
   final String createdAt;
 
-  Bill({
+  BillModel({
     required this.id,
     required this.userId,
     required this.title,
@@ -19,8 +19,8 @@ class Bill {
     required this.createdAt,
   });
 
-  factory Bill.fromJson(Map<String, dynamic> json) {
-    return Bill(
+  factory BillModel.fromJson(Map<String, dynamic> json) {
+    return BillModel(
       id: json['id'] ?? 0,
       userId: json['userId'] ?? '',
       title: json['title'] ?? '',

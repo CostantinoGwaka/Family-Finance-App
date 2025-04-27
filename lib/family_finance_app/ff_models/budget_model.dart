@@ -1,4 +1,4 @@
-class Budget {
+class BudgetModel {
   final int id;
   final String userId;
   final String categoryId;
@@ -6,7 +6,7 @@ class Budget {
   final double amount;
   final String createdAt;
 
-  Budget({
+  BudgetModel({
     required this.id,
     required this.userId,
     required this.categoryId,
@@ -15,8 +15,8 @@ class Budget {
     required this.createdAt,
   });
 
-  factory Budget.fromJson(Map<String, dynamic> json) {
-    return Budget(
+  factory BudgetModel.fromJson(Map<String, dynamic> json) {
+    return BudgetModel(
       id: json['id'] ?? 0,
       userId: json['userId'] ?? '',
       categoryId: json['categoryId'] ?? '',

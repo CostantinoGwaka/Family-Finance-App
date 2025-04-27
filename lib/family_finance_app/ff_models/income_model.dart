@@ -1,4 +1,4 @@
-class Income {
+class IncomeModel {
   final int id;
   final String userId;
   final double amount;
@@ -6,7 +6,7 @@ class Income {
   final String spentOn;
   final String notes;
 
-  Income({
+  IncomeModel({
     required this.id,
     required this.userId,
     required this.amount,
@@ -15,8 +15,8 @@ class Income {
     required this.notes,
   });
 
-  factory Income.fromJson(Map<String, dynamic> json) {
-    return Income(
+  factory IncomeModel.fromJson(Map<String, dynamic> json) {
+    return IncomeModel(
       id: json['id'] ?? 0,
       userId: json['userId'] ?? '',
       amount: (json['amount'] ?? 0).toDouble(),

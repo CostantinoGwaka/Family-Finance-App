@@ -1,11 +1,11 @@
-class AuthModal {
+class AuthModel {
   final int statusCode;
   final String message;
   final String accessToken;
   final int loginTime;
   final int expirationDuration;
 
-  AuthModal({
+  AuthModel({
     required this.statusCode,
     required this.message,
     required this.accessToken,
@@ -13,8 +13,8 @@ class AuthModal {
     required this.expirationDuration,
   });
 
-  factory AuthModal.fromJson(Map<String, dynamic> json) {
-    return AuthModal(
+  factory AuthModel.fromJson(Map<String, dynamic> json) {
+    return AuthModel(
       statusCode: json['statusCode'] ?? 0,
       message: json['message'] ?? '',
       accessToken: json['accessToken'] ?? '',

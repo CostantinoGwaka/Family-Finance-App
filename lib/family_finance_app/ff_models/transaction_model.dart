@@ -1,4 +1,4 @@
-class Transaction {
+class TransactionModel {
   final int id;
   final String userId;
   final String type;
@@ -9,7 +9,7 @@ class Transaction {
   final bool isRecurring;
   final String createdAt;
 
-  Transaction({
+  TransactionModel({
     required this.id,
     required this.userId,
     required this.type,
@@ -21,8 +21,8 @@ class Transaction {
     required this.createdAt,
   });
 
-  factory Transaction.fromJson(Map<String, dynamic> json) {
-    return Transaction(
+  factory TransactionModel.fromJson(Map<String, dynamic> json) {
+    return TransactionModel(
       id: json['id'] ?? 0,
       userId: json['userId'] ?? '',
       type: json['type'] ?? '',
