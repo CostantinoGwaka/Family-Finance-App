@@ -51,6 +51,10 @@ dependencies:
   build_runner: ^2.1.5
   flutter_slidable: ^4.0.0
   fluttertoast: ^8.2.2
+  provider:
+  http:
+  freezed_annotation:
+  json_annotation: 
 
 
 dev_dependencies:
