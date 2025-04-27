@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'coinpay/coinpay_pages/coinpay_Authentication/coinpay_spalsh.dart';
-import 'coinpay/coinpay_theme/coinpay_theme.dart';
-import 'coinpay/coinpay_theme/coinpay_themecontroller.dart';
-import 'coinpay/coinpay_translation/stringtranslation.dart';
+import 'family_finance_app/ff_pages/ff_Authentication/ff_spalsh.dart';
+import 'family_finance_app/ff_theme/ff_theme.dart';
+import 'family_finance_app/ff_theme/ff_themecontroller.dart';
+import 'family_finance_app/ff_translation/stringtranslation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
