@@ -6,18 +6,18 @@ import '../../ff_gloabelclass/ff_fontstyle.dart';
 import '../../ff_gloabelclass/ff_icons.dart';
 import '../ff_home/ff_paymentmethod.dart';
 
-class CoinpaySend extends StatefulWidget {
-  const CoinpaySend({super.key});
+class FamilyFinanceSend extends StatefulWidget {
+  const FamilyFinanceSend({super.key});
 
   @override
-  State<CoinpaySend> createState() => _CoinpaySendState();
+  State<FamilyFinanceSend> createState() => _FamilyFinanceSendState();
 }
 
-class _CoinpaySendState extends State<CoinpaySend> {
+class _FamilyFinanceSendState extends State<FamilyFinanceSend> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,8 @@ class _CoinpaySendState extends State<CoinpaySend> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -54,7 +54,7 @@ class _CoinpaySendState extends State<CoinpaySend> {
               Text(
                 "please select your reciption to send money.",
                 style: pregular.copyWith(
-                    fontSize: 12, color: CoinpayColor.textgray),
+                    fontSize: 12, color: FamilyFinanceColor.textgray),
               ),
               SizedBox(
                 height: height / 36,
@@ -67,13 +67,13 @@ class _CoinpaySendState extends State<CoinpaySend> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: themedata.isdark
-                        ? CoinpayColor.darkblack
-                        : CoinpayColor.white,
+                        ? FamilyFinanceColor.darkblack
+                        : FamilyFinanceColor.white,
                     boxShadow: [
                       BoxShadow(
                           color: themedata.isdark
-                              ? CoinpayColor.transparent
-                              : CoinpayColor.textgray,
+                              ? FamilyFinanceColor.transparent
+                              : FamilyFinanceColor.textgray,
                           blurRadius: 3)
                     ]),
                 child: Padding(
@@ -88,16 +88,16 @@ class _CoinpaySendState extends State<CoinpaySend> {
                           prefixIcon: Padding(
                             padding: const EdgeInsets.all(12),
                             child: Image.asset(
-                              CoinpayPngimage.search,
+                              FamilyFinancePngimage.search,
                               height: height / 36,
-                              color: CoinpayColor.textgray,
+                              color: FamilyFinanceColor.textgray,
                             ),
                           ),
                           hintStyle: pmedium.copyWith(
-                              fontSize: 14, color: CoinpayColor.textgray),
+                              fontSize: 14, color: FamilyFinanceColor.textgray),
                           hintText: "Search Reciption Email",
                           filled: true,
-                          fillColor: CoinpayColor.whitebg,
+                          fillColor: FamilyFinanceColor.whitebg,
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(50),
                               borderSide: BorderSide.none),
@@ -129,7 +129,7 @@ class _CoinpaySendState extends State<CoinpaySend> {
                                   height: height / 96,
                                 ),
                                 const Divider(
-                                  color: CoinpayColor.bggray,
+                                  color: FamilyFinanceColor.bggray,
                                 ),
                                 SizedBox(
                                   height: height / 96,
@@ -146,9 +146,9 @@ class _CoinpaySendState extends State<CoinpaySend> {
                             children: [
                               CircleAvatar(
                                 radius: 25,
-                                backgroundColor: CoinpayColor.lightpurple,
-                                child:
-                                    Image.asset(CoinpayPngimage.profilephoto),
+                                backgroundColor: FamilyFinanceColor.lightpurple,
+                                child: Image.asset(
+                                    FamilyFinancePngimage.profilephoto),
                               ),
                               SizedBox(
                                 width: width / 36,
@@ -170,7 +170,8 @@ class _CoinpaySendState extends State<CoinpaySend> {
                               Text(
                                 "-\$100",
                                 style: psemiBold.copyWith(
-                                    fontSize: 14, color: CoinpayColor.red),
+                                    fontSize: 14,
+                                    color: FamilyFinanceColor.red),
                               ),
                             ],
                           );
@@ -184,12 +185,12 @@ class _CoinpaySendState extends State<CoinpaySend> {
                 height: height / 20,
               ),
               InkWell(
-                splashColor: CoinpayColor.transparent,
-                highlightColor: CoinpayColor.transparent,
+                splashColor: FamilyFinanceColor.transparent,
+                highlightColor: FamilyFinanceColor.transparent,
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return const CoinpayPaymentMethod();
+                      return const FamilyFinancePaymentMethod();
                     },
                   ));
                 },
@@ -198,12 +199,12 @@ class _CoinpaySendState extends State<CoinpaySend> {
                       height: height / 12,
                       width: height / 12,
                       decoration: BoxDecoration(
-                          color: CoinpayColor.appcolor,
+                          color: FamilyFinanceColor.appcolor,
                           borderRadius: BorderRadius.circular(50)),
                       child: Icon(
                         Icons.document_scanner_outlined,
                         size: height / 36,
-                        color: CoinpayColor.white,
+                        color: FamilyFinanceColor.white,
                       )),
                 ),
               ),

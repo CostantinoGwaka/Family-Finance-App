@@ -7,18 +7,18 @@ import '../../ff_gloabelclass/ff_icons.dart';
 import '../../ff_theme/ff_themecontroller.dart';
 import 'ff_verifycard.dart';
 
-class CoinpayAddcard extends StatefulWidget {
-  const CoinpayAddcard({super.key});
+class FamilyFinanceAddcard extends StatefulWidget {
+  const FamilyFinanceAddcard({super.key});
 
   @override
-  State<CoinpayAddcard> createState() => _CoinpayAddcardState();
+  State<FamilyFinanceAddcard> createState() => _FamilyFinanceAddcardState();
 }
 
-class _CoinpayAddcardState extends State<CoinpayAddcard> {
+class _FamilyFinanceAddcardState extends State<FamilyFinanceAddcard> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -28,8 +28,8 @@ class _CoinpayAddcardState extends State<CoinpayAddcard> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -69,15 +69,17 @@ class _CoinpayAddcardState extends State<CoinpayAddcard> {
                 style: pmedium.copyWith(fontSize: 14),
                 decoration: InputDecoration(
                   hintStyle: pmedium.copyWith(
-                      fontSize: 14, color: CoinpayColor.bggray),
+                      fontSize: 14, color: FamilyFinanceColor.bggray),
                   hintText: "Full Name",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: CoinpayColor.bggray),
+                    borderSide:
+                        const BorderSide(color: FamilyFinanceColor.bggray),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: CoinpayColor.bggray),
+                    borderSide:
+                        const BorderSide(color: FamilyFinanceColor.bggray),
                   ),
                 ),
               ),
@@ -97,17 +99,19 @@ class _CoinpayAddcardState extends State<CoinpayAddcard> {
                 style: pmedium.copyWith(fontSize: 14),
                 decoration: InputDecoration(
                   hintStyle: pmedium.copyWith(
-                      fontSize: 14, color: CoinpayColor.bggray),
+                      fontSize: 14, color: FamilyFinanceColor.bggray),
                   hintText: "yourname@example.com",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: CoinpayColor.bggray),
+                    borderSide:
+                        const BorderSide(color: FamilyFinanceColor.bggray),
                   ),
                   prefixIcon: const Icon(Icons.email_outlined,
-                      size: 22, color: CoinpayColor.bggray),
+                      size: 22, color: FamilyFinanceColor.bggray),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: CoinpayColor.bggray),
+                    borderSide:
+                        const BorderSide(color: FamilyFinanceColor.bggray),
                   ),
                 ),
               ),
@@ -127,20 +131,22 @@ class _CoinpayAddcardState extends State<CoinpayAddcard> {
                 style: pmedium.copyWith(fontSize: 14),
                 decoration: InputDecoration(
                   hintStyle: pmedium.copyWith(
-                      fontSize: 14, color: CoinpayColor.bggray),
+                      fontSize: 14, color: FamilyFinanceColor.bggray),
                   hintText: "1234 5678 9101 2345",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: CoinpayColor.bggray),
+                    borderSide:
+                        const BorderSide(color: FamilyFinanceColor.bggray),
                   ),
                   prefixIcon: Image.asset(
-                    CoinpayPngimage.mastercard,
+                    FamilyFinancePngimage.mastercard,
                     height: height / 36,
                     fit: BoxFit.fitHeight,
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: CoinpayColor.bggray),
+                    borderSide:
+                        const BorderSide(color: FamilyFinanceColor.bggray),
                   ),
                 ),
               ),
@@ -148,12 +154,12 @@ class _CoinpayAddcardState extends State<CoinpayAddcard> {
                 height: height / 26,
               ),
               InkWell(
-                splashColor: CoinpayColor.transparent,
-                highlightColor: CoinpayColor.transparent,
+                splashColor: FamilyFinanceColor.transparent,
+                highlightColor: FamilyFinanceColor.transparent,
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return const CoinpayVerifycard();
+                      return const FamilyFinanceVerifycard();
                     },
                   ));
                 },
@@ -161,13 +167,13 @@ class _CoinpayAddcardState extends State<CoinpayAddcard> {
                   height: height / 15,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: CoinpayColor.appcolor,
+                    color: FamilyFinanceColor.appcolor,
                   ),
                   child: Center(
                     child: Text(
                       "verify".tr,
                       style: pmedium.copyWith(
-                          fontSize: 14, color: CoinpayColor.white),
+                          fontSize: 14, color: FamilyFinanceColor.white),
                     ),
                   ),
                 ),

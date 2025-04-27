@@ -6,18 +6,20 @@ import '../../ff_gloabelclass/ff_color.dart';
 import '../../ff_gloabelclass/ff_fontstyle.dart';
 import '../../ff_gloabelclass/ff_icons.dart';
 
-class CoinpayPaymentComplete extends StatefulWidget {
-  const CoinpayPaymentComplete({super.key});
+class FamilyFinancePaymentComplete extends StatefulWidget {
+  const FamilyFinancePaymentComplete({super.key});
 
   @override
-  State<CoinpayPaymentComplete> createState() => _CoinpayPaymentCompleteState();
+  State<FamilyFinancePaymentComplete> createState() =>
+      _FamilyFinancePaymentCompleteState();
 }
 
-class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
+class _FamilyFinancePaymentCompleteState
+    extends State<FamilyFinancePaymentComplete> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +30,8 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -44,7 +46,7 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    color: CoinpayColor.lightgreen,
+                    color: FamilyFinanceColor.lightgreen,
                     borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
@@ -54,7 +56,7 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                       const Icon(
                         Icons.check_circle,
                         size: 22,
-                        color: CoinpayColor.green,
+                        color: FamilyFinanceColor.green,
                       ),
                       SizedBox(
                         width: width / 36,
@@ -63,7 +65,7 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                         "Transaction Complete! - 01 jan 2023 at 5:00 pm",
                         style: pmedium.copyWith(
                           fontSize: 12,
-                          color: CoinpayColor.green,
+                          color: FamilyFinanceColor.green,
                         ),
                       )
                     ],
@@ -78,14 +80,14 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: themedata.isdark
-                        ? CoinpayColor.darkblack
-                        : CoinpayColor.white,
+                        ? FamilyFinanceColor.darkblack
+                        : FamilyFinanceColor.white,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 5,
                         color: themedata.isdark
-                            ? CoinpayColor.transparent
-                            : CoinpayColor.textgray,
+                            ? FamilyFinanceColor.transparent
+                            : FamilyFinanceColor.textgray,
                       )
                     ]),
                 child: Padding(
@@ -97,7 +99,7 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                       CircleAvatar(
                         radius: 35,
                         backgroundImage:
-                            AssetImage(CoinpayPngimage.profilephoto),
+                            AssetImage(FamilyFinancePngimage.profilephoto),
                       ),
                       SizedBox(
                         height: height / 96,
@@ -114,9 +116,9 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                         style: pregular.copyWith(fontSize: 12),
                       ),
                       Text(
-                        "Coinpay Transaction ID: JD890KQ",
+                        "FamilyFinance Transaction ID: JD890KQ",
                         style: pmedium.copyWith(
-                            fontSize: 12, color: CoinpayColor.appcolor),
+                            fontSize: 12, color: FamilyFinanceColor.appcolor),
                       ),
                     ],
                   ),
@@ -135,11 +137,12 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
               Container(
                 decoration: BoxDecoration(
                     color: themedata.isdark
-                        ? CoinpayColor.darkblack
-                        : CoinpayColor.white,
+                        ? FamilyFinanceColor.darkblack
+                        : FamilyFinanceColor.white,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: const [
-                      BoxShadow(color: CoinpayColor.textgray, blurRadius: 5)
+                      BoxShadow(
+                          color: FamilyFinanceColor.textgray, blurRadius: 5)
                     ]),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
@@ -147,7 +150,7 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                   child: Row(
                     children: [
                       Image.asset(
-                        CoinpayPngimage.mastercard,
+                        FamilyFinancePngimage.mastercard,
                         height: height / 26,
                         fit: BoxFit.fitHeight,
                       ),
@@ -168,12 +171,12 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                 height: height / 20,
               ),
               InkWell(
-                splashColor: CoinpayColor.transparent,
-                highlightColor: CoinpayColor.transparent,
+                splashColor: FamilyFinanceColor.transparent,
+                highlightColor: FamilyFinanceColor.transparent,
                 onTap: () {
                   /* Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayAddcard();
+                    return const FamilyFinanceAddcard();
                   },
                 ));*/
                 },
@@ -182,13 +185,13 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                   width: width / 1,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: CoinpayColor.appcolor,
+                    color: FamilyFinanceColor.appcolor,
                   ),
                   child: Center(
                     child: Text(
                       "Back_to_Homepage".tr,
                       style: pmedium.copyWith(
-                          fontSize: 14, color: CoinpayColor.white),
+                          fontSize: 14, color: FamilyFinanceColor.white),
                     ),
                   ),
                 ),
@@ -197,12 +200,12 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                 height: height / 56,
               ),
               InkWell(
-                splashColor: CoinpayColor.transparent,
-                highlightColor: CoinpayColor.transparent,
+                splashColor: FamilyFinanceColor.transparent,
+                highlightColor: FamilyFinanceColor.transparent,
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return CoinpayDashboard("0");
+                      return FamilyFinanceDashboard("0");
                     },
                   ));
                 },
@@ -211,13 +214,13 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       border: Border.all(
-                        color: CoinpayColor.appcolor,
+                        color: FamilyFinanceColor.appcolor,
                       )),
                   child: Center(
                     child: Text(
                       "Make_another_Payment".tr,
                       style: pmedium.copyWith(
-                          fontSize: 14, color: CoinpayColor.appcolor),
+                          fontSize: 14, color: FamilyFinanceColor.appcolor),
                     ),
                   ),
                 ),
@@ -230,8 +233,8 @@ class _CoinpayPaymentCompleteState extends State<CoinpayPaymentComplete> {
                 textAlign: TextAlign.center,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style:
-                    pregular.copyWith(fontSize: 12, color: CoinpayColor.bggray),
+                style: pregular.copyWith(
+                    fontSize: 12, color: FamilyFinanceColor.bggray),
               ),
             ],
           ),

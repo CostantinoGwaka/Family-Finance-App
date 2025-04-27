@@ -23,18 +23,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themedata.isdark
-          ? CoinpayMythemes.darkTheme
-          : CoinpayMythemes.lightTheme,
+          ? FamilyFinanceMythemes.darkTheme
+          : FamilyFinanceMythemes.lightTheme,
       fallbackLocale: const Locale('en', 'US'),
-      translations: CoinpayApptranslation(),
+      translations: FamilyFinanceApptranslation(),
       locale: const Locale('en', 'US'),
-      home: const CoinpaySpalsh(),
+      home: const FamilyFinanceSpalsh(),
     );
   }
 }

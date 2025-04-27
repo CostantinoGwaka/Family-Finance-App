@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../../ff_gloabelclass/ff_icons.dart';
 import 'ff_onboarding.dart';
 
-class CoinpaySpalsh extends StatefulWidget {
-  const CoinpaySpalsh({super.key});
+class FamilyFinanceSpalsh extends StatefulWidget {
+  const FamilyFinanceSpalsh({super.key});
 
   @override
-  State<CoinpaySpalsh> createState() => _CoinpaySpalshState();
+  State<FamilyFinanceSpalsh> createState() => _FamilyFinanceSpalshState();
 }
 
-class _CoinpaySpalshState extends State<CoinpaySpalsh> {
+class _FamilyFinanceSpalshState extends State<FamilyFinanceSpalsh> {
   @override
   void initState() {
     super.initState();
@@ -22,7 +22,7 @@ class _CoinpaySpalshState extends State<CoinpaySpalsh> {
     await Future.delayed(const Duration(seconds: 5));
     navigator.push(MaterialPageRoute(
       builder: (context) {
-        return const CoinpayOnboarding();
+        return const FamilyFinanceOnboarding();
       },
     ));
   }
@@ -40,7 +40,7 @@ class _CoinpaySpalshState extends State<CoinpaySpalsh> {
           child: SizedBox(
               width: width / 3,
               child: Image.asset(
-                CoinpayPngimage.splashhicon,
+                FamilyFinancePngimage.splashhicon,
                 height: height / 6,
                 fit: BoxFit.fitHeight,
               ))),

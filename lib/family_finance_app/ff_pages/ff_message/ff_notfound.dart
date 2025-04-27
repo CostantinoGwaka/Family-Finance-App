@@ -5,14 +5,14 @@ import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.d
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CoinpayNotfound extends StatefulWidget {
-  const CoinpayNotfound({super.key});
+class FamilyFinanceNotfound extends StatefulWidget {
+  const FamilyFinanceNotfound({super.key});
 
   @override
-  State<CoinpayNotfound> createState() => _CoinpayNotfoundState();
+  State<FamilyFinanceNotfound> createState() => _FamilyFinanceNotfoundState();
 }
 
-class _CoinpayNotfoundState extends State<CoinpayNotfound> {
+class _FamilyFinanceNotfoundState extends State<FamilyFinanceNotfound> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -25,8 +25,8 @@ class _CoinpayNotfoundState extends State<CoinpayNotfound> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -39,7 +39,7 @@ class _CoinpayNotfoundState extends State<CoinpayNotfound> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              CoinpayPngimage.notfound,
+              FamilyFinancePngimage.notfound,
               height: height / 3,
             ),
             SizedBox(
@@ -60,12 +60,12 @@ class _CoinpayNotfoundState extends State<CoinpayNotfound> {
               height: height / 16,
             ),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return CoinpayDashboard("0");
+                    return FamilyFinanceDashboard("0");
                   },
                 ));
               },
@@ -74,13 +74,13 @@ class _CoinpayNotfoundState extends State<CoinpayNotfound> {
                 width: width / 1,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Center(
                   child: Text(
                     "Back_to_Home".tr,
                     style: pmedium.copyWith(
-                        fontSize: 14, color: CoinpayColor.white),
+                        fontSize: 14, color: FamilyFinanceColor.white),
                   ),
                 ),
               ),

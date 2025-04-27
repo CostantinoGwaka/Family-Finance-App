@@ -8,15 +8,16 @@ import '../../../ff_gloabelclass/ff_color.dart';
 import '../../../ff_gloabelclass/ff_fontstyle.dart';
 import 'ff_createpassword.dart';
 
-class CoinpayCountryResidence extends StatefulWidget {
-  const CoinpayCountryResidence({super.key});
+class FamilyFinanceCountryResidence extends StatefulWidget {
+  const FamilyFinanceCountryResidence({super.key});
 
   @override
-  State<CoinpayCountryResidence> createState() =>
-      _CoinpayCountryResidenceState();
+  State<FamilyFinanceCountryResidence> createState() =>
+      _FamilyFinanceCountryResidenceState();
 }
 
-class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
+class _FamilyFinanceCountryResidenceState
+    extends State<FamilyFinanceCountryResidence> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -29,8 +30,8 @@ class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -53,8 +54,8 @@ class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
             ),
             Text(
               "This info needs to be accurate with your ID\ndocument",
-              style:
-                  pregular.copyWith(fontSize: 12, color: CoinpayColor.textgray),
+              style: pregular.copyWith(
+                  fontSize: 12, color: FamilyFinanceColor.textgray),
             ),
             SizedBox(
               height: height / 36,
@@ -109,7 +110,7 @@ class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
                 style: pmedium.copyWith(fontSize: 14),
                 decoration: InputDecoration(
                   hintStyle: pmedium.copyWith(
-                      fontSize: 14, color: CoinpayColor.bggray),
+                      fontSize: 14, color: FamilyFinanceColor.bggray),
                   hintText: "Select Country",
                   suffixIcon: const Icon(
                     Icons.keyboard_arrow_down_rounded,
@@ -117,23 +118,25 @@ class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: CoinpayColor.bggray),
+                    borderSide:
+                        const BorderSide(color: FamilyFinanceColor.bggray),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: CoinpayColor.bggray),
+                    borderSide:
+                        const BorderSide(color: FamilyFinanceColor.bggray),
                   ),
                 ),
               ),
             ),
             const Spacer(),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayCreatePassword();
+                    return const FamilyFinanceCreatePassword();
                   },
                 ));
               },
@@ -141,13 +144,13 @@ class _CoinpayCountryResidenceState extends State<CoinpayCountryResidence> {
                 height: height / 15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Center(
                   child: Text(
                     "Continue".tr,
                     style: pmedium.copyWith(
-                        fontSize: 14, color: CoinpayColor.white),
+                        fontSize: 14, color: FamilyFinanceColor.white),
                   ),
                 ),
               ),

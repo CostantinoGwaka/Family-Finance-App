@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 import '../ff_gloabelclass/ff_color.dart';
 import '../ff_gloabelclass/ff_fontstyle.dart';
 
-class CoinpayMythemes {
+class FamilyFinanceMythemes {
   static final lightTheme = ThemeData(
-    primaryColor: CoinpayColor.appcolor,
+    primaryColor: FamilyFinanceColor.appcolor,
     primarySwatch: Colors.grey,
     textTheme: const TextTheme(),
     fontFamily: 'PoppinsMedium',
-    scaffoldBackgroundColor: CoinpayColor.white,
+    scaffoldBackgroundColor: FamilyFinanceColor.white,
     appBarTheme: AppBarTheme(
-      iconTheme: const IconThemeData(color: CoinpayColor.black),
+      iconTheme: const IconThemeData(color: FamilyFinanceColor.black),
       centerTitle: true,
       elevation: 0,
       titleTextStyle: pmedium.copyWith(
-        color: CoinpayColor.black,
+        color: FamilyFinanceColor.black,
         fontSize: 16,
       ),
-      color: CoinpayColor.transparent,
+      color: FamilyFinanceColor.transparent,
     ),
   );
 
@@ -27,14 +27,14 @@ class CoinpayMythemes {
     brightness: Brightness.dark,
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: AppBarTheme(
-      iconTheme: const IconThemeData(color: CoinpayColor.white),
+      iconTheme: const IconThemeData(color: FamilyFinanceColor.white),
       centerTitle: true,
       elevation: 0,
       titleTextStyle: pmedium.copyWith(
-        color: CoinpayColor.white,
+        color: FamilyFinanceColor.white,
         fontSize: 15,
       ),
-      color: CoinpayColor.transparent,
+      color: FamilyFinanceColor.transparent,
     ),
   );
 }

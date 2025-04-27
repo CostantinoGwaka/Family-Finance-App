@@ -7,38 +7,38 @@ import '../../ff_gloabelclass/ff_fontstyle.dart';
 import '../ff_send/ff_send.dart';
 import 'ff_addingcard.dart';
 
-class CoinpayHome extends StatefulWidget {
-  const CoinpayHome({super.key});
+class FamilyFinanceHome extends StatefulWidget {
+  const FamilyFinanceHome({super.key});
 
   @override
-  State<CoinpayHome> createState() => _CoinpayHomeState();
+  State<FamilyFinanceHome> createState() => _FamilyFinanceHomeState();
 }
 
-class _CoinpayHomeState extends State<CoinpayHome> {
+class _FamilyFinanceHomeState extends State<FamilyFinanceHome> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
 
   List ttype = ["Spending", "Income", "Bills", "Savings"];
   List tamount = ["-\$500", "\$3000", "-\$800", "\$1000"];
   List categoryimg = [
-    CoinpayPngimage.creditcard,
-    CoinpayPngimage.incomeimg,
-    CoinpayPngimage.bills,
-    CoinpayPngimage.moneybag
+    FamilyFinancePngimage.creditcard,
+    FamilyFinancePngimage.incomeimg,
+    FamilyFinancePngimage.bills,
+    FamilyFinancePngimage.moneybag
   ];
   List<Color> categorycolor = [
-    CoinpayColor.appcolor,
-    CoinpayColor.green,
-    CoinpayColor.orenge,
-    CoinpayColor.red
+    FamilyFinanceColor.appcolor,
+    FamilyFinanceColor.green,
+    FamilyFinanceColor.orenge,
+    FamilyFinanceColor.red
   ];
   List<Color> lightcolor = [
-    CoinpayColor.lightappcolor,
-    CoinpayColor.lightgreen,
-    CoinpayColor.lightorenge,
-    CoinpayColor.lightred
+    FamilyFinanceColor.lightappcolor,
+    FamilyFinanceColor.lightgreen,
+    FamilyFinanceColor.lightorenge,
+    FamilyFinanceColor.lightred
   ];
 
   @override
@@ -58,7 +58,7 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                   Container(
                     width: width / 1,
                     height: height / 2,
-                    color: CoinpayColor.appcolor,
+                    color: FamilyFinanceColor.appcolor,
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: width / 36, vertical: height / 36),
@@ -71,36 +71,39 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Image.asset(
-                                CoinpayPngimage.trophy,
+                                FamilyFinancePngimage.trophy,
                                 height: height / 40,
-                                color: CoinpayColor.white,
+                                color: FamilyFinanceColor.white,
                               ),
                               Container(
                                 width: width / 1.4,
                                 height: height / 18,
                                 decoration: BoxDecoration(
-                                    color: CoinpayColor.purple,
+                                    color: FamilyFinanceColor.purple,
                                     borderRadius: BorderRadius.circular(50)),
                                 child: TextField(
                                   style: pmedium.copyWith(
-                                      fontSize: 14, color: CoinpayColor.white),
+                                      fontSize: 14,
+                                      color: FamilyFinanceColor.white),
                                   decoration: InputDecoration(
                                     prefixIcon: const Icon(
                                       Icons.search,
                                       size: 20,
-                                      color: CoinpayColor.white,
+                                      color: FamilyFinanceColor.white,
                                     ),
                                     hintStyle: pmedium.copyWith(
                                         fontSize: 14,
-                                        color: CoinpayColor.white),
+                                        color: FamilyFinanceColor.white),
                                     hintText: "Search Payments",
                                     enabledBorder: const OutlineInputBorder(
                                       borderSide: BorderSide(
-                                          color: CoinpayColor.transparent),
+                                          color:
+                                              FamilyFinanceColor.transparent),
                                     ),
                                     focusedBorder: const OutlineInputBorder(
                                       borderSide: BorderSide(
-                                          color: CoinpayColor.transparent),
+                                          color:
+                                              FamilyFinanceColor.transparent),
                                     ),
                                   ),
                                 ),
@@ -108,7 +111,7 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                               const Icon(
                                 Icons.notifications,
                                 size: 25,
-                                color: CoinpayColor.white,
+                                color: FamilyFinanceColor.white,
                               )
                             ],
                           ),
@@ -118,7 +121,7 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Image.asset(CoinpayPngimage.usaflag,
+                              Image.asset(FamilyFinancePngimage.usaflag,
                                   height: height / 32),
                               SizedBox(
                                 width: width / 56,
@@ -126,7 +129,8 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                               Text(
                                 "US Dollar",
                                 style: pregular.copyWith(
-                                    fontSize: 12, color: CoinpayColor.white),
+                                    fontSize: 12,
+                                    color: FamilyFinanceColor.white),
                               ),
                               SizedBox(
                                 width: width / 56,
@@ -134,7 +138,7 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                               const Icon(
                                 Icons.keyboard_arrow_down_rounded,
                                 size: 20,
-                                color: CoinpayColor.white,
+                                color: FamilyFinanceColor.white,
                               )
                             ],
                           ),
@@ -144,7 +148,7 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                           Text(
                             "\$20,000",
                             style: psemiBold.copyWith(
-                                fontSize: 28, color: CoinpayColor.white),
+                                fontSize: 28, color: FamilyFinanceColor.white),
                           ),
                           SizedBox(
                             height: height / 96,
@@ -152,18 +156,18 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                           Text(
                             "Available Balance",
                             style: pregular.copyWith(
-                                fontSize: 12, color: CoinpayColor.white),
+                                fontSize: 12, color: FamilyFinanceColor.white),
                           ),
                           SizedBox(
                             height: height / 46,
                           ),
                           InkWell(
-                            highlightColor: CoinpayColor.transparent,
-                            splashColor: CoinpayColor.transparent,
+                            highlightColor: FamilyFinanceColor.transparent,
+                            splashColor: FamilyFinanceColor.transparent,
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(
                                 builder: (context) {
-                                  return const CoinpayAddingCard();
+                                  return const FamilyFinanceAddingCard();
                                 },
                               ));
                             },
@@ -171,8 +175,8 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                               width: width / 2.5,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(50),
-                                  border:
-                                      Border.all(color: CoinpayColor.white)),
+                                  border: Border.all(
+                                      color: FamilyFinanceColor.white)),
                               child: Padding(
                                 padding:
                                     EdgeInsets.symmetric(vertical: height / 60),
@@ -182,7 +186,7 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                     const Icon(
                                       Icons.wallet,
                                       size: 20,
-                                      color: CoinpayColor.white,
+                                      color: FamilyFinanceColor.white,
                                     ),
                                     SizedBox(
                                       width: width / 56,
@@ -191,7 +195,7 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                       "Add Money",
                                       style: pmedium.copyWith(
                                           fontSize: 14,
-                                          color: CoinpayColor.white),
+                                          color: FamilyFinanceColor.white),
                                     ),
                                   ],
                                 ),
@@ -217,13 +221,13 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: themedata.isdark
-                                  ? CoinpayColor.darkblack
-                                  : CoinpayColor.white,
+                                  ? FamilyFinanceColor.darkblack
+                                  : FamilyFinanceColor.white,
                               boxShadow: [
                                 BoxShadow(
                                     color: themedata.isdark
-                                        ? CoinpayColor.transparent
-                                        : CoinpayColor.textgray,
+                                        ? FamilyFinanceColor.transparent
+                                        : FamilyFinanceColor.textgray,
                                     blurRadius: 3)
                               ]),
                           child: Padding(
@@ -238,13 +242,15 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                 Column(
                                   children: [
                                     InkWell(
-                                      splashColor: CoinpayColor.transparent,
-                                      highlightColor: CoinpayColor.transparent,
+                                      splashColor:
+                                          FamilyFinanceColor.transparent,
+                                      highlightColor:
+                                          FamilyFinanceColor.transparent,
                                       onTap: () {
                                         Navigator.push(context,
                                             MaterialPageRoute(
                                           builder: (context) {
-                                            return const CoinpaySend();
+                                            return const FamilyFinanceSend();
                                           },
                                         ));
                                       },
@@ -253,12 +259,13 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                           CircleAvatar(
                                             radius: 18,
                                             backgroundColor:
-                                                CoinpayColor.appcolor,
+                                                FamilyFinanceColor.appcolor,
                                             child: Text(
                                               "\$",
                                               style: pbold.copyWith(
                                                   fontSize: 20,
-                                                  color: CoinpayColor.white),
+                                                  color:
+                                                      FamilyFinanceColor.white),
                                             ),
                                           ),
                                           Positioned(
@@ -267,12 +274,13 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                             child: CircleAvatar(
                                               radius: 8,
                                               backgroundColor: themedata.isdark
-                                                  ? CoinpayColor.darkblack
-                                                  : CoinpayColor.white,
+                                                  ? FamilyFinanceColor.darkblack
+                                                  : FamilyFinanceColor.white,
                                               child: const Icon(
                                                 Icons.arrow_upward,
                                                 size: 13,
-                                                color: CoinpayColor.appcolor,
+                                                color:
+                                                    FamilyFinanceColor.appcolor,
                                               ),
                                             ),
                                           )
@@ -291,7 +299,7 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                 Container(
                                   height: height / 22,
                                   width: width / 150,
-                                  color: CoinpayColor.bggray,
+                                  color: FamilyFinanceColor.bggray,
                                 ),
                                 Column(
                                   children: [
@@ -299,12 +307,14 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                       children: [
                                         CircleAvatar(
                                           radius: 18,
-                                          backgroundColor: CoinpayColor.orenge,
+                                          backgroundColor:
+                                              FamilyFinanceColor.orenge,
                                           child: Text(
                                             "\$",
                                             style: pbold.copyWith(
                                                 fontSize: 20,
-                                                color: CoinpayColor.white),
+                                                color:
+                                                    FamilyFinanceColor.white),
                                           ),
                                         ),
                                         Positioned(
@@ -313,12 +323,12 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                           child: CircleAvatar(
                                             radius: 8,
                                             backgroundColor: themedata.isdark
-                                                ? CoinpayColor.darkblack
-                                                : CoinpayColor.white,
+                                                ? FamilyFinanceColor.darkblack
+                                                : FamilyFinanceColor.white,
                                             child: const Icon(
                                               Icons.arrow_downward_rounded,
                                               size: 13,
-                                              color: CoinpayColor.orenge,
+                                              color: FamilyFinanceColor.orenge,
                                             ),
                                           ),
                                         )
@@ -338,17 +348,17 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                 Container(
                                   height: height / 22,
                                   width: width / 150,
-                                  color: CoinpayColor.bggray,
+                                  color: FamilyFinanceColor.bggray,
                                 ),
                                 Column(
                                   children: [
                                     Stack(
                                       children: [
                                         Image.asset(
-                                          CoinpayPngimage.bank,
+                                          FamilyFinancePngimage.bank,
                                           height: height / 26,
                                           fit: BoxFit.fitHeight,
-                                          color: CoinpayColor.orenge,
+                                          color: FamilyFinanceColor.orenge,
                                         )
                                       ],
                                     ),
@@ -402,13 +412,13 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: themedata.isdark
-                            ? CoinpayColor.darkblack
-                            : CoinpayColor.white,
+                            ? FamilyFinanceColor.darkblack
+                            : FamilyFinanceColor.white,
                         boxShadow: [
                           BoxShadow(
                               color: themedata.isdark
-                                  ? CoinpayColor.transparent
-                                  : CoinpayColor.textgray,
+                                  ? FamilyFinanceColor.transparent
+                                  : FamilyFinanceColor.textgray,
                               blurRadius: 3)
                         ]),
                     child: Padding(
@@ -425,7 +435,7 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                   height: height / 96,
                                 ),
                                 const Divider(
-                                  color: CoinpayColor.bggray,
+                                  color: FamilyFinanceColor.bggray,
                                 ),
                                 SizedBox(
                                   height: height / 96,
@@ -467,7 +477,8 @@ class _CoinpayHomeState extends State<CoinpayHome> {
                                 Text(
                                   tamount[index],
                                   style: psemiBold.copyWith(
-                                      fontSize: 14, color: CoinpayColor.red),
+                                      fontSize: 14,
+                                      color: FamilyFinanceColor.red),
                                 ),
                                 SizedBox(
                                   width: width / 36,

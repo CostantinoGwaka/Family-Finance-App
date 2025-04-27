@@ -5,18 +5,18 @@ import '../../ff_gloabelclass/ff_color.dart';
 import '../../ff_gloabelclass/ff_fontstyle.dart';
 import '../../ff_gloabelclass/ff_icons.dart';
 
-class CoinpayScanCode extends StatefulWidget {
-  const CoinpayScanCode({super.key});
+class FamilyFinanceScanCode extends StatefulWidget {
+  const FamilyFinanceScanCode({super.key});
 
   @override
-  State<CoinpayScanCode> createState() => _CoinpayScanCodeState();
+  State<FamilyFinanceScanCode> createState() => _FamilyFinanceScanCodeState();
 }
 
-class _CoinpayScanCodeState extends State<CoinpayScanCode> {
+class _FamilyFinanceScanCodeState extends State<FamilyFinanceScanCode> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +27,8 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -44,14 +44,14 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: themedata.isdark
-                      ? CoinpayColor.darkblack
-                      : CoinpayColor.white,
+                      ? FamilyFinanceColor.darkblack
+                      : FamilyFinanceColor.white,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 5,
                       color: themedata.isdark
-                          ? CoinpayColor.transparent
-                          : CoinpayColor.textgray,
+                          ? FamilyFinanceColor.transparent
+                          : FamilyFinanceColor.textgray,
                     )
                   ]),
               child: Padding(
@@ -61,10 +61,10 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Image.asset(
-                      CoinpayPngimage.qrcode,
+                      FamilyFinancePngimage.qrcode,
                       height: height / 4.5,
                       fit: BoxFit.fitHeight,
-                      color: CoinpayColor.appcolor,
+                      color: FamilyFinanceColor.appcolor,
                     ),
                     SizedBox(
                       height: height / 26,
@@ -87,12 +87,12 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
             ),
             const Spacer(),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 /* Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayAddcard();
+                    return const FamilyFinanceAddcard();
                   },
                 ));*/
               },
@@ -101,13 +101,13 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
                 width: width / 1,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Center(
                   child: Text(
                     "Request_for_Payment".tr,
                     style: pmedium.copyWith(
-                        fontSize: 14, color: CoinpayColor.white),
+                        fontSize: 14, color: FamilyFinanceColor.white),
                   ),
                 ),
               ),
@@ -120,15 +120,15 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   border: Border.all(
-                    color: CoinpayColor.appcolor,
+                    color: FamilyFinanceColor.appcolor,
                   )),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    CoinpayPngimage.send,
+                    FamilyFinancePngimage.send,
                     height: height / 36,
-                    color: CoinpayColor.appcolor,
+                    color: FamilyFinanceColor.appcolor,
                   ),
                   SizedBox(
                     width: width / 36,
@@ -136,7 +136,7 @@ class _CoinpayScanCodeState extends State<CoinpayScanCode> {
                   Text(
                     "Share to Receive Money",
                     style: pmedium.copyWith(
-                        fontSize: 14, color: CoinpayColor.appcolor),
+                        fontSize: 14, color: FamilyFinanceColor.appcolor),
                   ),
                 ],
               ),

@@ -7,14 +7,14 @@ import 'package:get/get.dart';
 import '../../ff_gloabelclass/ff_color.dart';
 import 'ff_login.dart';
 
-class CoinpayWelcome extends StatefulWidget {
-  const CoinpayWelcome({super.key});
+class FamilyFinanceWelcome extends StatefulWidget {
+  const FamilyFinanceWelcome({super.key});
 
   @override
-  State<CoinpayWelcome> createState() => _CoinpayWelcomeState();
+  State<FamilyFinanceWelcome> createState() => _FamilyFinanceWelcomeState();
 }
 
-class _CoinpayWelcomeState extends State<CoinpayWelcome> {
+class _FamilyFinanceWelcomeState extends State<FamilyFinanceWelcome> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -35,7 +35,7 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                 height: height / 26,
               ),
               Image.asset(
-                CoinpayPngimage.welcome,
+                FamilyFinancePngimage.welcome,
                 width: width / 1,
                 fit: BoxFit.fitHeight,
               ),
@@ -43,7 +43,7 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                 height: height / 36,
               ),
               Text(
-                "Create your\nCoinpay account",
+                "Create your\nFamilyFinance account",
                 textAlign: TextAlign.center,
                 style: psemiBold.copyWith(fontSize: 25),
               ),
@@ -51,7 +51,7 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                 height: height / 36,
               ),
               Text(
-                "Coinpay is powerful tool that allows use to easily send,receive and track all yout transaction",
+                "FamilyFinance is powerful tool that allows use to easily send,receive and track all yout transaction",
                 textAlign: TextAlign.center,
                 style: psemiBold.copyWith(fontSize: 12),
                 maxLines: 2,
@@ -61,12 +61,12 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                 height: height / 20,
               ),
               InkWell(
-                splashColor: CoinpayColor.transparent,
-                highlightColor: CoinpayColor.transparent,
+                splashColor: FamilyFinanceColor.transparent,
+                highlightColor: FamilyFinanceColor.transparent,
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return const CoinpaySignupMobile();
+                      return const FamilyFinanceSignupMobile();
                     },
                   ));
                 },
@@ -74,13 +74,13 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                   height: height / 15,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: CoinpayColor.appcolor,
+                    color: FamilyFinanceColor.appcolor,
                   ),
                   child: Center(
                     child: Text(
                       "Sign_up".tr,
                       style: pmedium.copyWith(
-                          fontSize: 14, color: CoinpayColor.white),
+                          fontSize: 14, color: FamilyFinanceColor.white),
                     ),
                   ),
                 ),
@@ -89,12 +89,12 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                 height: height / 36,
               ),
               InkWell(
-                splashColor: CoinpayColor.transparent,
-                highlightColor: CoinpayColor.transparent,
+                splashColor: FamilyFinanceColor.transparent,
+                highlightColor: FamilyFinanceColor.transparent,
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return const CoinpayLogin();
+                      return const FamilyFinanceLogin();
                     },
                   ));
                 },
@@ -103,13 +103,13 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       border: Border.all(
-                        color: CoinpayColor.appcolor,
+                        color: FamilyFinanceColor.appcolor,
                       )),
                   child: Center(
                     child: Text(
                       "Login".tr,
                       style: pmedium.copyWith(
-                          fontSize: 14, color: CoinpayColor.appcolor),
+                          fontSize: 14, color: FamilyFinanceColor.appcolor),
                     ),
                   ),
                 ),
@@ -121,7 +121,7 @@ class _CoinpayWelcomeState extends State<CoinpayWelcome> {
                 "By continuing you accepts our\nTerms of services and Privacy Policy",
                 textAlign: TextAlign.center,
                 style: psemiBold.copyWith(
-                    fontSize: 12, color: CoinpayColor.bggray),
+                    fontSize: 12, color: FamilyFinanceColor.bggray),
               ),
             ],
           ),

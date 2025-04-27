@@ -6,14 +6,14 @@ import 'package:family_finance_app/family_finance_app/ff_pages/ff_message/ff_not
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CoinpayMesssage extends StatefulWidget {
-  const CoinpayMesssage({super.key});
+class FamilyFinanceMesssage extends StatefulWidget {
+  const FamilyFinanceMesssage({super.key});
 
   @override
-  State<CoinpayMesssage> createState() => _CoinpayMesssageState();
+  State<FamilyFinanceMesssage> createState() => _FamilyFinanceMesssageState();
 }
 
-class _CoinpayMesssageState extends State<CoinpayMesssage> {
+class _FamilyFinanceMesssageState extends State<FamilyFinanceMesssage> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -38,32 +38,32 @@ class _CoinpayMesssageState extends State<CoinpayMesssage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              CoinpayPngimage.supportimg,
+              FamilyFinancePngimage.supportimg,
               height: height / 3,
             ),
             SizedBox(
               height: height / 36,
             ),
             Text(
-              "Coinpay_Support".tr,
+              "FamilyFinance_Support".tr,
               style: pbold.copyWith(fontSize: 25),
             ),
             SizedBox(
               height: height / 96,
             ),
             Text(
-              "Our dedicated team is here to assist you with any questions or issues related to our Coinpay mobile app.",
+              "Our dedicated team is here to assist you with any questions or issues related to our FamilyFinance mobile app.",
               style: pregular.copyWith(fontSize: 12),
               textAlign: TextAlign.center,
             ),
             const Spacer(),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayChatting();
+                    return const FamilyFinanceChatting();
                   },
                 ));
               },
@@ -71,20 +71,20 @@ class _CoinpayMesssageState extends State<CoinpayMesssage> {
                 height: height / 15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(CoinpayPngimage.msgfill,
-                        height: height / 36, color: CoinpayColor.white),
+                    Image.asset(FamilyFinancePngimage.msgfill,
+                        height: height / 36, color: FamilyFinanceColor.white),
                     SizedBox(
                       width: width / 36,
                     ),
                     Text(
                       "Start_Chat".tr,
                       style: pmedium.copyWith(
-                          fontSize: 14, color: CoinpayColor.white),
+                          fontSize: 14, color: FamilyFinanceColor.white),
                     ),
                   ],
                 ),
@@ -94,12 +94,12 @@ class _CoinpayMesssageState extends State<CoinpayMesssage> {
               height: height / 36,
             ),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayNotfound();
+                    return const FamilyFinanceNotfound();
                   },
                 ));
               },
@@ -107,19 +107,20 @@ class _CoinpayMesssageState extends State<CoinpayMesssage> {
                 height: height / 15,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    border: Border.all(color: CoinpayColor.appcolor)),
+                    border: Border.all(color: FamilyFinanceColor.appcolor)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(CoinpayPngimage.information,
-                        height: height / 36, color: CoinpayColor.appcolor),
+                    Image.asset(FamilyFinancePngimage.information,
+                        height: height / 36,
+                        color: FamilyFinanceColor.appcolor),
                     SizedBox(
                       width: width / 36,
                     ),
                     Text(
                       "View_FAQ".tr,
                       style: pmedium.copyWith(
-                          fontSize: 14, color: CoinpayColor.appcolor),
+                          fontSize: 14, color: FamilyFinanceColor.appcolor),
                     ),
                   ],
                 ),

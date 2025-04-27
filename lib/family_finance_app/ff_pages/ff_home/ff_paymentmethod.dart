@@ -6,19 +6,21 @@ import '../../ff_gloabelclass/ff_fontstyle.dart';
 import '../../ff_gloabelclass/ff_icons.dart';
 import 'ff_sendmoney.dart';
 
-class CoinpayPaymentMethod extends StatefulWidget {
-  const CoinpayPaymentMethod({super.key});
+class FamilyFinancePaymentMethod extends StatefulWidget {
+  const FamilyFinancePaymentMethod({super.key});
 
   @override
-  State<CoinpayPaymentMethod> createState() => _CoinpayPaymentMethodState();
+  State<FamilyFinancePaymentMethod> createState() =>
+      _FamilyFinancePaymentMethodState();
 }
 
-class _CoinpayPaymentMethodState extends State<CoinpayPaymentMethod> {
+class _FamilyFinancePaymentMethodState
+    extends State<FamilyFinancePaymentMethod> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
   int? isselected1;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
   List tital = ["Personal", "Business", "Payment"];
   List desc = [
     "Pay your friends and family",
@@ -26,19 +28,19 @@ class _CoinpayPaymentMethodState extends State<CoinpayPaymentMethod> {
     "For payment utility bills."
   ];
   List img = [
-    CoinpayPngimage.user,
-    CoinpayPngimage.portfolio,
-    CoinpayPngimage.order,
+    FamilyFinancePngimage.user,
+    FamilyFinancePngimage.portfolio,
+    FamilyFinancePngimage.order,
   ];
   List color = [
-    CoinpayColor.lightappcolor,
-    CoinpayColor.lightorenge,
-    CoinpayColor.lightred,
+    FamilyFinanceColor.lightappcolor,
+    FamilyFinanceColor.lightorenge,
+    FamilyFinanceColor.lightred,
   ];
   List iconcolor = [
-    CoinpayColor.appcolor,
-    CoinpayColor.orenge,
-    CoinpayColor.orenge,
+    FamilyFinanceColor.appcolor,
+    FamilyFinanceColor.orenge,
+    FamilyFinanceColor.orenge,
   ];
 
   @override
@@ -50,8 +52,8 @@ class _CoinpayPaymentMethodState extends State<CoinpayPaymentMethod> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -76,7 +78,7 @@ class _CoinpayPaymentMethodState extends State<CoinpayPaymentMethod> {
               Text(
                 "Select a Method for Sending Money",
                 style: pregular.copyWith(
-                    fontSize: 12, color: CoinpayColor.textgray),
+                    fontSize: 12, color: FamilyFinanceColor.textgray),
               ),
               SizedBox(
                 height: height / 36,
@@ -87,15 +89,15 @@ class _CoinpayPaymentMethodState extends State<CoinpayPaymentMethod> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return InkWell(
-                    splashColor: CoinpayColor.transparent,
-                    highlightColor: CoinpayColor.transparent,
+                    splashColor: FamilyFinanceColor.transparent,
+                    highlightColor: FamilyFinanceColor.transparent,
                     onTap: () {
                       setState(() {
                         isselected1 = index;
                       });
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return const CoinpaySendMoney();
+                          return const FamilyFinanceSendMoney();
                         },
                       ));
                     },
@@ -104,13 +106,13 @@ class _CoinpayPaymentMethodState extends State<CoinpayPaymentMethod> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: themedata.isdark
-                              ? CoinpayColor.darkblack
-                              : CoinpayColor.white,
+                              ? FamilyFinanceColor.darkblack
+                              : FamilyFinanceColor.white,
                           boxShadow: [
                             BoxShadow(
                                 color: themedata.isdark
-                                    ? CoinpayColor.transparent
-                                    : CoinpayColor.textgray,
+                                    ? FamilyFinanceColor.transparent
+                                    : FamilyFinanceColor.textgray,
                                 blurRadius: 3)
                           ]),
                       child: Padding(
@@ -151,8 +153,8 @@ class _CoinpayPaymentMethodState extends State<CoinpayPaymentMethod> {
                                   : Icons.radio_button_unchecked,
                               size: 25,
                               color: isselected1 == index
-                                  ? CoinpayColor.appcolor
-                                  : CoinpayColor.textgray,
+                                  ? FamilyFinanceColor.appcolor
+                                  : FamilyFinanceColor.textgray,
                             )
                           ],
                         ),

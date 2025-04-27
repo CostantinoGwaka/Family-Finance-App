@@ -9,18 +9,19 @@ import '../../../ff_theme/ff_themecontroller.dart';
 import 'ff_addemail.dart';
 import 'ff_confirmphoneno.dart';
 
-class CoinpaySignupMobile extends StatefulWidget {
-  const CoinpaySignupMobile({super.key});
+class FamilyFinanceSignupMobile extends StatefulWidget {
+  const FamilyFinanceSignupMobile({super.key});
 
   @override
-  State<CoinpaySignupMobile> createState() => _CoinpaySignupMobileState();
+  State<FamilyFinanceSignupMobile> createState() =>
+      _FamilyFinanceSignupMobileState();
 }
 
-class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
+class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -32,7 +33,7 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
         leading: const Icon(
           Icons.arrow_back_ios_new,
           size: 22,
-          color: CoinpayColor.black,
+          color: FamilyFinanceColor.black,
         ),
       ),
       body: Padding(
@@ -52,8 +53,8 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
             ),
             Text(
               "Enter your mobile number to verify your account",
-              style:
-                  pregular.copyWith(fontSize: 12, color: CoinpayColor.textgray),
+              style: pregular.copyWith(
+                  fontSize: 12, color: FamilyFinanceColor.textgray),
             ),
             SizedBox(
               height: height / 36,
@@ -76,9 +77,9 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
                 hintText: "Mobile Number",
                 hintStyle: pmedium,
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: CoinpayColor.bggray)),
+                    borderSide: BorderSide(color: FamilyFinanceColor.bggray)),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: CoinpayColor.bggray),
+                  borderSide: BorderSide(color: FamilyFinanceColor.bggray),
                 ),
               ),
               initialCountryCode: 'IN',
@@ -86,8 +87,8 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
             ),
             const Spacer(),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 verifydialog();
               },
@@ -95,13 +96,13 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
                 height: height / 15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Center(
                   child: Text(
                     "Sign_up".tr,
                     style: pmedium.copyWith(
-                        fontSize: 14, color: CoinpayColor.white),
+                        fontSize: 14, color: FamilyFinanceColor.white),
                   ),
                 ),
               ),
@@ -118,7 +119,7 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
       builder: (context) {
         return Dialog(
             elevation: 0,
-            backgroundColor: CoinpayColor.transparent,
+            backgroundColor: FamilyFinanceColor.transparent,
             child: Stack(
               children: <Widget>[
                 Container(
@@ -126,8 +127,8 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     color: themedata.isdark
-                        ? CoinpayColor.darkblack
-                        : CoinpayColor.white,
+                        ? FamilyFinanceColor.darkblack
+                        : FamilyFinanceColor.white,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Padding(
@@ -139,8 +140,8 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             InkWell(
-                                highlightColor: CoinpayColor.transparent,
-                                splashColor: CoinpayColor.transparent,
+                                highlightColor: FamilyFinanceColor.transparent,
+                                splashColor: FamilyFinanceColor.transparent,
                                 onTap: () {
                                   Navigator.pop(context);
                                 },
@@ -154,7 +155,7 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
                           height: height / 96,
                         ),
                         Image.asset(
-                          CoinpayPngimage.verifyicon,
+                          FamilyFinancePngimage.verifyicon,
                           height: height / 6,
                           fit: BoxFit.fitHeight,
                         ),
@@ -176,18 +177,18 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
                         Text(
                           "Is this correct? +880 1995 86 74 06",
                           style: pmedium.copyWith(
-                              fontSize: 12, color: CoinpayColor.textgray),
+                              fontSize: 12, color: FamilyFinanceColor.textgray),
                         ),
                         SizedBox(
                           height: height / 36,
                         ),
                         InkWell(
-                          splashColor: CoinpayColor.transparent,
-                          highlightColor: CoinpayColor.transparent,
+                          splashColor: FamilyFinanceColor.transparent,
+                          highlightColor: FamilyFinanceColor.transparent,
                           onTap: () {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const CoinpayConfirmPhoneno();
+                                return const FamilyFinanceConfirmPhoneno();
                               },
                             ));
                           },
@@ -195,13 +196,14 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
                             height: height / 15,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
-                              color: CoinpayColor.appcolor,
+                              color: FamilyFinanceColor.appcolor,
                             ),
                             child: Center(
                               child: Text(
                                 "Yes",
                                 style: pmedium.copyWith(
-                                    fontSize: 14, color: CoinpayColor.white),
+                                    fontSize: 14,
+                                    color: FamilyFinanceColor.white),
                               ),
                             ),
                           ),
@@ -210,12 +212,12 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
                           height: height / 96,
                         ),
                         InkWell(
-                          splashColor: CoinpayColor.transparent,
-                          highlightColor: CoinpayColor.transparent,
+                          splashColor: FamilyFinanceColor.transparent,
+                          highlightColor: FamilyFinanceColor.transparent,
                           onTap: () {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const CoinpayAddemail();
+                                return const FamilyFinanceAddemail();
                               },
                             ));
                           },
@@ -224,13 +226,14 @@ class _CoinpaySignupMobileState extends State<CoinpaySignupMobile> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
                                 border: Border.all(
-                                  color: CoinpayColor.appcolor,
+                                  color: FamilyFinanceColor.appcolor,
                                 )),
                             child: Center(
                               child: Text(
                                 "No",
                                 style: pmedium.copyWith(
-                                    fontSize: 14, color: CoinpayColor.appcolor),
+                                    fontSize: 14,
+                                    color: FamilyFinanceColor.appcolor),
                               ),
                             ),
                           ),

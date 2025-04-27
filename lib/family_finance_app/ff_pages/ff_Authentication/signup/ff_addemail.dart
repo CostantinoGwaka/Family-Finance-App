@@ -5,14 +5,14 @@ import '../../../ff_gloabelclass/ff_color.dart';
 import '../../../ff_gloabelclass/ff_fontstyle.dart';
 import 'ff_homeaddress.dart';
 
-class CoinpayAddemail extends StatefulWidget {
-  const CoinpayAddemail({super.key});
+class FamilyFinanceAddemail extends StatefulWidget {
+  const FamilyFinanceAddemail({super.key});
 
   @override
-  State<CoinpayAddemail> createState() => _CoinpayAddemailState();
+  State<FamilyFinanceAddemail> createState() => _FamilyFinanceAddemailState();
 }
 
-class _CoinpayAddemailState extends State<CoinpayAddemail> {
+class _FamilyFinanceAddemailState extends State<FamilyFinanceAddemail> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -25,8 +25,8 @@ class _CoinpayAddemailState extends State<CoinpayAddemail> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -49,8 +49,8 @@ class _CoinpayAddemailState extends State<CoinpayAddemail> {
             ),
             Text(
               "This info needs to be accurate with your ID\ndocument",
-              style:
-                  pregular.copyWith(fontSize: 12, color: CoinpayColor.textgray),
+              style: pregular.copyWith(
+                  fontSize: 12, color: FamilyFinanceColor.textgray),
             ),
             SizedBox(
               height: height / 36,
@@ -71,27 +71,29 @@ class _CoinpayAddemailState extends State<CoinpayAddemail> {
                   Icons.email_outlined,
                   size: 22,
                 ),
-                hintStyle:
-                    pmedium.copyWith(fontSize: 14, color: CoinpayColor.bggray),
+                hintStyle: pmedium.copyWith(
+                    fontSize: 14, color: FamilyFinanceColor.bggray),
                 hintText: "Enter your email address",
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
               ),
             ),
             const Spacer(),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayHomeaddress();
+                    return const FamilyFinanceHomeaddress();
                   },
                 ));
               },
@@ -99,13 +101,13 @@ class _CoinpayAddemailState extends State<CoinpayAddemail> {
                 height: height / 15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Center(
                   child: Text(
                     "Continue".tr,
                     style: pmedium.copyWith(
-                        fontSize: 14, color: CoinpayColor.white),
+                        fontSize: 14, color: FamilyFinanceColor.white),
                   ),
                 ),
               ),

@@ -7,18 +7,18 @@ import 'package:get/get.dart';
 
 import '../../ff_theme/ff_themecontroller.dart';
 
-class CoinpayCardlist extends StatefulWidget {
-  const CoinpayCardlist({super.key});
+class FamilyFinanceCardlist extends StatefulWidget {
+  const FamilyFinanceCardlist({super.key});
 
   @override
-  State<CoinpayCardlist> createState() => _CoinpayCardlistState();
+  State<FamilyFinanceCardlist> createState() => _FamilyFinanceCardlistState();
 }
 
-class _CoinpayCardlistState extends State<CoinpayCardlist> {
+class _FamilyFinanceCardlistState extends State<FamilyFinanceCardlist> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -28,8 +28,8 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -43,7 +43,7 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
           children: [
             Container(
               decoration: BoxDecoration(
-                  color: CoinpayColor.lightgreen,
+                  color: FamilyFinanceColor.lightgreen,
                   borderRadius: BorderRadius.circular(10)),
               child: Padding(
                 padding: EdgeInsets.symmetric(
@@ -53,7 +53,7 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
                     const Icon(
                       Icons.check_circle,
                       size: 22,
-                      color: CoinpayColor.green,
+                      color: FamilyFinanceColor.green,
                     ),
                     SizedBox(
                       width: width / 36,
@@ -62,7 +62,7 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
                       "Your card successfully added",
                       style: pmedium.copyWith(
                         fontSize: 12,
-                        color: CoinpayColor.green,
+                        color: FamilyFinanceColor.green,
                       ),
                     )
                   ],
@@ -104,8 +104,8 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
                         borderRadius: const BorderRadius.only(
                             topRight: Radius.circular(16),
                             bottomRight: Radius.circular(16)),
-                        backgroundColor: CoinpayColor.lightred,
-                        foregroundColor: CoinpayColor.red,
+                        backgroundColor: FamilyFinanceColor.lightred,
+                        foregroundColor: FamilyFinanceColor.red,
                         icon: Icons.delete_outline_sharp,
                       ),
                     ],
@@ -113,11 +113,12 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
                   child: Container(
                     decoration: BoxDecoration(
                         color: themedata.isdark
-                            ? CoinpayColor.darkblack
-                            : CoinpayColor.white,
+                            ? FamilyFinanceColor.darkblack
+                            : FamilyFinanceColor.white,
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: const [
-                          BoxShadow(color: CoinpayColor.textgray, blurRadius: 5)
+                          BoxShadow(
+                              color: FamilyFinanceColor.textgray, blurRadius: 5)
                         ]),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
@@ -125,7 +126,7 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
                       child: Row(
                         children: [
                           Image.asset(
-                            CoinpayPngimage.mastercard,
+                            FamilyFinancePngimage.mastercard,
                             height: height / 26,
                             fit: BoxFit.fitHeight,
                           ),
@@ -147,12 +148,12 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
             ),
             const Spacer(),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 /* Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayAddcard();
+                    return const FamilyFinanceAddcard();
                   },
                 ));*/
               },
@@ -160,7 +161,7 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
                 height: height / 15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -168,7 +169,7 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
                     const Icon(
                       Icons.add,
                       size: 22,
-                      color: CoinpayColor.white,
+                      color: FamilyFinanceColor.white,
                     ),
                     SizedBox(
                       width: width / 36,
@@ -176,7 +177,7 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
                     Text(
                       "Add_your_card".tr,
                       style: pmedium.copyWith(
-                          fontSize: 14, color: CoinpayColor.white),
+                          fontSize: 14, color: FamilyFinanceColor.white),
                     ),
                   ],
                 ),
@@ -186,12 +187,12 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
               height: height / 56,
             ),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 /* Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayAddcard();
+                    return const FamilyFinanceAddcard();
                   },
                 ));*/
               },
@@ -200,13 +201,13 @@ class _CoinpayCardlistState extends State<CoinpayCardlist> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
                     border: Border.all(
-                      color: CoinpayColor.appcolor,
+                      color: FamilyFinanceColor.appcolor,
                     )),
                 child: Center(
                   child: Text(
                     "Continue".tr,
                     style: pmedium.copyWith(
-                        fontSize: 14, color: CoinpayColor.appcolor),
+                        fontSize: 14, color: FamilyFinanceColor.appcolor),
                   ),
                 ),
               ),

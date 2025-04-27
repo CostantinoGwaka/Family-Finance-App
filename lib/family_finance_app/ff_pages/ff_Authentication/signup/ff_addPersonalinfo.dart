@@ -7,14 +7,16 @@ import '../../../ff_gloabelclass/ff_color.dart';
 import '../../../ff_gloabelclass/ff_fontstyle.dart';
 import 'ff_countryresidence.dart';
 
-class CoinpayAddPersonalInfo extends StatefulWidget {
-  const CoinpayAddPersonalInfo({super.key});
+class FamilyFinanceAddPersonalInfo extends StatefulWidget {
+  const FamilyFinanceAddPersonalInfo({super.key});
 
   @override
-  State<CoinpayAddPersonalInfo> createState() => _CoinpayAddPersonalInfoState();
+  State<FamilyFinanceAddPersonalInfo> createState() =>
+      _FamilyFinanceAddPersonalInfoState();
 }
 
-class _CoinpayAddPersonalInfoState extends State<CoinpayAddPersonalInfo> {
+class _FamilyFinanceAddPersonalInfoState
+    extends State<FamilyFinanceAddPersonalInfo> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -29,8 +31,8 @@ class _CoinpayAddPersonalInfoState extends State<CoinpayAddPersonalInfo> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -53,8 +55,8 @@ class _CoinpayAddPersonalInfoState extends State<CoinpayAddPersonalInfo> {
             ),
             Text(
               "This info needs to be accurate with your ID\ndocument",
-              style:
-                  pregular.copyWith(fontSize: 12, color: CoinpayColor.textgray),
+              style: pregular.copyWith(
+                  fontSize: 12, color: FamilyFinanceColor.textgray),
             ),
             SizedBox(
               height: height / 36,
@@ -71,16 +73,18 @@ class _CoinpayAddPersonalInfoState extends State<CoinpayAddPersonalInfo> {
             TextField(
               style: pmedium.copyWith(fontSize: 14),
               decoration: InputDecoration(
-                hintStyle:
-                    pmedium.copyWith(fontSize: 14, color: CoinpayColor.bggray),
+                hintStyle: pmedium.copyWith(
+                    fontSize: 14, color: FamilyFinanceColor.bggray),
                 hintText: "Mr.Jhon Doe",
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
               ),
             ),
@@ -99,16 +103,18 @@ class _CoinpayAddPersonalInfoState extends State<CoinpayAddPersonalInfo> {
             TextField(
               style: pmedium.copyWith(fontSize: 14),
               decoration: InputDecoration(
-                hintStyle:
-                    pmedium.copyWith(fontSize: 14, color: CoinpayColor.bggray),
+                hintStyle: pmedium.copyWith(
+                    fontSize: 14, color: FamilyFinanceColor.bggray),
                 hintText: "@username",
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
               ),
             ),
@@ -133,7 +139,7 @@ class _CoinpayAddPersonalInfoState extends State<CoinpayAddPersonalInfo> {
                 style: pmedium.copyWith(fontSize: 14),
                 decoration: InputDecoration(
                   hintStyle: pmedium.copyWith(
-                      fontSize: 14, color: CoinpayColor.bggray),
+                      fontSize: 14, color: FamilyFinanceColor.bggray),
                   hintText: "MM/DD/YYYY",
                   prefixIcon: const Icon(
                     Icons.calendar_today_outlined,
@@ -141,23 +147,25 @@ class _CoinpayAddPersonalInfoState extends State<CoinpayAddPersonalInfo> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: CoinpayColor.bggray),
+                    borderSide:
+                        const BorderSide(color: FamilyFinanceColor.bggray),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: const BorderSide(color: CoinpayColor.bggray),
+                    borderSide:
+                        const BorderSide(color: FamilyFinanceColor.bggray),
                   ),
                 ),
               ),
             ),
             const Spacer(),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayCountryResidence();
+                    return const FamilyFinanceCountryResidence();
                   },
                 ));
               },
@@ -165,13 +173,13 @@ class _CoinpayAddPersonalInfoState extends State<CoinpayAddPersonalInfo> {
                 height: height / 15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Center(
                   child: Text(
                     "Continue".tr,
                     style: pmedium.copyWith(
-                        fontSize: 14, color: CoinpayColor.white),
+                        fontSize: 14, color: FamilyFinanceColor.white),
                   ),
                 ),
               ),
@@ -204,55 +212,55 @@ class _CoinpayAddPersonalInfoState extends State<CoinpayAddPersonalInfo> {
                 daysOfWeekVisible: true,
                 calendarStyle: CalendarStyle(
                   todayDecoration: BoxDecoration(
-                      color: CoinpayColor.appcolor,
+                      color: FamilyFinanceColor.appcolor,
                       borderRadius: BorderRadius.circular(10)),
                   todayTextStyle: const TextStyle(
-                    color: CoinpayColor.white,
+                    color: FamilyFinanceColor.white,
                     fontSize: 10,
                   ),
                   selectedDecoration: BoxDecoration(
-                      color: CoinpayColor.appcolor,
+                      color: FamilyFinanceColor.appcolor,
                       borderRadius: BorderRadius.circular(10)),
                   selectedTextStyle: const TextStyle(
-                    color: CoinpayColor.white,
+                    color: FamilyFinanceColor.white,
                     fontSize: 10,
                   ),
                   defaultDecoration: BoxDecoration(
-                      color: CoinpayColor.white,
+                      color: FamilyFinanceColor.white,
                       borderRadius: BorderRadius.circular(10)),
                   defaultTextStyle: const TextStyle(
-                    color: CoinpayColor.black,
+                    color: FamilyFinanceColor.black,
                     fontSize: 10,
                   ),
                   weekendDecoration: BoxDecoration(
-                      color: CoinpayColor.white,
+                      color: FamilyFinanceColor.white,
                       borderRadius: BorderRadius.circular(10)),
                   weekendTextStyle: const TextStyle(
                     fontSize: 10,
-                    color: CoinpayColor.black,
+                    color: FamilyFinanceColor.black,
                   ),
                   outsideDecoration: BoxDecoration(
-                      color: CoinpayColor.white,
+                      color: FamilyFinanceColor.white,
                       borderRadius: BorderRadius.circular(10)),
                   outsideTextStyle: const TextStyle(
-                    color: CoinpayColor.black,
+                    color: FamilyFinanceColor.black,
                     fontSize: 10,
                   ),
                   disabledDecoration: BoxDecoration(
-                      color: CoinpayColor.white,
+                      color: FamilyFinanceColor.white,
                       borderRadius: BorderRadius.circular(10)),
                   disabledTextStyle: const TextStyle(
-                    color: CoinpayColor.grey,
+                    color: FamilyFinanceColor.grey,
                     fontSize: 10,
                   ),
                 ),
                 daysOfWeekStyle: const DaysOfWeekStyle(
                   weekdayStyle: TextStyle(
-                    color: CoinpayColor.black,
+                    color: FamilyFinanceColor.black,
                     fontSize: 14,
                   ),
                   weekendStyle: TextStyle(
-                    color: CoinpayColor.black,
+                    color: FamilyFinanceColor.black,
                     fontSize: 14,
                   ),
                 ),
@@ -262,13 +270,13 @@ class _CoinpayAddPersonalInfoState extends State<CoinpayAddPersonalInfo> {
                 pageAnimationEnabled: false,
                 headerStyle: HeaderStyle(
                     leftChevronIcon: const Icon(Icons.chevron_left,
-                        color: CoinpayColor.black),
+                        color: FamilyFinanceColor.black),
                     rightChevronIcon: const Icon(Icons.chevron_right,
-                        color: CoinpayColor.black),
+                        color: FamilyFinanceColor.black),
                     formatButtonVisible: false,
                     titleCentered: true,
                     titleTextStyle: psemiBold.copyWith(
-                        fontSize: 14, color: CoinpayColor.black)),
+                        fontSize: 14, color: FamilyFinanceColor.black)),
                 selectedDayPredicate: (day) {
                   return isSameDay(_selectedDay, day);
                 },

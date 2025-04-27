@@ -6,18 +6,18 @@ import '../../ff_gloabelclass/ff_fontstyle.dart';
 import '../../ff_gloabelclass/ff_icons.dart';
 import 'ff_chooseaccount.dart';
 
-class CoinpaySendMoney extends StatefulWidget {
-  const CoinpaySendMoney({super.key});
+class FamilyFinanceSendMoney extends StatefulWidget {
+  const FamilyFinanceSendMoney({super.key});
 
   @override
-  State<CoinpaySendMoney> createState() => _CoinpaySendMoneyState();
+  State<FamilyFinanceSendMoney> createState() => _FamilyFinanceSendMoneyState();
 }
 
-class _CoinpaySendMoneyState extends State<CoinpaySendMoney> {
+class _FamilyFinanceSendMoneyState extends State<FamilyFinanceSendMoney> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,8 @@ class _CoinpaySendMoneyState extends State<CoinpaySendMoney> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -54,7 +54,7 @@ class _CoinpaySendMoneyState extends State<CoinpaySendMoney> {
               Text(
                 "Select a Method for Sending Money",
                 style: pregular.copyWith(
-                    fontSize: 12, color: CoinpayColor.textgray),
+                    fontSize: 12, color: FamilyFinanceColor.textgray),
               ),
               SizedBox(
                 height: height / 36,
@@ -63,14 +63,14 @@ class _CoinpaySendMoneyState extends State<CoinpaySendMoney> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: themedata.isdark
-                        ? CoinpayColor.darkblack
-                        : CoinpayColor.white,
+                        ? FamilyFinanceColor.darkblack
+                        : FamilyFinanceColor.white,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 5,
                         color: themedata.isdark
-                            ? CoinpayColor.transparent
-                            : CoinpayColor.textgray,
+                            ? FamilyFinanceColor.transparent
+                            : FamilyFinanceColor.textgray,
                       )
                     ]),
                 child: Padding(
@@ -82,7 +82,7 @@ class _CoinpaySendMoneyState extends State<CoinpaySendMoney> {
                       CircleAvatar(
                         radius: 35,
                         backgroundImage:
-                            AssetImage(CoinpayPngimage.profilephoto),
+                            AssetImage(FamilyFinancePngimage.profilephoto),
                       ),
                       SizedBox(
                         height: height / 96,
@@ -104,7 +104,7 @@ class _CoinpaySendMoneyState extends State<CoinpaySendMoney> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset(CoinpayPngimage.usaflag,
+                          Image.asset(FamilyFinancePngimage.usaflag,
                               height: height / 30),
                           SizedBox(
                             width: width / 56,
@@ -113,8 +113,8 @@ class _CoinpaySendMoneyState extends State<CoinpaySendMoney> {
                             Icons.keyboard_arrow_down_rounded,
                             size: 22,
                             color: themedata.isdark
-                                ? CoinpayColor.white
-                                : CoinpayColor.black,
+                                ? FamilyFinanceColor.white
+                                : FamilyFinanceColor.black,
                           )
                         ],
                       ),
@@ -132,16 +132,16 @@ class _CoinpaySendMoneyState extends State<CoinpaySendMoney> {
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                                 border: const UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: CoinpayColor.bggray),
+                                  borderSide: BorderSide(
+                                      color: FamilyFinanceColor.bggray),
                                 ),
                                 hintStyle: psemiBold.copyWith(
                                   fontSize: 25,
                                 ),
                                 hintText: "500",
                                 focusedBorder: const UnderlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: CoinpayColor.bggray),
+                                  borderSide: BorderSide(
+                                      color: FamilyFinanceColor.bggray),
                                 )),
                           ),
                         ),
@@ -150,12 +150,12 @@ class _CoinpaySendMoneyState extends State<CoinpaySendMoney> {
                         height: height / 26,
                       ),
                       InkWell(
-                        splashColor: CoinpayColor.transparent,
-                        highlightColor: CoinpayColor.transparent,
+                        splashColor: FamilyFinanceColor.transparent,
+                        highlightColor: FamilyFinanceColor.transparent,
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(
                             builder: (context) {
-                              return const CoinpayChooseAccount();
+                              return const FamilyFinanceChooseAccount();
                             },
                           ));
                         },
@@ -164,13 +164,14 @@ class _CoinpaySendMoneyState extends State<CoinpaySendMoney> {
                           width: width / 2,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: CoinpayColor.appcolor,
+                            color: FamilyFinanceColor.appcolor,
                           ),
                           child: Center(
                             child: Text(
                               "Continue".tr,
                               style: pmedium.copyWith(
-                                  fontSize: 14, color: CoinpayColor.white),
+                                  fontSize: 14,
+                                  color: FamilyFinanceColor.white),
                             ),
                           ),
                         ),

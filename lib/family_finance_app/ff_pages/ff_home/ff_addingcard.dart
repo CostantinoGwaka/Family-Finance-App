@@ -6,14 +6,15 @@ import '../../ff_gloabelclass/ff_fontstyle.dart';
 import '../../ff_gloabelclass/ff_icons.dart';
 import 'ff_addcard.dart';
 
-class CoinpayAddingCard extends StatefulWidget {
-  const CoinpayAddingCard({super.key});
+class FamilyFinanceAddingCard extends StatefulWidget {
+  const FamilyFinanceAddingCard({super.key});
 
   @override
-  State<CoinpayAddingCard> createState() => _CoinpayAddingCardState();
+  State<FamilyFinanceAddingCard> createState() =>
+      _FamilyFinanceAddingCardState();
 }
 
-class _CoinpayAddingCardState extends State<CoinpayAddingCard> {
+class _FamilyFinanceAddingCardState extends State<FamilyFinanceAddingCard> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -28,7 +29,7 @@ class _CoinpayAddingCardState extends State<CoinpayAddingCard> {
         leading: const Icon(
           Icons.arrow_back_ios_new,
           size: 22,
-          color: CoinpayColor.black,
+          color: FamilyFinanceColor.black,
         ),
       ),
       body: Padding(
@@ -37,7 +38,7 @@ class _CoinpayAddingCardState extends State<CoinpayAddingCard> {
         child: Column(
           children: [
             Image.asset(
-              CoinpayPngimage.addingcard,
+              FamilyFinancePngimage.addingcard,
               height: height / 3,
               fit: BoxFit.fitHeight,
             ),
@@ -59,12 +60,12 @@ class _CoinpayAddingCardState extends State<CoinpayAddingCard> {
             ),
             const Spacer(),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayAddcard();
+                    return const FamilyFinanceAddcard();
                   },
                 ));
               },
@@ -72,7 +73,7 @@ class _CoinpayAddingCardState extends State<CoinpayAddingCard> {
                 height: height / 15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +81,7 @@ class _CoinpayAddingCardState extends State<CoinpayAddingCard> {
                     const Icon(
                       Icons.add,
                       size: 22,
-                      color: CoinpayColor.white,
+                      color: FamilyFinanceColor.white,
                     ),
                     SizedBox(
                       width: width / 36,
@@ -88,7 +89,7 @@ class _CoinpayAddingCardState extends State<CoinpayAddingCard> {
                     Text(
                       "Add_your_card".tr,
                       style: pmedium.copyWith(
-                          fontSize: 14, color: CoinpayColor.white),
+                          fontSize: 14, color: FamilyFinanceColor.white),
                     ),
                   ],
                 ),

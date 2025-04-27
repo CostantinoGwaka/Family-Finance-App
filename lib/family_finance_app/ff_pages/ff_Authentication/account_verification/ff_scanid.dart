@@ -5,14 +5,14 @@ import '../../../ff_gloabelclass/ff_fontstyle.dart';
 import '../../../ff_gloabelclass/ff_icons.dart';
 import 'ff_scanner.dart';
 
-class CoinpayScanId extends StatefulWidget {
-  const CoinpayScanId({super.key});
+class FamilyFinanceScanId extends StatefulWidget {
+  const FamilyFinanceScanId({super.key});
 
   @override
-  State<CoinpayScanId> createState() => _CoinpayScanIdState();
+  State<FamilyFinanceScanId> createState() => _FamilyFinanceScanIdState();
 }
 
-class _CoinpayScanIdState extends State<CoinpayScanId> {
+class _FamilyFinanceScanIdState extends State<FamilyFinanceScanId> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -27,7 +27,7 @@ class _CoinpayScanIdState extends State<CoinpayScanId> {
         leading: const Icon(
           Icons.arrow_back_ios_new,
           size: 22,
-          color: CoinpayColor.black,
+          color: FamilyFinanceColor.black,
         ),
       ),
       body: SingleChildScrollView(
@@ -37,7 +37,7 @@ class _CoinpayScanIdState extends State<CoinpayScanId> {
           child: Column(
             children: [
               Image.asset(
-                CoinpayPngimage.scanid,
+                FamilyFinancePngimage.scanid,
                 width: width / 1,
                 fit: BoxFit.fitHeight,
               ),
@@ -66,17 +66,17 @@ class _CoinpayScanIdState extends State<CoinpayScanId> {
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return const CoinpayScanner();
+                      return const FamilyFinanceScanner();
                     },
                   ));
                 },
                 child: const CircleAvatar(
                     radius: 28,
-                    backgroundColor: CoinpayColor.appcolor,
+                    backgroundColor: FamilyFinanceColor.appcolor,
                     child: Icon(
                       Icons.qr_code_scanner_rounded,
                       size: 25,
-                      color: CoinpayColor.white,
+                      color: FamilyFinanceColor.white,
                     )),
               ),
               SizedBox(

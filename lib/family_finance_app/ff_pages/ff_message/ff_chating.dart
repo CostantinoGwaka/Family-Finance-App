@@ -5,18 +5,18 @@ import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontrolle
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CoinpayChatting extends StatefulWidget {
-  const CoinpayChatting({super.key});
+class FamilyFinanceChatting extends StatefulWidget {
+  const FamilyFinanceChatting({super.key});
 
   @override
-  State<CoinpayChatting> createState() => _CoinpayChattingState();
+  State<FamilyFinanceChatting> createState() => _FamilyFinanceChattingState();
 }
 
-class _CoinpayChattingState extends State<CoinpayChatting> {
+class _FamilyFinanceChattingState extends State<FamilyFinanceChatting> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -26,8 +26,8 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -46,7 +46,8 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
             Center(
                 child: Text(
               "Sunday at 4:20 PM",
-              style: pregular.copyWith(fontSize: 12, color: CoinpayColor.grey),
+              style: pregular.copyWith(
+                  fontSize: 12, color: FamilyFinanceColor.grey),
             )),
             SizedBox(height: height / 26),
             Container(
@@ -61,13 +62,13 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                     BoxShadow(
                       blurRadius: 5,
                       color: themedata.isdark
-                          ? CoinpayColor.transparent
-                          : CoinpayColor.bggray,
+                          ? FamilyFinanceColor.transparent
+                          : FamilyFinanceColor.bggray,
                     )
                   ],
                   color: themedata.isdark
-                      ? CoinpayColor.darkblack
-                      : CoinpayColor.white),
+                      ? FamilyFinanceColor.darkblack
+                      : FamilyFinanceColor.white),
               child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: width / 36, vertical: height / 56),
@@ -76,8 +77,8 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                   style: pmedium.copyWith(
                     fontSize: 14,
                     color: themedata.isdark
-                        ? CoinpayColor.white
-                        : CoinpayColor.black,
+                        ? FamilyFinanceColor.white
+                        : FamilyFinanceColor.black,
                   ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -97,13 +98,13 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                     BoxShadow(
                       blurRadius: 5,
                       color: themedata.isdark
-                          ? CoinpayColor.transparent
-                          : CoinpayColor.bggray,
+                          ? FamilyFinanceColor.transparent
+                          : FamilyFinanceColor.bggray,
                     )
                   ],
                   color: themedata.isdark
-                      ? CoinpayColor.darkblack
-                      : CoinpayColor.white),
+                      ? FamilyFinanceColor.darkblack
+                      : FamilyFinanceColor.white),
               child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: width / 36, vertical: height / 56),
@@ -112,8 +113,8 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                   style: pmedium.copyWith(
                     fontSize: 14,
                     color: themedata.isdark
-                        ? CoinpayColor.white
-                        : CoinpayColor.black,
+                        ? FamilyFinanceColor.white
+                        : FamilyFinanceColor.black,
                   ),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -132,7 +133,7 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                         bottomLeft: Radius.circular(15),
                         topLeft: Radius.circular(15),
                       ),
-                      color: CoinpayColor.appcolor),
+                      color: FamilyFinanceColor.appcolor),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: width / 36, vertical: height / 56),
@@ -140,7 +141,7 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                       "Hello Bobo, my heart is so\nbroken right now.",
                       style: pmedium.copyWith(
                         fontSize: 14,
-                        color: CoinpayColor.white,
+                        color: FamilyFinanceColor.white,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -161,7 +162,7 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                         bottomLeft: Radius.circular(15),
                         topLeft: Radius.circular(15),
                       ),
-                      color: CoinpayColor.appcolor),
+                      color: FamilyFinanceColor.appcolor),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: width / 36, vertical: height / 56),
@@ -169,7 +170,7 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                       "My beloved dog named Mojo\nhas died now. Because of\nrobies.",
                       style: pmedium.copyWith(
                         fontSize: 14,
-                        color: CoinpayColor.white,
+                        color: FamilyFinanceColor.white,
                       ),
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
@@ -191,13 +192,13 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                     BoxShadow(
                       blurRadius: 5,
                       color: themedata.isdark
-                          ? CoinpayColor.transparent
-                          : CoinpayColor.bggray,
+                          ? FamilyFinanceColor.transparent
+                          : FamilyFinanceColor.bggray,
                     )
                   ],
                   color: themedata.isdark
-                      ? CoinpayColor.darkblack
-                      : CoinpayColor.white),
+                      ? FamilyFinanceColor.darkblack
+                      : FamilyFinanceColor.white),
               child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: width / 36, vertical: height / 56),
@@ -206,8 +207,8 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                   style: pmedium.copyWith(
                     fontSize: 14,
                     color: themedata.isdark
-                        ? CoinpayColor.white
-                        : CoinpayColor.black,
+                        ? FamilyFinanceColor.white
+                        : FamilyFinanceColor.black,
                   ),
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
@@ -219,9 +220,9 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image.asset(
-                  CoinpayPngimage.paperclip,
+                  FamilyFinancePngimage.paperclip,
                   height: height / 36,
-                  color: CoinpayColor.grey,
+                  color: FamilyFinanceColor.grey,
                 ),
                 Container(
                   width: width / 1.2,
@@ -232,45 +233,45 @@ class _CoinpayChattingState extends State<CoinpayChatting> {
                         BoxShadow(
                           blurRadius: 5,
                           color: themedata.isdark
-                              ? CoinpayColor.transparent
-                              : CoinpayColor.bggray,
+                              ? FamilyFinanceColor.transparent
+                              : FamilyFinanceColor.bggray,
                         )
                       ]),
                   child: TextField(
                       scrollPadding: EdgeInsets.only(
                           bottom: MediaQuery.of(context).viewInsets.bottom),
                       cursorColor: themedata.isdark
-                          ? CoinpayColor.white
-                          : CoinpayColor.black,
+                          ? FamilyFinanceColor.white
+                          : FamilyFinanceColor.black,
                       style: pregular.copyWith(
                           fontSize: 15,
                           color: themedata.isdark
-                              ? CoinpayColor.white
-                              : CoinpayColor.black),
+                              ? FamilyFinanceColor.white
+                              : FamilyFinanceColor.black),
                       decoration: InputDecoration(
                         suffixIcon: CircleAvatar(
                           radius: 25,
-                          backgroundColor: CoinpayColor.appcolor,
+                          backgroundColor: FamilyFinanceColor.appcolor,
                           child: Image.asset(
-                            CoinpayPngimage.send,
+                            FamilyFinancePngimage.send,
                             height: height / 36,
-                            color: CoinpayColor.white,
+                            color: FamilyFinanceColor.white,
                           ),
                         ),
                         hintText: 'Type a message'.tr,
                         filled: true,
                         fillColor: themedata.isdark
-                            ? CoinpayColor.darkblack
-                            : CoinpayColor.white,
+                            ? FamilyFinanceColor.darkblack
+                            : FamilyFinanceColor.white,
                         hintStyle: pregular.copyWith(
-                            fontSize: 15, color: CoinpayColor.grey),
+                            fontSize: 15, color: FamilyFinanceColor.grey),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(50),
                             borderSide: BorderSide.none),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(50),
-                            borderSide:
-                                const BorderSide(color: CoinpayColor.appcolor)),
+                            borderSide: const BorderSide(
+                                color: FamilyFinanceColor.appcolor)),
                       )),
                 ),
               ],

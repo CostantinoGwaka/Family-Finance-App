@@ -6,14 +6,16 @@ import '../../../ff_gloabelclass/ff_icons.dart';
 import 'ff_scanid.dart';
 import 'ff_verifyphoto.dart';
 
-class CoinpaySettingAccount extends StatefulWidget {
-  const CoinpaySettingAccount({super.key});
+class FamilyFinanceSettingAccount extends StatefulWidget {
+  const FamilyFinanceSettingAccount({super.key});
 
   @override
-  State<CoinpaySettingAccount> createState() => _CoinpaySettingAccountState();
+  State<FamilyFinanceSettingAccount> createState() =>
+      _FamilyFinanceSettingAccountState();
 }
 
-class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
+class _FamilyFinanceSettingAccountState
+    extends State<FamilyFinanceSettingAccount> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -28,7 +30,7 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
         leading: const Icon(
           Icons.arrow_back_ios_new,
           size: 22,
-          color: CoinpayColor.black,
+          color: FamilyFinanceColor.black,
         ),
       ),
       body: SingleChildScrollView(
@@ -41,7 +43,7 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
                 height: height / 26,
               ),
               Image.asset(
-                CoinpayPngimage.settingaccount,
+                FamilyFinancePngimage.settingaccount,
                 width: width / 1,
                 fit: BoxFit.fitHeight,
               ),
@@ -70,12 +72,12 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
                 children: [
                   CircleAvatar(
                     radius: 17,
-                    backgroundColor: CoinpayColor.circle,
+                    backgroundColor: FamilyFinanceColor.circle,
                     child: Text(
                       "1",
                       textAlign: TextAlign.center,
                       style: pmedium.copyWith(
-                          fontSize: 15, color: CoinpayColor.black),
+                          fontSize: 15, color: FamilyFinanceColor.black),
                     ),
                   ),
                   SizedBox(
@@ -91,7 +93,7 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
                   const Icon(
                     Icons.check_circle,
                     size: 22,
-                    color: CoinpayColor.appcolor,
+                    color: FamilyFinanceColor.appcolor,
                   )
                 ],
               ),
@@ -99,18 +101,18 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
                 height: height / 120,
               ),
               const Divider(
-                color: CoinpayColor.bggray,
+                color: FamilyFinanceColor.bggray,
               ),
               SizedBox(
                 height: height / 96,
               ),
               InkWell(
-                splashColor: CoinpayColor.transparent,
-                highlightColor: CoinpayColor.transparent,
+                splashColor: FamilyFinanceColor.transparent,
+                highlightColor: FamilyFinanceColor.transparent,
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return const CoinpayScanId();
+                      return const FamilyFinanceScanId();
                     },
                   ));
                 },
@@ -118,12 +120,12 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
                   children: [
                     CircleAvatar(
                       radius: 17,
-                      backgroundColor: CoinpayColor.circle,
+                      backgroundColor: FamilyFinanceColor.circle,
                       child: Text(
                         "2",
                         textAlign: TextAlign.center,
                         style: pmedium.copyWith(
-                            fontSize: 15, color: CoinpayColor.black),
+                            fontSize: 15, color: FamilyFinanceColor.black),
                       ),
                     ),
                     SizedBox(
@@ -139,7 +141,7 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
                     const Icon(
                       Icons.check_circle,
                       size: 22,
-                      color: CoinpayColor.appcolor,
+                      color: FamilyFinanceColor.appcolor,
                     )
                   ],
                 ),
@@ -148,18 +150,18 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
                 height: height / 120,
               ),
               const Divider(
-                color: CoinpayColor.bggray,
+                color: FamilyFinanceColor.bggray,
               ),
               SizedBox(
                 height: height / 96,
               ),
               InkWell(
-                splashColor: CoinpayColor.transparent,
-                highlightColor: CoinpayColor.transparent,
+                splashColor: FamilyFinanceColor.transparent,
+                highlightColor: FamilyFinanceColor.transparent,
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return const CoinpayVerifyPhoto();
+                      return const FamilyFinanceVerifyPhoto();
                     },
                   ));
                 },
@@ -167,12 +169,12 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
                   children: [
                     CircleAvatar(
                       radius: 17,
-                      backgroundColor: CoinpayColor.circle,
+                      backgroundColor: FamilyFinanceColor.circle,
                       child: Text(
                         "3",
                         textAlign: TextAlign.center,
                         style: pmedium.copyWith(
-                            fontSize: 15, color: CoinpayColor.black),
+                            fontSize: 15, color: FamilyFinanceColor.black),
                       ),
                     ),
                     SizedBox(
@@ -188,7 +190,7 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
                     const Icon(
                       Icons.check_circle,
                       size: 22,
-                      color: CoinpayColor.appcolor,
+                      color: FamilyFinanceColor.appcolor,
                     )
                   ],
                 ),
@@ -197,7 +199,7 @@ class _CoinpaySettingAccountState extends State<CoinpaySettingAccount> {
                 height: height / 120,
               ),
               const Divider(
-                color: CoinpayColor.bggray,
+                color: FamilyFinanceColor.bggray,
               )
             ],
           ),

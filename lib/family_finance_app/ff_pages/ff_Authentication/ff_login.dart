@@ -6,14 +6,14 @@ import '../../ff_dashboard/ff_dashboard.dart';
 import '../../ff_gloabelclass/ff_color.dart';
 import '../../ff_gloabelclass/ff_fontstyle.dart';
 
-class CoinpayLogin extends StatefulWidget {
-  const CoinpayLogin({super.key});
+class FamilyFinanceLogin extends StatefulWidget {
+  const FamilyFinanceLogin({super.key});
 
   @override
-  State<CoinpayLogin> createState() => _CoinpayLoginState();
+  State<FamilyFinanceLogin> createState() => _FamilyFinanceLoginState();
 }
 
-class _CoinpayLoginState extends State<CoinpayLogin> {
+class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -35,7 +35,7 @@ class _CoinpayLoginState extends State<CoinpayLogin> {
         leading: const Icon(
           Icons.arrow_back_ios_new,
           size: 22,
-          color: CoinpayColor.black,
+          color: FamilyFinanceColor.black,
         ),
       ),
       body: Padding(
@@ -55,8 +55,8 @@ class _CoinpayLoginState extends State<CoinpayLogin> {
             ),
             Text(
               "Enter your mobile number to verify your account",
-              style:
-                  pregular.copyWith(fontSize: 12, color: CoinpayColor.textgray),
+              style: pregular.copyWith(
+                  fontSize: 12, color: FamilyFinanceColor.textgray),
             ),
             SizedBox(
               height: height / 36,
@@ -79,9 +79,9 @@ class _CoinpayLoginState extends State<CoinpayLogin> {
                 hintText: "Mobile Number",
                 hintStyle: pmedium,
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: CoinpayColor.bggray)),
+                    borderSide: BorderSide(color: FamilyFinanceColor.bggray)),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: CoinpayColor.bggray),
+                  borderSide: BorderSide(color: FamilyFinanceColor.bggray),
                 ),
               ),
               initialCountryCode: 'IN',
@@ -107,16 +107,18 @@ class _CoinpayLoginState extends State<CoinpayLogin> {
                   Icons.lock_outline,
                   size: 22,
                 ),
-                hintStyle:
-                    pmedium.copyWith(fontSize: 14, color: CoinpayColor.bggray),
+                hintStyle: pmedium.copyWith(
+                    fontSize: 14, color: FamilyFinanceColor.bggray),
                 hintText: "Enter your Password",
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
                 suffixIcon: IconButton(
                   icon: Icon(
@@ -132,16 +134,16 @@ class _CoinpayLoginState extends State<CoinpayLogin> {
             Text(
               "Forgot password?",
               style: psemiBold.copyWith(
-                  fontSize: 12, color: CoinpayColor.appcolor),
+                  fontSize: 12, color: FamilyFinanceColor.appcolor),
             ),
             const Spacer(),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return CoinpayDashboard("0");
+                    return FamilyFinanceDashboard("0");
                   },
                 ));
               },
@@ -149,13 +151,13 @@ class _CoinpayLoginState extends State<CoinpayLogin> {
                 height: height / 15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Center(
                   child: Text(
                     "Login".tr,
                     style: pmedium.copyWith(
-                        fontSize: 14, color: CoinpayColor.white),
+                        fontSize: 14, color: FamilyFinanceColor.white),
                   ),
                 ),
               ),

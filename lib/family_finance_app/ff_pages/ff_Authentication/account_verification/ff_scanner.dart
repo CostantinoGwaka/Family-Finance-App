@@ -4,14 +4,14 @@ import '../../../ff_gloabelclass/ff_color.dart';
 import '../../../ff_gloabelclass/ff_fontstyle.dart';
 import '../../../ff_gloabelclass/ff_icons.dart';
 
-class CoinpayScanner extends StatefulWidget {
-  const CoinpayScanner({super.key});
+class FamilyFinanceScanner extends StatefulWidget {
+  const FamilyFinanceScanner({super.key});
 
   @override
-  State<CoinpayScanner> createState() => _CoinpayScannerState();
+  State<FamilyFinanceScanner> createState() => _FamilyFinanceScannerState();
 }
 
-class _CoinpayScannerState extends State<CoinpayScanner> {
+class _FamilyFinanceScannerState extends State<FamilyFinanceScanner> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -32,7 +32,7 @@ class _CoinpayScannerState extends State<CoinpayScanner> {
         leading: const Icon(
           Icons.arrow_back_ios_new,
           size: 22,
-          color: CoinpayColor.black,
+          color: FamilyFinanceColor.black,
         ),
       ),
       body: SingleChildScrollView(
@@ -47,7 +47,7 @@ class _CoinpayScannerState extends State<CoinpayScanner> {
                 style: pmedium.copyWith(fontSize: 16),
               ),
               Image.asset(
-                CoinpayPngimage.scancard,
+                FamilyFinancePngimage.scancard,
                 width: width / 1,
                 fit: BoxFit.fitHeight,
               ),
@@ -76,8 +76,8 @@ class _CoinpayScannerState extends State<CoinpayScanner> {
                 width: width / 1.5,
                 child: const LinearProgressIndicator(
                   backgroundColor: Colors.black,
-                  valueColor:
-                      AlwaysStoppedAnimation<Color>(CoinpayColor.appcolor),
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                      FamilyFinanceColor.appcolor),
                   value: 0.5,
                   minHeight: 6,
                 ),

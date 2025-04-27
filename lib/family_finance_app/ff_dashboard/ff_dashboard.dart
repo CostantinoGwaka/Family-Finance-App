@@ -11,20 +11,20 @@ import '../ff_pages/ff_spending/ff_spending.dart';
 import '../ff_theme/ff_themecontroller.dart';
 
 // ignore: must_be_immutable
-class CoinpayDashboard extends StatefulWidget {
+class FamilyFinanceDashboard extends StatefulWidget {
   String? index;
-  CoinpayDashboard(this.index, {super.key});
+  FamilyFinanceDashboard(this.index, {super.key});
 
   @override
-  State<CoinpayDashboard> createState() => _CoinpayDashboardState();
+  State<FamilyFinanceDashboard> createState() => _FamilyFinanceDashboardState();
 }
 
-class _CoinpayDashboardState extends State<CoinpayDashboard> {
+class _FamilyFinanceDashboardState extends State<FamilyFinanceDashboard> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
   int selectindex = 0;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
   final PageController pageController = PageController();
 
   void onTappedBar(int value) {
@@ -39,17 +39,17 @@ class _CoinpayDashboardState extends State<CoinpayDashboard> {
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
-    return GetBuilder<CoinpayThemecontroler>(builder: (controler) {
+    return GetBuilder<FamilyFinanceThemecontroler>(builder: (controler) {
       return Scaffold(
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: pageController,
           children: const [
-            CoinpayHome(),
-            CoinpaySpending(),
-            CoinpayScanCode(),
-            CoinpayMesssage(),
-            CoinpayProfile(),
+            FamilyFinanceHome(),
+            FamilyFinanceSpending(),
+            FamilyFinanceScanCode(),
+            FamilyFinanceMesssage(),
+            FamilyFinanceProfile(),
           ],
         ),
         bottomNavigationBar: MediaQuery.of(context).size.width < 640
@@ -60,94 +60,96 @@ class _CoinpayDashboardState extends State<CoinpayDashboard> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: themedata.isdark
-                          ? CoinpayColor.darkblack
-                          : CoinpayColor.white,
+                          ? FamilyFinanceColor.darkblack
+                          : FamilyFinanceColor.white,
                       boxShadow: [
                         BoxShadow(
                             color: themedata.isdark
-                                ? CoinpayColor.transparent
-                                : CoinpayColor.textgray,
+                                ? FamilyFinanceColor.transparent
+                                : FamilyFinanceColor.textgray,
                             blurRadius: 3)
                       ]),
                   child: Padding(
                     padding: const EdgeInsets.all(5),
                     child: BottomNavigationBar(
-                      backgroundColor: CoinpayColor.transparent,
+                      backgroundColor: FamilyFinanceColor.transparent,
                       items: [
                         BottomNavigationBarItem(
                           icon: Image.asset(
-                            CoinpayPngimage.home,
+                            FamilyFinancePngimage.home,
                             height: height / 32,
                             color: themedata.isdark
-                                ? CoinpayColor.white
-                                : CoinpayColor.grey,
+                                ? FamilyFinanceColor.white
+                                : FamilyFinanceColor.grey,
                           ),
                           label: "",
                           activeIcon: Image.asset(
-                            CoinpayPngimage.homefill,
+                            FamilyFinancePngimage.homefill,
                             height: height / 32,
-                            color: CoinpayColor.appcolor,
+                            color: FamilyFinanceColor.appcolor,
                           ),
                         ),
                         BottomNavigationBarItem(
-                          icon: Image.asset(CoinpayPngimage.spending,
+                          icon: Image.asset(FamilyFinancePngimage.spending,
                               height: height / 36,
                               color: themedata.isdark
-                                  ? CoinpayColor.white
-                                  : CoinpayColor.grey),
+                                  ? FamilyFinanceColor.white
+                                  : FamilyFinanceColor.grey),
                           label: "",
-                          activeIcon: Image.asset(CoinpayPngimage.spendingfill,
+                          activeIcon: Image.asset(
+                              FamilyFinancePngimage.spendingfill,
                               height: height / 36,
-                              color: CoinpayColor.appcolor),
+                              color: FamilyFinanceColor.appcolor),
                         ),
                         BottomNavigationBarItem(
                           icon: Container(
                               height: height / 15,
                               width: height / 15,
                               decoration: BoxDecoration(
-                                  color: CoinpayColor.appcolor,
+                                  color: FamilyFinanceColor.appcolor,
                                   borderRadius: BorderRadius.circular(12)),
                               child: Icon(
                                 Icons.document_scanner_outlined,
                                 size: height / 36,
-                                color: CoinpayColor.white,
+                                color: FamilyFinanceColor.white,
                               )),
                           label: "",
                           activeIcon: Container(
                               height: height / 15,
                               width: height / 15,
                               decoration: BoxDecoration(
-                                  color: CoinpayColor.appcolor,
+                                  color: FamilyFinanceColor.appcolor,
                                   borderRadius: BorderRadius.circular(10)),
                               child: Icon(
                                 Icons.document_scanner_outlined,
                                 size: height / 36,
-                                color: CoinpayColor.white,
+                                color: FamilyFinanceColor.white,
                               )),
                         ),
                         BottomNavigationBarItem(
                           icon: Image.asset(
-                            CoinpayPngimage.msg,
+                            FamilyFinancePngimage.msg,
                             height: height / 32,
                             color: themedata.isdark
-                                ? CoinpayColor.white
-                                : CoinpayColor.grey,
+                                ? FamilyFinanceColor.white
+                                : FamilyFinanceColor.grey,
                           ),
                           label: "",
-                          activeIcon: Image.asset(CoinpayPngimage.msgfill,
+                          activeIcon: Image.asset(FamilyFinancePngimage.msgfill,
                               height: height / 32,
-                              color: CoinpayColor.appcolor),
+                              color: FamilyFinanceColor.appcolor),
                         ),
                         BottomNavigationBarItem(
-                          icon: Image.asset(CoinpayPngimage.profile,
+                          icon: Image.asset(FamilyFinancePngimage.profile,
                               height: height / 36,
                               color: themedata.isdark
-                                  ? CoinpayColor.white
-                                  : CoinpayColor.grey),
+                                  ? FamilyFinanceColor.white
+                                  : FamilyFinanceColor.grey),
                           label: "",
-                          activeIcon: Image.asset(CoinpayPngimage.profilefill,
+                          activeIcon: Image.asset(
+                              FamilyFinancePngimage.profilefill,
                               height: height / 36,
-                              color: CoinpayColor.appcolor),
+                              color: FamilyFinanceColor.appcolor),
                         ),
                       ],
                       onTap: onTappedBar,

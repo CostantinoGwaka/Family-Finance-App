@@ -4,11 +4,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../ff_gloabelclass/ff_prefsname.dart';
 import 'ff_theme.dart';
 
-class CoinpayThemecontroler extends GetxController {
+class FamilyFinanceThemecontroler extends GetxController {
   @override
   void onInit() {
     SharedPreferences.getInstance().then((value) {
-      isdark = value.getBool(coinpayDarkMode)!;
+      isdark = value.getBool(FamilyFinanceDarkMode)!;
     });
     update();
     super.onInit();
@@ -17,14 +17,14 @@ class CoinpayThemecontroler extends GetxController {
   var isdark = false;
   Future<void> changeThem(state) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    isdark = prefs.getBool(coinpayDarkMode) ?? true;
+    isdark = prefs.getBool(FamilyFinanceDarkMode) ?? true;
     isdark = !isdark;
 
     if (state == true) {
-      Get.changeTheme(CoinpayMythemes.darkTheme);
+      Get.changeTheme(FamilyFinanceMythemes.darkTheme);
       isdark = true;
     } else {
-      Get.changeTheme(CoinpayMythemes.lightTheme);
+      Get.changeTheme(FamilyFinanceMythemes.lightTheme);
       isdark = false;
     }
     update();

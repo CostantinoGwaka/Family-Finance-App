@@ -4,14 +4,15 @@ import '../../../ff_gloabelclass/ff_color.dart';
 import '../../../ff_gloabelclass/ff_fontstyle.dart';
 import '../../../ff_gloabelclass/ff_icons.dart';
 
-class CoinpayVerifyPhoto extends StatefulWidget {
-  const CoinpayVerifyPhoto({super.key});
+class FamilyFinanceVerifyPhoto extends StatefulWidget {
+  const FamilyFinanceVerifyPhoto({super.key});
 
   @override
-  State<CoinpayVerifyPhoto> createState() => _CoinpayVerifyPhotoState();
+  State<FamilyFinanceVerifyPhoto> createState() =>
+      _FamilyFinanceVerifyPhotoState();
 }
 
-class _CoinpayVerifyPhotoState extends State<CoinpayVerifyPhoto> {
+class _FamilyFinanceVerifyPhotoState extends State<FamilyFinanceVerifyPhoto> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -27,7 +28,7 @@ class _CoinpayVerifyPhotoState extends State<CoinpayVerifyPhoto> {
         leading: const Icon(
           Icons.arrow_back_ios_new,
           size: 22,
-          color: CoinpayColor.black,
+          color: FamilyFinanceColor.black,
         ),
       ),
       body: SingleChildScrollView(
@@ -37,7 +38,7 @@ class _CoinpayVerifyPhotoState extends State<CoinpayVerifyPhoto> {
           child: Column(
             children: [
               Image.asset(
-                CoinpayPngimage.verifyphoto,
+                FamilyFinancePngimage.verifyphoto,
                 width: width / 1,
                 fit: BoxFit.fitHeight,
               ),
@@ -64,11 +65,11 @@ class _CoinpayVerifyPhotoState extends State<CoinpayVerifyPhoto> {
               ),
               const CircleAvatar(
                   radius: 28,
-                  backgroundColor: CoinpayColor.appcolor,
+                  backgroundColor: FamilyFinanceColor.appcolor,
                   child: Icon(
                     Icons.camera_alt_outlined,
                     size: 25,
-                    color: CoinpayColor.white,
+                    color: FamilyFinanceColor.white,
                   )),
               SizedBox(
                 height: height / 96,

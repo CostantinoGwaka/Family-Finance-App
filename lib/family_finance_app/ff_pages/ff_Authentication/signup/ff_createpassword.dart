@@ -4,14 +4,16 @@ import 'package:flutter/services.dart';
 import '../../../ff_gloabelclass/ff_color.dart';
 import '../../../ff_gloabelclass/ff_fontstyle.dart';
 
-class CoinpayCreatePassword extends StatefulWidget {
-  const CoinpayCreatePassword({super.key});
+class FamilyFinanceCreatePassword extends StatefulWidget {
+  const FamilyFinanceCreatePassword({super.key});
 
   @override
-  State<CoinpayCreatePassword> createState() => _CoinpayCreatePasswordState();
+  State<FamilyFinanceCreatePassword> createState() =>
+      _FamilyFinanceCreatePasswordState();
 }
 
-class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
+class _FamilyFinanceCreatePasswordState
+    extends State<FamilyFinanceCreatePassword> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -24,8 +26,8 @@ class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -48,8 +50,8 @@ class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
             ),
             Text(
               "This info needs to be accurate with your ID\ndocument",
-              style:
-                  pregular.copyWith(fontSize: 12, color: CoinpayColor.textgray),
+              style: pregular.copyWith(
+                  fontSize: 12, color: FamilyFinanceColor.textgray),
             ),
             SizedBox(
               height: height / 36,
@@ -73,7 +75,7 @@ class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
                         },
                         onSaved: (pin1) {},
                         decoration: InputDecoration(
-                            fillColor: CoinpayColor.bggray,
+                            fillColor: FamilyFinanceColor.bggray,
                             filled: true,
                             border: OutlineInputBorder(
                               borderSide: BorderSide.none,
@@ -81,13 +83,13 @@ class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
-                                  color: CoinpayColor.appcolor),
+                                  color: FamilyFinanceColor.appcolor),
                               borderRadius: BorderRadius.circular(24),
                             )),
                         //  style: Theme.of(context).textTheme.headline6,
                         style: psemiBold.copyWith(
-                            fontSize: 24, color: CoinpayColor.appcolor),
-                        cursorColor: CoinpayColor.black,
+                            fontSize: 24, color: FamilyFinanceColor.appcolor),
+                        cursorColor: FamilyFinanceColor.black,
                         keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
                         inputFormatters: [
@@ -108,7 +110,7 @@ class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
                         },
                         onSaved: (pin2) {},
                         decoration: InputDecoration(
-                            fillColor: CoinpayColor.bggray,
+                            fillColor: FamilyFinanceColor.bggray,
                             filled: true,
                             border: OutlineInputBorder(
                               borderSide: BorderSide.none,
@@ -116,13 +118,13 @@ class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
-                                  color: CoinpayColor.appcolor),
+                                  color: FamilyFinanceColor.appcolor),
                               borderRadius: BorderRadius.circular(24),
                             )),
                         //  style: Theme.of(context).textTheme.headline6,
                         style: psemiBold.copyWith(
-                            fontSize: 24, color: CoinpayColor.appcolor),
-                        cursorColor: CoinpayColor.black,
+                            fontSize: 24, color: FamilyFinanceColor.appcolor),
+                        cursorColor: FamilyFinanceColor.black,
                         keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
                         inputFormatters: [
@@ -143,7 +145,7 @@ class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
                         },
                         onSaved: (pin3) {},
                         decoration: InputDecoration(
-                            fillColor: CoinpayColor.bggray,
+                            fillColor: FamilyFinanceColor.bggray,
                             filled: true,
                             border: OutlineInputBorder(
                               borderSide: BorderSide.none,
@@ -151,13 +153,13 @@ class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
-                                  color: CoinpayColor.appcolor),
+                                  color: FamilyFinanceColor.appcolor),
                               borderRadius: BorderRadius.circular(24),
                             )),
                         //  style: Theme.of(context).textTheme.headline6,
                         style: psemiBold.copyWith(
-                            fontSize: 24, color: CoinpayColor.appcolor),
-                        cursorColor: CoinpayColor.black,
+                            fontSize: 24, color: FamilyFinanceColor.appcolor),
+                        cursorColor: FamilyFinanceColor.black,
                         keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
                         inputFormatters: [
@@ -178,7 +180,7 @@ class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
                         },
                         onSaved: (pin4) {},
                         decoration: InputDecoration(
-                            fillColor: CoinpayColor.bggray,
+                            fillColor: FamilyFinanceColor.bggray,
                             filled: true,
                             border: OutlineInputBorder(
                               borderSide: BorderSide.none,
@@ -186,13 +188,13 @@ class _CoinpayCreatePasswordState extends State<CoinpayCreatePassword> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
-                                  color: CoinpayColor.appcolor),
+                                  color: FamilyFinanceColor.appcolor),
                               borderRadius: BorderRadius.circular(24),
                             )),
                         //  style: Theme.of(context).textTheme.headline6,
                         style: psemiBold.copyWith(
-                            fontSize: 24, color: CoinpayColor.appcolor),
-                        cursorColor: CoinpayColor.black,
+                            fontSize: 24, color: FamilyFinanceColor.appcolor),
+                        cursorColor: FamilyFinanceColor.black,
                         keyboardType: TextInputType.number,
                         textAlign: TextAlign.center,
                         inputFormatters: [

@@ -75,8 +75,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - Assets/coinpay_assets/coinpay_pngimage/
-    - Assets/coinpay_assets/coinpay_svgimage/
+    - Assets/ff_assets/ff_pngimage/
+    - Assets/ff_assets/ff_svgimage/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -97,16 +97,16 @@ flutter:
   fonts:
     - family: PoppinsBold
       fonts:
-        - asset: Assets/coinpay_assets/coinpay_fonts/Poppins-Bold.ttf
+        - asset: Assets/ff_assets/ff_fonts/Poppins-Bold.ttf
     - family: PoppinsMedium
       fonts:
-        - asset: Assets/coinpay_assets/coinpay_fonts/Poppins-Medium.ttf
+        - asset: Assets/ff_assets/ff_fonts/Poppins-Medium.ttf
     - family: PoppinsRegular
       fonts:
-        - asset: Assets/coinpay_assets/coinpay_fonts/Poppins-Regular.ttf
+        - asset: Assets/ff_assets/ff_fonts/Poppins-Regular.ttf
     - family: PoppinsSemiBold
       fonts:
-        - asset: Assets/coinpay_assets/coinpay_fonts/Poppins-SemiBold.ttf
+        - asset: Assets/ff_assets/ff_fonts/Poppins-SemiBold.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

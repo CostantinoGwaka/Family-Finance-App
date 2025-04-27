@@ -5,39 +5,42 @@ import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontrolle
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CoinpaySpending extends StatefulWidget {
-  const CoinpaySpending({super.key});
+class FamilyFinanceSpending extends StatefulWidget {
+  const FamilyFinanceSpending({super.key});
 
   @override
-  State<CoinpaySpending> createState() => _CoinpaySpendingState();
+  State<FamilyFinanceSpending> createState() => _FamilyFinanceSpendingState();
 }
 
-class _CoinpaySpendingState extends State<CoinpaySpending> {
+class _FamilyFinanceSpendingState extends State<FamilyFinanceSpending> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
   int selected = 0;
   List<String> category = ["Spending", "Income", "Bills", "Saving"];
   List<String> spendinglist = ["Netflix", "Google"];
-  List<String> spendingimg = [CoinpayPngimage.netflix, CoinpayPngimage.google];
+  List<String> spendingimg = [
+    FamilyFinancePngimage.netflix,
+    FamilyFinancePngimage.google
+  ];
   List<String> categoryimg = [
-    CoinpayPngimage.creditcard,
-    CoinpayPngimage.incomeimg,
-    CoinpayPngimage.bills,
-    CoinpayPngimage.moneybag
+    FamilyFinancePngimage.creditcard,
+    FamilyFinancePngimage.incomeimg,
+    FamilyFinancePngimage.bills,
+    FamilyFinancePngimage.moneybag
   ];
   List<Color> categorycolor = [
-    CoinpayColor.appcolor,
-    CoinpayColor.green,
-    CoinpayColor.orenge,
-    CoinpayColor.red
+    FamilyFinanceColor.appcolor,
+    FamilyFinanceColor.green,
+    FamilyFinanceColor.orenge,
+    FamilyFinanceColor.red
   ];
   List<Color> lightcolor = [
-    CoinpayColor.lightappcolor,
-    CoinpayColor.lightgreen,
-    CoinpayColor.lightorenge,
-    CoinpayColor.lightred
+    FamilyFinanceColor.lightappcolor,
+    FamilyFinanceColor.lightgreen,
+    FamilyFinanceColor.lightorenge,
+    FamilyFinanceColor.lightred
   ];
   @override
   Widget build(BuildContext context) {
@@ -65,7 +68,7 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                 width: width / 3,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: CoinpayColor.lightpurple),
+                    color: FamilyFinanceColor.lightpurple),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: width / 26),
                   child: Row(
@@ -74,13 +77,13 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                       Text(
                         "January".tr,
                         style: pmedium.copyWith(
-                            fontSize: 14, color: CoinpayColor.black),
+                            fontSize: 14, color: FamilyFinanceColor.black),
                       ),
                       SizedBox(
                         width: width / 36,
                       ),
                       const Icon(Icons.keyboard_arrow_down,
-                          size: 20, color: CoinpayColor.black)
+                          size: 20, color: FamilyFinanceColor.black)
                     ],
                   ),
                 ),
@@ -95,7 +98,7 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                     width: width / 2.3,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: CoinpayColor.appcolor),
+                        color: FamilyFinanceColor.appcolor),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: width / 26, vertical: height / 36),
@@ -106,9 +109,9 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Image.asset(
-                                CoinpayPngimage.creditcard,
+                                FamilyFinancePngimage.creditcard,
                                 height: height / 46,
-                                color: CoinpayColor.white,
+                                color: FamilyFinanceColor.white,
                               ),
                               SizedBox(
                                 width: width / 66,
@@ -116,14 +119,15 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                               Text(
                                 "Total_Spend".tr,
                                 style: pregular.copyWith(
-                                    fontSize: 12, color: CoinpayColor.white),
+                                    fontSize: 12,
+                                    color: FamilyFinanceColor.white),
                               ),
                             ],
                           ),
                           Text(
                             "\$500.00".tr,
                             style: pbold.copyWith(
-                                fontSize: 25, color: CoinpayColor.white),
+                                fontSize: 25, color: FamilyFinanceColor.white),
                           ),
                         ],
                       ),
@@ -133,7 +137,7 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                     width: width / 2.2,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: CoinpayColor.yellow),
+                        color: FamilyFinanceColor.yellow),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: width / 26, vertical: height / 36),
@@ -144,9 +148,9 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Image.asset(
-                                CoinpayPngimage.creditcard,
+                                FamilyFinancePngimage.creditcard,
                                 height: height / 46,
-                                color: CoinpayColor.black,
+                                color: FamilyFinanceColor.black,
                               ),
                               SizedBox(
                                 width: width / 66,
@@ -154,14 +158,15 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                               Text(
                                 "Available_Balance".tr,
                                 style: pregular.copyWith(
-                                    fontSize: 12, color: CoinpayColor.black),
+                                    fontSize: 12,
+                                    color: FamilyFinanceColor.black),
                               ),
                             ],
                           ),
                           Text(
                             "\$2000.00".tr,
                             style: pbold.copyWith(
-                                fontSize: 25, color: CoinpayColor.black),
+                                fontSize: 25, color: FamilyFinanceColor.black),
                           ),
                         ],
                       ),
@@ -176,18 +181,18 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: themedata.isdark
-                        ? CoinpayColor.darkblack
-                        : CoinpayColor.white,
+                        ? FamilyFinanceColor.darkblack
+                        : FamilyFinanceColor.white,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 5,
                         color: themedata.isdark
-                            ? CoinpayColor.transparent
-                            : CoinpayColor.bggray,
+                            ? FamilyFinanceColor.transparent
+                            : FamilyFinanceColor.bggray,
                       )
                     ]),
                 child: Image.asset(
-                  CoinpayPngimage.spendingchat,
+                  FamilyFinancePngimage.spendingchat,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -200,14 +205,14 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: themedata.isdark
-                          ? CoinpayColor.darkblack
-                          : CoinpayColor.white,
+                          ? FamilyFinanceColor.darkblack
+                          : FamilyFinanceColor.white,
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 5,
                           color: themedata.isdark
-                              ? CoinpayColor.transparent
-                              : CoinpayColor.bggray,
+                              ? FamilyFinanceColor.transparent
+                              : FamilyFinanceColor.bggray,
                         )
                       ]),
                   child: ListView.builder(
@@ -222,8 +227,8 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             InkWell(
-                              splashColor: CoinpayColor.transparent,
-                              highlightColor: CoinpayColor.transparent,
+                              splashColor: FamilyFinanceColor.transparent,
+                              highlightColor: FamilyFinanceColor.transparent,
                               onTap: () {
                                 setState(() {
                                   selected = index;
@@ -250,7 +255,7 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                                         fontSize: 12,
                                         color: selected == index
                                             ? categorycolor[index]
-                                            : CoinpayColor.grey),
+                                            : FamilyFinanceColor.grey),
                                   ),
                                   if (selected == index) ...[
                                     SizedBox(
@@ -280,7 +285,8 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                       "Spending_list".tr,
                       style: psemiBold.copyWith(fontSize: 18),
                     ),
-                    Image.asset(CoinpayPngimage.filter, height: height / 32),
+                    Image.asset(FamilyFinancePngimage.filter,
+                        height: height / 32),
                   ],
                 ),
                 SizedBox(
@@ -298,7 +304,7 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                             height: height / 96,
                           ),
                           const Divider(
-                            color: CoinpayColor.bggray,
+                            color: FamilyFinanceColor.bggray,
                           ),
                           SizedBox(
                             height: height / 96,
@@ -315,7 +321,7 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                       children: [
                         CircleAvatar(
                           radius: 25,
-                          backgroundColor: CoinpayColor.white,
+                          backgroundColor: FamilyFinanceColor.white,
                           backgroundImage: AssetImage(spendingimg[index]),
                         ),
                         SizedBox(
@@ -338,7 +344,7 @@ class _CoinpaySpendingState extends State<CoinpaySpending> {
                         Text(
                           "-\$15.99",
                           style: psemiBold.copyWith(
-                              fontSize: 14, color: CoinpayColor.red),
+                              fontSize: 14, color: FamilyFinanceColor.red),
                         ),
                       ],
                     );

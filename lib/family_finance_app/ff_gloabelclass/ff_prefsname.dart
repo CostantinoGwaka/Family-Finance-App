@@ -1,1 +1,1 @@
-const coinpayDarkMode = "isdark";
+const FamilyFinanceDarkMode = "isdark";

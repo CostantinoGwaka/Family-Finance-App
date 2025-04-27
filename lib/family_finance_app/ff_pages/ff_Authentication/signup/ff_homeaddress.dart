@@ -5,14 +5,15 @@ import '../../../ff_gloabelclass/ff_color.dart';
 import '../../../ff_gloabelclass/ff_fontstyle.dart';
 import 'ff_addPersonalinfo.dart';
 
-class CoinpayHomeaddress extends StatefulWidget {
-  const CoinpayHomeaddress({super.key});
+class FamilyFinanceHomeaddress extends StatefulWidget {
+  const FamilyFinanceHomeaddress({super.key});
 
   @override
-  State<CoinpayHomeaddress> createState() => _CoinpayHomeaddressState();
+  State<FamilyFinanceHomeaddress> createState() =>
+      _FamilyFinanceHomeaddressState();
 }
 
-class _CoinpayHomeaddressState extends State<CoinpayHomeaddress> {
+class _FamilyFinanceHomeaddressState extends State<FamilyFinanceHomeaddress> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
@@ -25,8 +26,8 @@ class _CoinpayHomeaddressState extends State<CoinpayHomeaddress> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: InkWell(
-            splashColor: CoinpayColor.transparent,
-            highlightColor: CoinpayColor.transparent,
+            splashColor: FamilyFinanceColor.transparent,
+            highlightColor: FamilyFinanceColor.transparent,
             onTap: () {
               Navigator.pop(context);
             },
@@ -49,8 +50,8 @@ class _CoinpayHomeaddressState extends State<CoinpayHomeaddress> {
             ),
             Text(
               "This info needs to be accurate with your ID\ndocument",
-              style:
-                  pregular.copyWith(fontSize: 12, color: CoinpayColor.textgray),
+              style: pregular.copyWith(
+                  fontSize: 12, color: FamilyFinanceColor.textgray),
             ),
             SizedBox(
               height: height / 36,
@@ -67,16 +68,18 @@ class _CoinpayHomeaddressState extends State<CoinpayHomeaddress> {
             TextField(
               style: pmedium.copyWith(fontSize: 14),
               decoration: InputDecoration(
-                hintStyle:
-                    pmedium.copyWith(fontSize: 14, color: CoinpayColor.bggray),
+                hintStyle: pmedium.copyWith(
+                    fontSize: 14, color: FamilyFinanceColor.bggray),
                 hintText: "Mr.Jhon Doe",
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
               ),
             ),
@@ -95,16 +98,18 @@ class _CoinpayHomeaddressState extends State<CoinpayHomeaddress> {
             TextField(
               style: pmedium.copyWith(fontSize: 14),
               decoration: InputDecoration(
-                hintStyle:
-                    pmedium.copyWith(fontSize: 14, color: CoinpayColor.bggray),
+                hintStyle: pmedium.copyWith(
+                    fontSize: 14, color: FamilyFinanceColor.bggray),
                 hintText: "City,State",
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
               ),
             ),
@@ -123,27 +128,29 @@ class _CoinpayHomeaddressState extends State<CoinpayHomeaddress> {
             TextField(
               style: pmedium.copyWith(fontSize: 14),
               decoration: InputDecoration(
-                hintStyle:
-                    pmedium.copyWith(fontSize: 14, color: CoinpayColor.bggray),
+                hintStyle: pmedium.copyWith(
+                    fontSize: 14, color: FamilyFinanceColor.bggray),
                 hintText: "Ex:00000",
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: CoinpayColor.bggray),
+                  borderSide:
+                      const BorderSide(color: FamilyFinanceColor.bggray),
                 ),
               ),
             ),
             const Spacer(),
             InkWell(
-              splashColor: CoinpayColor.transparent,
-              highlightColor: CoinpayColor.transparent,
+              splashColor: FamilyFinanceColor.transparent,
+              highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return const CoinpayAddPersonalInfo();
+                    return const FamilyFinanceAddPersonalInfo();
                   },
                 ));
               },
@@ -151,13 +158,13 @@ class _CoinpayHomeaddressState extends State<CoinpayHomeaddress> {
                 height: height / 15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: CoinpayColor.appcolor,
+                  color: FamilyFinanceColor.appcolor,
                 ),
                 child: Center(
                   child: Text(
                     "Continue".tr,
                     style: pmedium.copyWith(
-                        fontSize: 14, color: CoinpayColor.white),
+                        fontSize: 14, color: FamilyFinanceColor.white),
                   ),
                 ),
               ),

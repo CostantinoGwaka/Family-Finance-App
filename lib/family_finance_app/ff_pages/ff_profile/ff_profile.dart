@@ -6,24 +6,24 @@ import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontrolle
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CoinpayProfile extends StatefulWidget {
-  const CoinpayProfile({super.key});
+class FamilyFinanceProfile extends StatefulWidget {
+  const FamilyFinanceProfile({super.key});
 
   @override
-  State<CoinpayProfile> createState() => _CoinpayProfileState();
+  State<FamilyFinanceProfile> createState() => _FamilyFinanceProfileState();
 }
 
-class _CoinpayProfileState extends State<CoinpayProfile> {
+class _FamilyFinanceProfileState extends State<FamilyFinanceProfile> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
-  final themedata = Get.put(CoinpayThemecontroler());
+  final themedata = Get.put(FamilyFinanceThemecontroler());
   bool isdark = true;
   Future<bool> onbackpressed() async {
     return await showDialog(
         builder: (context) => AlertDialog(
               title: Center(
-                child: Text("Coinpay_Fintech_Finance".tr,
+                child: Text("FamilyFinance_Fintech_Finance".tr,
                     textAlign: TextAlign.end,
                     style: pbold.copyWith(fontSize: 16)),
               ),
@@ -36,22 +36,23 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
               actions: [
                 ElevatedButton(
                   onPressed: () async {
-                    Get.to(() => const CoinpayLogin());
+                    Get.to(() => const FamilyFinanceLogin());
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: CoinpayColor.appcolor),
+                      backgroundColor: FamilyFinanceColor.appcolor),
                   child: Text("Yes",
-                      style: pregular.copyWith(color: CoinpayColor.white)),
+                      style:
+                          pregular.copyWith(color: FamilyFinanceColor.white)),
                 ),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: CoinpayColor.appcolor),
+                        backgroundColor: FamilyFinanceColor.appcolor),
                     onPressed: () {
                       Get.back();
                     },
                     child: Text(
                       "No",
-                      style: pregular.copyWith(color: CoinpayColor.white),
+                      style: pregular.copyWith(color: FamilyFinanceColor.white),
                     )),
               ],
             ),
@@ -82,14 +83,14 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: themedata.isdark
-                        ? CoinpayColor.darkblack
-                        : CoinpayColor.white,
+                        ? FamilyFinanceColor.darkblack
+                        : FamilyFinanceColor.white,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 5,
                         color: themedata.isdark
-                            ? CoinpayColor.transparent
-                            : CoinpayColor.bggray,
+                            ? FamilyFinanceColor.transparent
+                            : FamilyFinanceColor.bggray,
                       )
                     ]),
                 child: Padding(
@@ -102,9 +103,9 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Image.asset(
-                            CoinpayPngimage.editsqure,
+                            FamilyFinancePngimage.editsqure,
                             height: height / 46,
-                            color: CoinpayColor.grey,
+                            color: FamilyFinanceColor.grey,
                           ),
                         ],
                       ),
@@ -113,7 +114,7 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                           CircleAvatar(
                             radius: 35,
                             backgroundImage:
-                                AssetImage(CoinpayPngimage.profilephoto),
+                                AssetImage(FamilyFinancePngimage.profilephoto),
                           ),
                           const Positioned(
                               top: 10,
@@ -124,7 +125,7 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                                   child: Icon(
                                 Icons.camera_alt_outlined,
                                 size: 25,
-                                color: CoinpayColor.grey,
+                                color: FamilyFinanceColor.grey,
                               )))
                         ],
                       ),
@@ -154,14 +155,14 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: themedata.isdark
-                        ? CoinpayColor.darkblack
-                        : CoinpayColor.white,
+                        ? FamilyFinanceColor.darkblack
+                        : FamilyFinanceColor.white,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 5,
                         color: themedata.isdark
-                            ? CoinpayColor.transparent
-                            : CoinpayColor.bggray,
+                            ? FamilyFinanceColor.transparent
+                            : FamilyFinanceColor.bggray,
                       )
                     ]),
                 child: Padding(
@@ -174,12 +175,12 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                           CircleAvatar(
                             radius: 22,
                             backgroundColor: themedata.isdark
-                                ? CoinpayColor.circle
-                                : CoinpayColor.lightblack,
+                                ? FamilyFinanceColor.circle
+                                : FamilyFinanceColor.lightblack,
                             child: Image.asset(
-                              CoinpayPngimage.darkmode,
+                              FamilyFinancePngimage.darkmode,
                               height: height / 46,
-                              color: CoinpayColor.black,
+                              color: FamilyFinanceColor.black,
                             ),
                           ),
                           SizedBox(width: width / 26),
@@ -191,7 +192,7 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                           SizedBox(
                             height: height / 36,
                             child: Switch(
-                              activeColor: CoinpayColor.appcolor,
+                              activeColor: FamilyFinanceColor.appcolor,
                               onChanged: (state) {
                                 setState(() {
                                   themedata.changeThem(state);
@@ -207,7 +208,7 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                       SizedBox(
                         height: height / 150,
                       ),
-                      const Divider(color: CoinpayColor.grey),
+                      const Divider(color: FamilyFinanceColor.grey),
                       SizedBox(
                         height: height / 150,
                       ),
@@ -215,11 +216,11 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                         children: [
                           CircleAvatar(
                             radius: 22,
-                            backgroundColor: CoinpayColor.lightappcolor,
+                            backgroundColor: FamilyFinanceColor.lightappcolor,
                             child: Image.asset(
-                              CoinpayPngimage.profilefill,
+                              FamilyFinancePngimage.profilefill,
                               height: height / 46,
-                              color: CoinpayColor.appcolor,
+                              color: FamilyFinanceColor.appcolor,
                             ),
                           ),
                           SizedBox(width: width / 26),
@@ -237,7 +238,7 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                       SizedBox(
                         height: height / 150,
                       ),
-                      const Divider(color: CoinpayColor.grey),
+                      const Divider(color: FamilyFinanceColor.grey),
                       SizedBox(
                         height: height / 150,
                       ),
@@ -245,11 +246,11 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                         children: [
                           CircleAvatar(
                             radius: 22,
-                            backgroundColor: CoinpayColor.lightorenge,
+                            backgroundColor: FamilyFinanceColor.lightorenge,
                             child: Image.asset(
-                              CoinpayPngimage.bank,
+                              FamilyFinancePngimage.bank,
                               height: height / 46,
-                              color: CoinpayColor.orenge,
+                              color: FamilyFinanceColor.orenge,
                             ),
                           ),
                           SizedBox(width: width / 26),
@@ -267,7 +268,7 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                       SizedBox(
                         height: height / 150,
                       ),
-                      const Divider(color: CoinpayColor.grey),
+                      const Divider(color: FamilyFinanceColor.grey),
                       SizedBox(
                         height: height / 150,
                       ),
@@ -275,11 +276,11 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                         children: [
                           CircleAvatar(
                             radius: 22,
-                            backgroundColor: CoinpayColor.lightred,
+                            backgroundColor: FamilyFinanceColor.lightred,
                             child: Image.asset(
-                              CoinpayPngimage.translation,
+                              FamilyFinancePngimage.translation,
                               height: height / 46,
-                              color: CoinpayColor.red,
+                              color: FamilyFinanceColor.red,
                             ),
                           ),
                           SizedBox(width: width / 26),
@@ -297,7 +298,7 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                       SizedBox(
                         height: height / 150,
                       ),
-                      const Divider(color: CoinpayColor.grey),
+                      const Divider(color: FamilyFinanceColor.grey),
                       SizedBox(
                         height: height / 150,
                       ),
@@ -305,11 +306,11 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                         children: [
                           CircleAvatar(
                             radius: 22,
-                            backgroundColor: CoinpayColor.lightappcolor,
+                            backgroundColor: FamilyFinanceColor.lightappcolor,
                             child: Image.asset(
-                              CoinpayPngimage.settings,
+                              FamilyFinancePngimage.settings,
                               height: height / 36,
-                              color: CoinpayColor.appcolor,
+                              color: FamilyFinanceColor.appcolor,
                             ),
                           ),
                           SizedBox(width: width / 26),
@@ -327,7 +328,7 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                       SizedBox(
                         height: height / 150,
                       ),
-                      const Divider(color: CoinpayColor.grey),
+                      const Divider(color: FamilyFinanceColor.grey),
                       SizedBox(
                         height: height / 150,
                       ),
@@ -335,11 +336,11 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                         children: [
                           CircleAvatar(
                             radius: 20,
-                            backgroundColor: CoinpayColor.lightgreencolor,
+                            backgroundColor: FamilyFinanceColor.lightgreencolor,
                             child: Image.asset(
-                              CoinpayPngimage.dataprivacy,
+                              FamilyFinancePngimage.dataprivacy,
                               height: height / 36,
-                              color: CoinpayColor.green,
+                              color: FamilyFinanceColor.green,
                             ),
                           ),
                           SizedBox(width: width / 26),
@@ -357,13 +358,13 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                       SizedBox(
                         height: height / 150,
                       ),
-                      const Divider(color: CoinpayColor.grey),
+                      const Divider(color: FamilyFinanceColor.grey),
                       SizedBox(
                         height: height / 150,
                       ),
                       InkWell(
-                        splashColor: CoinpayColor.transparent,
-                        highlightColor: CoinpayColor.transparent,
+                        splashColor: FamilyFinanceColor.transparent,
+                        highlightColor: FamilyFinanceColor.transparent,
                         onTap: () {
                           _showbottomsheet();
                         },
@@ -371,11 +372,11 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                           children: [
                             CircleAvatar(
                               radius: 20,
-                              backgroundColor: CoinpayColor.lightorenge,
+                              backgroundColor: FamilyFinanceColor.lightorenge,
                               child: Image.asset(
-                                CoinpayPngimage.swap,
+                                FamilyFinancePngimage.swap,
                                 height: height / 26,
-                                color: CoinpayColor.orenge,
+                                color: FamilyFinanceColor.orenge,
                               ),
                             ),
                             SizedBox(width: width / 26),
@@ -394,13 +395,13 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                       SizedBox(
                         height: height / 150,
                       ),
-                      const Divider(color: CoinpayColor.grey),
+                      const Divider(color: FamilyFinanceColor.grey),
                       SizedBox(
                         height: height / 150,
                       ),
                       InkWell(
-                        splashColor: CoinpayColor.transparent,
-                        highlightColor: CoinpayColor.transparent,
+                        splashColor: FamilyFinanceColor.transparent,
+                        highlightColor: FamilyFinanceColor.transparent,
                         onTap: () {
                           onbackpressed();
                         },
@@ -408,11 +409,11 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                           children: [
                             CircleAvatar(
                               radius: 20,
-                              backgroundColor: CoinpayColor.lightred,
+                              backgroundColor: FamilyFinanceColor.lightred,
                               child: Image.asset(
-                                CoinpayPngimage.logout,
+                                FamilyFinancePngimage.logout,
                                 height: height / 46,
-                                color: CoinpayColor.red,
+                                color: FamilyFinanceColor.red,
                               ),
                             ),
                             SizedBox(width: width / 26),
@@ -467,8 +468,8 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                   SizedBox(
                     height: height / 26,
                     child: InkWell(
-                      highlightColor: CoinpayColor.transparent,
-                      splashColor: CoinpayColor.transparent,
+                      highlightColor: FamilyFinanceColor.transparent,
+                      splashColor: FamilyFinanceColor.transparent,
                       onTap: () async {
                         await Get.updateLocale(const Locale('en', 'US'));
                         // ignore: use_build_context_synchronously
@@ -491,8 +492,8 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                   SizedBox(
                     height: height / 26,
                     child: InkWell(
-                      highlightColor: CoinpayColor.transparent,
-                      splashColor: CoinpayColor.transparent,
+                      highlightColor: FamilyFinanceColor.transparent,
+                      splashColor: FamilyFinanceColor.transparent,
                       onTap: () async {
                         await Get.updateLocale(const Locale('ar', 'ab'));
                         // ignore: use_build_context_synchronously
@@ -515,8 +516,8 @@ class _CoinpayProfileState extends State<CoinpayProfile> {
                   SizedBox(
                     height: height / 26,
                     child: InkWell(
-                      highlightColor: CoinpayColor.transparent,
-                      splashColor: CoinpayColor.transparent,
+                      highlightColor: FamilyFinanceColor.transparent,
+                      splashColor: FamilyFinanceColor.transparent,
                       onTap: () async {
                         Navigator.of(context).pop();
                       },

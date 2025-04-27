@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CoinpayColor{
+class FamilyFinanceColor {
   static const grey = Colors.grey;
   static const white = Colors.white;
   static const black = Colors.black;
