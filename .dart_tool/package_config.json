@@ -674,13 +674,13 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "coinpay_fintech_finance_app",
+      "name": "family_finance_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-04-25T21:56:56.483550Z",
+  "generated": "2025-04-27T08:05:56.459449Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///C:/dev/flutter",

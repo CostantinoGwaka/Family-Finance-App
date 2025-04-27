@@ -1,4 +1,4 @@
-package com.example.coinpay_fintech_finance_app;
+package com.isofttz.family_finance_app;
 
 import io.flutter.embedding.android.FlutterActivity;
 

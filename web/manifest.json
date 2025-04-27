@@ -1,6 +1,6 @@
 {
-    "name": "coinpay_fintech_finance_app",
-    "short_name": "coinpay_fintech_finance_app",
+    "name": "family_finance_app",
+    "short_name": "family_finance_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

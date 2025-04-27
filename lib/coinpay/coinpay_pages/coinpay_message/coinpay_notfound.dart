@@ -1,7 +1,7 @@
-import 'package:coinpay_fintech_finance_app/coinpay/coinpay_dashboard/coinpay_dashboard.dart';
-import 'package:coinpay_fintech_finance_app/coinpay/coinpay_gloabelclass/coinpay_color.dart';
-import 'package:coinpay_fintech_finance_app/coinpay/coinpay_gloabelclass/coinpay_fontstyle.dart';
-import 'package:coinpay_fintech_finance_app/coinpay/coinpay_gloabelclass/coinpay_icons.dart';
+import 'package:family_finance_app/coinpay/coinpay_dashboard/coinpay_dashboard.dart';
+import 'package:family_finance_app/coinpay/coinpay_gloabelclass/coinpay_color.dart';
+import 'package:family_finance_app/coinpay/coinpay_gloabelclass/coinpay_fontstyle.dart';
+import 'package:family_finance_app/coinpay/coinpay_gloabelclass/coinpay_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

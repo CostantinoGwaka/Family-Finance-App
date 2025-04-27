@@ -1,4 +1,4 @@
-import 'package:coinpay_fintech_finance_app/coinpay/coinpay_theme/coinpay_themecontroller.dart';
+import 'package:family_finance_app/coinpay/coinpay_theme/coinpay_themecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../coinpay_gloabelclass/coinpay_color.dart';

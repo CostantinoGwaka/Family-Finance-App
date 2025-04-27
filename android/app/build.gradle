@@ -34,7 +34,7 @@ if (flutterVersionName == null) {
 // apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    namespace "com.example.coinpay_fintech_finance_app"
+    namespace "com.isofttz.family_finance_app"
     compileSdkVersion 35
     ndkVersion flutter.ndkVersion
 
@@ -45,7 +45,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.coinpay_fintech_finance_app"
+        applicationId "com.isofttz.family_finance_app"
         minSdkVersion 21
         targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
