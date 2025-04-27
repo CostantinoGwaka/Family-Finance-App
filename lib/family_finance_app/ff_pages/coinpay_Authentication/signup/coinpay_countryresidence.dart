@@ -1,10 +1,10 @@
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/signup/ff_createpassword.dart';
 import 'package:flutter/material.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:get/get.dart';
 
 import '../../../ff_gloabelclass/ff_color.dart';
 import '../../../ff_gloabelclass/ff_fontstyle.dart';
-import 'coinpay_createpassword.dart';
 
 class CoinpayCountryResidence extends StatefulWidget {
   const CoinpayCountryResidence({super.key});
