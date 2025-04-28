@@ -23,107 +23,111 @@ class _FamilyFinanceWelcomeState extends State<FamilyFinanceWelcome> {
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: width / 36, vertical: height / 36),
-          child: Column(
-            children: [
-              SizedBox(
-                height: height / 26,
-              ),
-              Image.asset(
-                FamilyFinancePngimage.welcome,
-                width: width / 1,
-                fit: BoxFit.fitHeight,
-              ),
-              SizedBox(
-                height: height / 36,
-              ),
-              Text(
-                "Create your\nFamily Finance account",
-                textAlign: TextAlign.center,
-                style: psemiBold.copyWith(fontSize: 25),
-              ),
-              SizedBox(
-                height: height / 36,
-              ),
-              Text(
-                "FamilyFinance is powerful tool that allows use to easily send,receive and track all yout transaction",
-                textAlign: TextAlign.center,
-                style: psemiBold.copyWith(fontSize: 12),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              SizedBox(
-                height: height / 20,
-              ),
-              InkWell(
-                splashColor: FamilyFinanceColor.transparent,
-                highlightColor: FamilyFinanceColor.transparent,
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return const FamilyFinanceSignupMobile();
-                    },
-                  ));
-                },
-                child: Container(
-                  height: height / 15,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    color: FamilyFinanceColor.appcolor,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Sign_up".tr,
-                      style: pmedium.copyWith(
-                          fontSize: 14, color: FamilyFinanceColor.white),
-                    ),
-                  ),
+    // ignore: deprecated_member_use
+    return WillPopScope(
+      onWillPop: () async => false, // Disables back button
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: width / 36, vertical: height / 36),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: height / 26,
                 ),
-              ),
-              SizedBox(
-                height: height / 36,
-              ),
-              InkWell(
-                splashColor: FamilyFinanceColor.transparent,
-                highlightColor: FamilyFinanceColor.transparent,
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      return const FamilyFinanceLogin();
-                    },
-                  ));
-                },
-                child: Container(
-                  height: height / 15,
-                  decoration: BoxDecoration(
+                Image.asset(
+                  FamilyFinancePngimage.welcome,
+                  width: width / 1,
+                  fit: BoxFit.fitHeight,
+                ),
+                SizedBox(
+                  height: height / 36,
+                ),
+                Text(
+                  "Create your\nFamily Finance account",
+                  textAlign: TextAlign.center,
+                  style: psemiBold.copyWith(fontSize: 25),
+                ),
+                SizedBox(
+                  height: height / 36,
+                ),
+                Text(
+                  "Family Finance is powerful tool that allows use to easily send,receive and track all yout transaction",
+                  textAlign: TextAlign.center,
+                  style: psemiBold.copyWith(fontSize: 12),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                SizedBox(
+                  height: height / 20,
+                ),
+                InkWell(
+                  splashColor: FamilyFinanceColor.transparent,
+                  highlightColor: FamilyFinanceColor.transparent,
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const FamilyFinanceSignupMobile();
+                      },
+                    ));
+                  },
+                  child: Container(
+                    height: height / 15,
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      border: Border.all(
-                        color: FamilyFinanceColor.appcolor,
-                      )),
-                  child: Center(
-                    child: Text(
-                      "Login".tr,
-                      style: pmedium.copyWith(
-                          fontSize: 14, color: FamilyFinanceColor.appcolor),
+                      color: FamilyFinanceColor.appcolor,
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Sign_up".tr,
+                        style: pmedium.copyWith(
+                            fontSize: 14, color: FamilyFinanceColor.white),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: height / 26,
-              ),
-              Text(
-                "By continuing you accepts our\nTerms of services and Privacy Policy",
-                textAlign: TextAlign.center,
-                style: psemiBold.copyWith(
-                    fontSize: 12, color: FamilyFinanceColor.bggray),
-              ),
-            ],
+                SizedBox(
+                  height: height / 36,
+                ),
+                InkWell(
+                  splashColor: FamilyFinanceColor.transparent,
+                  highlightColor: FamilyFinanceColor.transparent,
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const FamilyFinanceLogin();
+                      },
+                    ));
+                  },
+                  child: Container(
+                    height: height / 15,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border.all(
+                          color: FamilyFinanceColor.appcolor,
+                        )),
+                    child: Center(
+                      child: Text(
+                        "Login".tr,
+                        style: pmedium.copyWith(
+                            fontSize: 14, color: FamilyFinanceColor.appcolor),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: height / 26,
+                ),
+                Text(
+                  "By continuing you accepts our\nTerms of services and Privacy Policy",
+                  textAlign: TextAlign.center,
+                  style: psemiBold.copyWith(
+                      fontSize: 12, color: FamilyFinanceColor.bggray),
+                ),
+              ],
+            ),
           ),
         ),
       ),

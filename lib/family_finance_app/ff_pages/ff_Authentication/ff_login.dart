@@ -2,9 +2,11 @@ import 'package:family_finance_app/family_finance_app/ff_dashboard/ff_dashboard.
 import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
+import 'package:family_finance_app/family_finance_app/ff_utils/custom_loader.dart';
 import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -39,10 +41,15 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        leading: const Icon(
-          Icons.arrow_back_ios_new,
-          size: 22,
-          color: FamilyFinanceColor.black,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+            size: 22,
+            color: FamilyFinanceColor.black,
+          ),
         ),
       ),
       body: Padding(
@@ -170,6 +177,20 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
   }
 
   void _login() async {
+    Loader.show(
+      context,
+      isSafeAreaOverlay: true,
+      isBottomBarOverlay: false,
+      overlayFromTop: 80,
+      overlayColor: Colors.black26,
+      progressIndicator: const CustomLoaderWidget(
+        message: "Please wait, checking your account",
+      ),
+      themeData: Theme.of(context).copyWith(
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.green),
+      ),
+    );
+
     final userName = _userNameController.text;
     final password = _passwordController.text;
 
@@ -184,6 +205,7 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
       String? token = await localStorageProvider.getToken();
 
       if (response != null && token.isNotEmpty) {
+        Loader.hide();
         // ignore: use_build_context_synchronously
         showMsg(context, response.message);
         // ignore: use_build_context_synchronously
@@ -195,10 +217,12 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
           },
         ));
       } else {
+        Loader.hide();
         // ignore: use_build_context_synchronously
-        showMsg(context, "Login failed");
+        showMsg(context, "Login Bad credentials");
       }
     } catch (e) {
+      Loader.hide();
       if (kDebugMode) {
         print("login error $e");
       }

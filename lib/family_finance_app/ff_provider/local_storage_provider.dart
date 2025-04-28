@@ -28,7 +28,7 @@ class LocalStorageProvider extends GetxController {
 
   Future<bool> saveUserDetails(UserModel user) async {
     final pref = await SharedPreferences.getInstance();
-    return pref.setString(userInfo, user as String);
+    return pref.setString(userInfo, user.toJson().toString());
   }
 
   Future<String> getUserDetails() async {
