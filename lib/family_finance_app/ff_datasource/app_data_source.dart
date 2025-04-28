@@ -5,17 +5,24 @@ import 'dart:io';
 import 'package:family_finance_app/family_finance_app/ff_datasource/data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/auth_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
 import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class AppDataSource extends DataSource {
-  final String baseUrl = "http://172.20.10.7:8080/api/";
+  final String baseUrl = "http://192.168.0.15:8080/api/";
 
   Map<String, String> get header => {'Content-Type': 'application/json'};
+
+  final localDataStoargeController = Get.find<LocalStorageProvider>();
+
   Future<Map<String, String>> get authHeader async => {
         'Content-Type': 'application/json',
-        HttpHeaders.authorizationHeader: 'Bearer ${await getToken()}',
+        HttpHeaders.authorizationHeader:
+            'Bearer ${await localDataStoargeController.getToken()}',
       };
 
   // @override

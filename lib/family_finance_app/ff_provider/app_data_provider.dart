@@ -2,7 +2,7 @@ import 'package:family_finance_app/family_finance_app/ff_datasource/app_data_sou
 import 'package:family_finance_app/family_finance_app/ff_datasource/data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/auth_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
-import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:get/get.dart';
 
 class AppDataController extends GetxController {
@@ -14,9 +14,11 @@ class AppDataController extends GetxController {
   Future<AuthModel?> login(UserModel user) async {
     final response = await _dataSource.login(user);
     if (response == null) return null;
-    await saveToken(response.accessToken);
-    await saveLoginTime(response.loginTime);
-    await saveExpirationDuration(response.expirationDuration);
+    final localDataStoargeController = Get.find<LocalStorageProvider>();
+    await localDataStoargeController.saveToken(response.accessToken);
+    await localDataStoargeController.saveLoginTime(response.loginTime);
+    await localDataStoargeController
+        .saveExpirationDuration(response.expirationDuration);
 
     return response;
   }

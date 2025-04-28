@@ -13,7 +13,10 @@ import '../ff_theme/ff_themecontroller.dart';
 // ignore: must_be_immutable
 class FamilyFinanceDashboard extends StatefulWidget {
   String? index;
-  FamilyFinanceDashboard(this.index, {super.key});
+  FamilyFinanceDashboard(
+    this.index, {
+    super.key,
+  });
 
   @override
   State<FamilyFinanceDashboard> createState() => _FamilyFinanceDashboardState();

@@ -1,5 +1,7 @@
+import 'package:family_finance_app/family_finance_app/ff_dashboard/ff_dashboard.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -173,16 +175,25 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
 
     try {
       final appDataController = Get.find<AppDataController>();
+      final localStorageProvider = Get.find<LocalStorageProvider>();
 
       final response = await appDataController.login(
         UserModel(userName: userName, password: password),
       );
 
-      if (response != null) {
+      String? token = await localStorageProvider.getToken();
+
+      if (response != null && token.isNotEmpty) {
         // ignore: use_build_context_synchronously
         showMsg(context, response.message);
         // ignore: use_build_context_synchronously
-        Navigator.pop(context);
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return FamilyFinanceDashboard(
+              "0",
+            );
+          },
+        ));
       } else {
         // ignore: use_build_context_synchronously
         showMsg(context, "Login failed");

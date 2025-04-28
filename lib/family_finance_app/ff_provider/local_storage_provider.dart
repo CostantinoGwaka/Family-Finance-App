@@ -1,0 +1,42 @@
+import 'package:family_finance_app/family_finance_app/ff_utils/constants.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class LocalStorageProvider extends GetxController {
+  //local storage
+  Future<bool> saveToken(String token) async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.setString(accessToken, token);
+  }
+
+  Future<String> getToken() async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.getString(accessToken) ?? '';
+  }
+
+  Future<bool> saveLoginTime(int time) async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.setInt(loginTime, time);
+  }
+
+  Future<int> getLoginTime() async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.getInt(loginTime) ?? 0;
+  }
+
+  Future<bool> saveExpirationDuration(int duration) async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.setInt(expirationDuration, duration);
+  }
+
+  Future<int> getExpirationDuration() async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.getInt(expirationDuration) ?? 0;
+  }
+
+  Future<bool> hasTokenExpired() async {
+    final loginTime = await getLoginTime();
+    final expDuration = await getExpirationDuration();
+    return DateTime.now().millisecondsSinceEpoch - loginTime > expDuration;
+  }
+}
