@@ -1,8 +1,10 @@
+import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
+import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-import '../../ff_dashboard/ff_dashboard.dart';
 import '../../ff_gloabelclass/ff_color.dart';
 import '../../ff_gloabelclass/ff_fontstyle.dart';
 
@@ -17,6 +19,8 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
+  final _userNameController = TextEditingController();
+  final _passwordController = TextEditingController();
   bool _obscureText = true;
   void _togglePasswordStatus() {
     setState(() {
@@ -75,6 +79,7 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
               dropdownIconPosition: IconPosition.trailing,
               style: pmedium.copyWith(fontSize: 14),
               disableLengthCheck: true,
+              controller: _userNameController,
               decoration: const InputDecoration(
                 hintText: "Mobile Number",
                 hintStyle: pmedium,
@@ -102,6 +107,7 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
             TextField(
               obscureText: _obscureText,
               style: pmedium.copyWith(fontSize: 14),
+              controller: _passwordController,
               decoration: InputDecoration(
                 prefixIcon: const Icon(
                   Icons.lock_outline,
@@ -137,16 +143,8 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
                   fontSize: 12, color: FamilyFinanceColor.appcolor),
             ),
             const Spacer(),
-            InkWell(
-              splashColor: FamilyFinanceColor.transparent,
-              highlightColor: FamilyFinanceColor.transparent,
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) {
-                    return FamilyFinanceDashboard("0");
-                  },
-                ));
-              },
+            GestureDetector(
+              onTap: _login,
               child: Container(
                 height: height / 15,
                 decoration: BoxDecoration(
@@ -166,5 +164,27 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
         ),
       ),
     );
+  }
+
+  void _login() async {
+    final userName = _userNameController.text;
+    final password = _passwordController.text;
+
+    final appDataController = Get.find<AppDataController>();
+
+    final response = await appDataController.login(
+      UserModel(userName: userName, password: password),
+    );
+
+    print(response);
+    if (response != null) {
+      // ignore: use_build_context_synchronously
+      showMsg(context, response.message);
+      // ignore: use_build_context_synchronously
+      Navigator.pop(context);
+    } else {
+      // ignore: use_build_context_synchronously
+      showMsg(context, "Login failed");
+    }
   }
 }

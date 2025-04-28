@@ -8,7 +8,7 @@ class FamilyFinanceThemecontroler extends GetxController {
   @override
   void onInit() {
     SharedPreferences.getInstance().then((value) {
-      isdark = value.getBool(FamilyFinanceDarkMode)!;
+      isdark = value.getBool(FamilyFinanceDarkMode) ?? false;
     });
     update();
     super.onInit();

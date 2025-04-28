@@ -9,7 +9,7 @@ import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.
 import 'package:http/http.dart' as http;
 
 class AppDataSource extends DataSource {
-  final String baseUrl = "http://10.0.2.2:8080/api/";
+  final String baseUrl = "http://192.168.1.14:8080/api/";
 
   Map<String, String> get header => {'Content-Type': 'application/json'};
   Future<Map<String, String>> get authHeader async => {
@@ -73,7 +73,6 @@ class AppDataSource extends DataSource {
   @override
   Future<AuthModel?> login(UserModel user) async {
     final url = "$baseUrl${'auth/login'}";
-
     try {
       final response = await http.post(
         Uri.parse(url),
@@ -81,10 +80,14 @@ class AppDataSource extends DataSource {
         // body: json.encode(user.toJson()),
       );
 
-      // final map = json.decode(response.body);
-      // final authResponseModel = AuthResponseModel.fromJson(map);
-      // return authResponseModel;
-      return null;
+      final map = json.decode(response.body);
+      final authResponseModel = AuthModel.fromJson(map);
+      print("message: ${authResponseModel.message}");
+      print("statusCode: ${authResponseModel.statusCode}");
+      print("accessToken: ${authResponseModel.accessToken}");
+      print("loginTime: ${authResponseModel.loginTime}");
+
+      return authResponseModel;
     } catch (error) {
       return null;
     }

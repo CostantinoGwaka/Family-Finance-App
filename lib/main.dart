@@ -1,3 +1,4 @@
+import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ Future<void> main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+  Get.put(AppDataController());
   runApp(const MyApp());
 }
 
