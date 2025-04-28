@@ -1,4 +1,7 @@
 import 'package:family_finance_app/family_finance_app/ff_bindings/ff_bindings_storage.dart';
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/ff_welcome.dart';
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_home/ff_home.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -26,6 +29,20 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final themedata = Get.put(FamilyFinanceThemecontroler());
+  final fTime = Get.put(LocalStorageProvider());
+  String? check;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeFTime();
+  }
+
+  Future<void> _initializeFTime() async {
+    check = await fTime.getfTime();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -37,7 +54,9 @@ class _MyAppState extends State<MyApp> {
       fallbackLocale: const Locale('en', 'US'),
       translations: FamilyFinanceApptranslation(),
       locale: const Locale('en', 'US'),
-      home: const FamilyFinanceSpalsh(),
+      home: check == '0'
+          ? const FamilyFinanceSpalsh()
+          : const FamilyFinanceWelcome(), // Replace with your actual home widget
     );
   }
 }

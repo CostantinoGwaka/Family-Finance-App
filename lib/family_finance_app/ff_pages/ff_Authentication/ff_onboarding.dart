@@ -1,4 +1,6 @@
+import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../../ff_gloabelclass/ff_color.dart';
 import '../../ff_gloabelclass/ff_fontstyle.dart';
@@ -56,7 +58,8 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
             InkWell(
               splashColor: FamilyFinanceColor.transparent,
               highlightColor: FamilyFinanceColor.transparent,
-              onTap: () {
+              onTap: () async {
+                Get.find<LocalStorageProvider>().setfTime("1");
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
                     return const FamilyFinanceWelcome();
@@ -107,6 +110,7 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
               splashColor: FamilyFinanceColor.transparent,
               highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
+                Get.find<LocalStorageProvider>().setfTime("1");
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
                     return const FamilyFinanceWelcome();
@@ -157,6 +161,7 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
               splashColor: FamilyFinanceColor.transparent,
               highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
+                Get.find<LocalStorageProvider>().setfTime("1");
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
                     return const FamilyFinanceWelcome();
@@ -171,7 +176,7 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
                 ),
                 child: Center(
                   child: Text(
-                    "Next",
+                    "Skip",
                     style: pmedium.copyWith(
                         fontSize: 14, color: FamilyFinanceColor.white),
                   ),

@@ -1,10 +1,17 @@
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_color.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/ff_welcome.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
+import 'package:family_finance_app/family_finance_app/ff_utils/custom_loader.dart';
+import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-
+import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import '../../../ff_theme/ff_themecontroller.dart';
 import 'ff_addemail.dart';
 import 'ff_confirmphoneno.dart';
@@ -22,6 +29,15 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
   double height = 0.00;
   double width = 0.00;
   final themedata = Get.put(FamilyFinanceThemecontroler());
+
+  bool _isPasswordHidden = true;
+  bool _isConfirmPasswordHidden = true;
+
+  final _userNameController = TextEditingController();
+  final _phoneNumberController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -30,10 +46,15 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        leading: const Icon(
-          Icons.arrow_back_ios_new,
-          size: 22,
-          color: FamilyFinanceColor.black,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back_ios_new,
+            size: 22,
+            color: FamilyFinanceColor.black,
+          ),
         ),
       ),
       body: Padding(
@@ -68,30 +89,94 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
             SizedBox(
               height: height / 65,
             ),
+            TextField(
+              style: pmedium.copyWith(fontSize: 14),
+              controller: _userNameController,
+              decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.person,
+                ),
+                hintStyle: pmedium.copyWith(
+                  fontSize: 14,
+                  color: FamilyFinanceColor.bggray,
+                ),
+                hintText: "Full Name",
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            SizedBox(
+              height: height / 65,
+            ),
             IntlPhoneField(
+              controller: _phoneNumberController,
               flagsButtonPadding: const EdgeInsets.all(8),
               dropdownIconPosition: IconPosition.trailing,
               style: pmedium.copyWith(fontSize: 14),
               disableLengthCheck: true,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: "Mobile Number",
                 hintStyle: pmedium,
                 enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: FamilyFinanceColor.bggray)),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: FamilyFinanceColor.bggray),
-                ),
               ),
-              initialCountryCode: 'IN',
+              initialCountryCode: 'TZ',
               onChanged: (phone) {},
+            ),
+            SizedBox(
+              height: height / 65,
+            ),
+            TextField(
+              controller: _passwordController,
+              obscureText: _isPasswordHidden,
+              decoration: InputDecoration(
+                labelText: 'Password',
+                prefixIcon: Icon(Icons.lock),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _isPasswordHidden ? Icons.visibility_off : Icons.visibility,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordHidden = !_isPasswordHidden;
+                    });
+                  },
+                ),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // Confirm Password Field
+            TextField(
+              controller: _confirmPasswordController,
+              obscureText: _isConfirmPasswordHidden,
+              decoration: InputDecoration(
+                labelText: 'Confirm Password',
+                prefixIcon: Icon(Icons.lock_outline),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _isConfirmPasswordHidden
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _isConfirmPasswordHidden = !_isConfirmPasswordHidden;
+                    });
+                  },
+                ),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+              ),
             ),
             const Spacer(),
             InkWell(
               splashColor: FamilyFinanceColor.transparent,
               highlightColor: FamilyFinanceColor.transparent,
-              onTap: () {
-                verifydialog();
-              },
+              onTap: _register,
               child: Container(
                 height: height / 15,
                 decoration: BoxDecoration(
@@ -246,5 +331,57 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
             ));
       },
     );
+  }
+
+  void _register() async {
+    Loader.show(
+      context,
+      isSafeAreaOverlay: true,
+      isBottomBarOverlay: false,
+      overlayFromTop: 80,
+      overlayColor: Colors.black26,
+      progressIndicator: const CustomLoaderWidget(
+        message: "Please wait, registering your account",
+      ),
+      themeData: Theme.of(context).copyWith(
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.green),
+      ),
+    );
+
+    final userName = _userNameController.text;
+    final phoneNumber = _phoneNumberController.text;
+    final password = _passwordController.text;
+
+    try {
+      final appDataController = Get.find<AppDataController>();
+
+      final response = await appDataController.login(
+        UserModel(
+          userFullName: userName,
+          userName: phoneNumber,
+          password: password,
+        ),
+      );
+
+      if (response != null) {
+        Loader.hide();
+        // ignore: use_build_context_synchronously
+        showMsg(context, response.message);
+        // ignore: use_build_context_synchronously
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return FamilyFinanceWelcome();
+          },
+        ));
+      } else {
+        // ignore: use_build_context_synchronously
+        showMsg(context, "register failed");
+      }
+    } catch (e) {
+      Loader.hide();
+      if (kDebugMode) {
+        print("register error $e");
+      }
+    }
   }
 }

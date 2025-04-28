@@ -92,7 +92,7 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
                   borderSide: BorderSide(color: FamilyFinanceColor.bggray),
                 ),
               ),
-              initialCountryCode: 'IN',
+              initialCountryCode: 'TZ',
               onChanged: (phone) {},
             ),
             SizedBox(
