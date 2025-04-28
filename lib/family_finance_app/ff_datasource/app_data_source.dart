@@ -2,19 +2,21 @@
 
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 import 'package:family_finance_app/family_finance_app/ff_datasource/data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/auth_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/response_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
+import 'package:family_finance_app/family_finance_app/ff_utils/constants.dart';
 import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class AppDataSource extends DataSource {
-  final String baseUrl = "http://192.168.0.15:8080/api/";
-
   Map<String, String> get header => {'Content-Type': 'application/json'};
 
   final localDataStoargeController = Get.find<LocalStorageProvider>();
@@ -25,22 +27,57 @@ class AppDataSource extends DataSource {
             'Bearer ${await localDataStoargeController.getToken()}',
       };
 
-  // @override
-  // Future<ResponseModel> addBus(Bus bus) async {
-  //   final url = "$baseUrl${'bus/add'}";
+  @override
+  Future<GeneralResponseModel> register(UserModel userModel) async {
+    final url = "$baseUrl${'auth/register'}";
 
-  //   try {
-  //     final response = await http.post(
-  //       Uri.parse(url),
-  //       headers: await authHeader,
-  //       // body: json.encode(bus.toJson()),
-  //     );
+    dynamic userData = userModel.toJson();
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: header,
+        body: jsonEncode({
+          'countryCode': userData['countryCode'],
+          'userFullName': userData['userFullName'],
+          'userName': userData['userName'],
+          'phone': userData['phone'],
+          'password': userData['password'],
+          'createdAt': userData['createdAt'],
+          'role': userData['role'],
+        }),
+      );
+      final map = json.decode(response.body);
+      final authResponseModel = GeneralResponseModel.fromJson(map);
+      return await _getResponseModel(response);
+    } catch (error) {
+      if (kDebugMode) {
+        print(error);
+      }
+      rethrow;
+    }
+  }
 
-  //     return await _getResponseModel(response);
-  //   } catch (error) {
-  //     rethrow;
-  //   }
-  // }
+  @override
+  Future<AuthModel?> login(UserModel user) async {
+    final url = "$baseUrl${'auth/login'}";
+
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: header,
+        body: json.encode(user.toJson()),
+      );
+
+      final map = json.decode(response.body);
+      final authResponseModel = AuthModel.fromJson(map);
+      return authResponseModel;
+    } catch (error) {
+      if (kDebugMode) {
+        print(error);
+      }
+      return null;
+    }
+  }
 
   // @override
   // Future<List<Bus>> getAllBus() async {
@@ -78,58 +115,35 @@ class AppDataSource extends DataSource {
   //   }
   // }
 
-  @override
-  Future<AuthModel?> login(UserModel user) async {
-    final url = "$baseUrl${'auth/login'}";
+  Future<GeneralResponseModel> _getResponseModel(http.Response response) async {
+    ResponseStatus status = ResponseStatus.NONE;
+    GeneralResponseModel responseModel = GeneralResponseModel();
 
-    try {
-      final response = await http.post(
-        Uri.parse(url),
-        headers: header,
-        body: json.encode(user.toJson()),
-      );
-
-      final map = json.decode(response.body);
-      final authResponseModel = AuthModel.fromJson(map);
-
-      return authResponseModel;
-    } catch (error) {
-      if (kDebugMode) {
-        print(error);
+    if (response.statusCode == 200) {
+      status = ResponseStatus.SAVED;
+      responseModel = GeneralResponseModel.fromJson(jsonDecode(response.body));
+      // responseModel.statusCode = status;
+    } else if (response.statusCode == 401 || response.statusCode == 403) {
+      if (await hasTokenExpired()) {
+        status = ResponseStatus.EXPIRED;
+      } else {
+        status = ResponseStatus.UNAUTHORIZED;
       }
-      return null;
+      responseModel = GeneralResponseModel(
+        statusCode: 401,
+        message: 'Access denied. Please login as Admin',
+        response: {},
+      );
+    } else if (response.statusCode == 500 || response.statusCode == 400) {
+      final json = jsonDecode(response.body);
+      // final errorDetails = ErrorDetails.fromJson(json);
+      status = ResponseStatus.FAILED;
+      responseModel = GeneralResponseModel(
+        statusCode: 500,
+        message: json['message'] ?? 'An error occurred',
+        response: {},
+      );
     }
+    return responseModel;
   }
-
-  // Future<ResponseModel> _getResponseModel(http.Response response) async {
-  //   ResponseStatus status = ResponseStatus.NONE;
-  //   ResponseModel responseModel = ResponseModel();
-  //   if (response.statusCode == 200) {
-  //     status = ResponseStatus.SAVED;
-  //     responseModel = ResponseModel.fromJson(jsonDecode(response.body));
-  //     responseModel.responseStatus = status;
-  //   } else if (response.statusCode == 401 || response.statusCode == 403) {
-  //     if (await hasTokenExpired()) {
-  //       status = ResponseStatus.EXPIRED;
-  //     } else {
-  //       status = ResponseStatus.UNAUTHORIZED;
-  //     }
-  //     responseModel = ResponseModel(
-  //       responseStatus: status,
-  //       statusCode: 401,
-  //       message: 'Access denied. Please login as Admin',
-  //     );
-  //   } else if (response.statusCode == 500 || response.statusCode == 400) {
-  //     final json = jsonDecode(response.body);
-  //     // final errorDetails = ErrorDetails.fromJson(json);
-  //     // status = ResponseStatus.FAILED;
-  //     // responseModel = ResponseModel(
-  //     //   responseStatus: status,
-  //     //   statusCode: 500,
-  //     //   message: errorDetails.errorMessage,
-  //     // );
-  //     return null;
-  //   }
-  //   return responseModel;
-  // }
 }

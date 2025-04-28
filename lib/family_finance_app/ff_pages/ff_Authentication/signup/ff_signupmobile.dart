@@ -1,10 +1,8 @@
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_color.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
-import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/ff_welcome.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
-import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_utils/custom_loader.dart';
 import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
 import 'package:flutter/foundation.dart';
@@ -13,8 +11,6 @@ import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import '../../../ff_theme/ff_themecontroller.dart';
-import 'ff_addemail.dart';
-import 'ff_confirmphoneno.dart';
 
 class FamilyFinanceSignupMobile extends StatefulWidget {
   const FamilyFinanceSignupMobile({super.key});
@@ -28,6 +24,7 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
+  String? selectedCountryCode;
   final themedata = Get.put(FamilyFinanceThemecontroler());
 
   bool _isPasswordHidden = true;
@@ -37,6 +34,49 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
   final _phoneNumberController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+
+  String? getErrorMessage() {
+    if (_userNameController.text.isEmpty) {
+      return 'Please enter your username.';
+    }
+    if (_phoneNumberController.text.isEmpty) {
+      return 'Please enter your phone number.';
+    }
+
+    if (selectedCountryCode == 'TZ') {
+      if (_phoneNumberController.text.length != 10) {
+        return 'Phone number must have exactly 10 digits for Tanzania.';
+      }
+    }
+
+    if (_passwordController.text.isEmpty) {
+      return 'Please enter your password.';
+    }
+    if (_confirmPasswordController.text.isEmpty) {
+      return 'Please confirm your password.';
+    }
+    if (_passwordController.text != _confirmPasswordController.text) {
+      return 'Passwords do not match.';
+    }
+    return null; // No error
+  }
+
+  String? errorMessage;
+
+  @override
+  void initState() {
+    super.initState();
+    _userNameController.addListener(updateErrorMessage);
+    _phoneNumberController.addListener(updateErrorMessage);
+    _passwordController.addListener(updateErrorMessage);
+    _confirmPasswordController.addListener(updateErrorMessage);
+  }
+
+  void updateErrorMessage() {
+    setState(() {
+      errorMessage = getErrorMessage();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +129,10 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
             SizedBox(
               height: height / 65,
             ),
+
+            SizedBox(
+              height: height / 65,
+            ),
             TextField(
               style: pmedium.copyWith(fontSize: 14),
               controller: _userNameController,
@@ -98,7 +142,7 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
                 ),
                 hintStyle: pmedium.copyWith(
                   fontSize: 14,
-                  color: FamilyFinanceColor.bggray,
+                  // color: FamilyFinanceColor.bggray,
                 ),
                 hintText: "Full Name",
                 border:
@@ -109,21 +153,25 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
               height: height / 65,
             ),
             IntlPhoneField(
-              controller: _phoneNumberController,
-              flagsButtonPadding: const EdgeInsets.all(8),
-              dropdownIconPosition: IconPosition.trailing,
-              style: pmedium.copyWith(fontSize: 14),
-              disableLengthCheck: true,
-              decoration: InputDecoration(
-                hintText: "Mobile Number",
-                hintStyle: pmedium,
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: FamilyFinanceColor.bggray)),
-              ),
-              initialCountryCode: 'TZ',
-              onChanged: (phone) {},
-            ),
+                controller: _phoneNumberController,
+                flagsButtonPadding: const EdgeInsets.all(8),
+                dropdownIconPosition: IconPosition.trailing,
+                style: pmedium.copyWith(fontSize: 14),
+                disableLengthCheck: true,
+                showDropdownIcon: false,
+                decoration: InputDecoration(
+                  hintText: "Mobile Number",
+                  hintStyle: pmedium,
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: FamilyFinanceColor.bggray)),
+                ),
+                initialCountryCode: 'TZ',
+                onChanged: (phone) {
+                  selectedCountryCode = phone.countryISOCode;
+                  _phoneNumberController.text = phone.number; // just digits
+                  updateErrorMessage();
+                }),
             SizedBox(
               height: height / 65,
             ),
@@ -148,7 +196,6 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
               ),
             ),
             SizedBox(height: 20),
-
             // Confirm Password Field
             TextField(
               controller: _confirmPasswordController,
@@ -172,166 +219,181 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
             ),
-            const Spacer(),
-            InkWell(
-              splashColor: FamilyFinanceColor.transparent,
-              highlightColor: FamilyFinanceColor.transparent,
-              onTap: _register,
-              child: Container(
-                height: height / 15,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: FamilyFinanceColor.appcolor,
-                ),
-                child: Center(
-                  child: Text(
-                    "Sign_up".tr,
-                    style: pmedium.copyWith(
-                        fontSize: 14, color: FamilyFinanceColor.white),
+            // const Spacer(),
+            SizedBox(height: 20),
+            if (errorMessage != null)
+              Text(
+                errorMessage!,
+                style: TextStyle(color: Colors.red),
+              ),
+            Visibility(
+              visible: _userNameController.text.isNotEmpty &&
+                  _phoneNumberController.text.isNotEmpty &&
+                  _passwordController.text.isNotEmpty &&
+                  _confirmPasswordController.text.isNotEmpty &&
+                  _passwordController.text == _confirmPasswordController.text &&
+                  (selectedCountryCode != 'TZ' ||
+                      _phoneNumberController.text.length == 10),
+              child: InkWell(
+                splashColor: FamilyFinanceColor.transparent,
+                highlightColor: FamilyFinanceColor.transparent,
+                onTap: _register,
+                child: Container(
+                  height: height / 15,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: FamilyFinanceColor.appcolor,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Sign_up".tr,
+                      style: pmedium.copyWith(
+                          fontSize: 14, color: FamilyFinanceColor.white),
+                    ),
                   ),
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
     );
   }
 
-  verifydialog() {
-    return showDialog(
-      context: context,
-      builder: (context) {
-        return Dialog(
-            elevation: 0,
-            backgroundColor: FamilyFinanceColor.transparent,
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  height: height / 1.8,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    color: themedata.isdark
-                        ? FamilyFinanceColor.darkblack
-                        : FamilyFinanceColor.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: width / 26, vertical: height / 36),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            InkWell(
-                                highlightColor: FamilyFinanceColor.transparent,
-                                splashColor: FamilyFinanceColor.transparent,
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Icon(
-                                  Icons.close,
-                                  size: 20,
-                                )),
-                          ],
-                        ),
-                        SizedBox(
-                          height: height / 96,
-                        ),
-                        Image.asset(
-                          FamilyFinancePngimage.verifyicon,
-                          height: height / 6,
-                          fit: BoxFit.fitHeight,
-                        ),
-                        SizedBox(
-                          height: height / 96,
-                        ),
-                        Text(
-                          "Verify your phone number before we send code",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.center,
-                          style: pmedium.copyWith(
-                            fontSize: 18,
-                          ),
-                        ),
-                        SizedBox(
-                          height: height / 120,
-                        ),
-                        Text(
-                          "Is this correct? +880 1995 86 74 06",
-                          style: pmedium.copyWith(
-                              fontSize: 12, color: FamilyFinanceColor.textgray),
-                        ),
-                        SizedBox(
-                          height: height / 36,
-                        ),
-                        InkWell(
-                          splashColor: FamilyFinanceColor.transparent,
-                          highlightColor: FamilyFinanceColor.transparent,
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return const FamilyFinanceConfirmPhoneno();
-                              },
-                            ));
-                          },
-                          child: Container(
-                            height: height / 15,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: FamilyFinanceColor.appcolor,
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Yes",
-                                style: pmedium.copyWith(
-                                    fontSize: 14,
-                                    color: FamilyFinanceColor.white),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: height / 96,
-                        ),
-                        InkWell(
-                          splashColor: FamilyFinanceColor.transparent,
-                          highlightColor: FamilyFinanceColor.transparent,
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return const FamilyFinanceAddemail();
-                              },
-                            ));
-                          },
-                          child: Container(
-                            height: height / 15,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                border: Border.all(
-                                  color: FamilyFinanceColor.appcolor,
-                                )),
-                            child: Center(
-                              child: Text(
-                                "No",
-                                style: pmedium.copyWith(
-                                    fontSize: 14,
-                                    color: FamilyFinanceColor.appcolor),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ));
-      },
-    );
-  }
+  // verifydialog() {
+  //   return showDialog(
+  //     context: context,
+  //     builder: (context) {
+  //       return Dialog(
+  //           elevation: 0,
+  //           backgroundColor: FamilyFinanceColor.transparent,
+  //           child: Stack(
+  //             children: <Widget>[
+  //               Container(
+  //                 height: height / 1.8,
+  //                 decoration: BoxDecoration(
+  //                   shape: BoxShape.rectangle,
+  //                   color: themedata.isdark
+  //                       ? FamilyFinanceColor.darkblack
+  //                       : FamilyFinanceColor.white,
+  //                   borderRadius: BorderRadius.circular(20),
+  //                 ),
+  //                 child: Padding(
+  //                   padding: EdgeInsets.symmetric(
+  //                       horizontal: width / 26, vertical: height / 36),
+  //                   child: Column(
+  //                     children: [
+  //                       Row(
+  //                         mainAxisAlignment: MainAxisAlignment.end,
+  //                         children: [
+  //                           InkWell(
+  //                               highlightColor: FamilyFinanceColor.transparent,
+  //                               splashColor: FamilyFinanceColor.transparent,
+  //                               onTap: () {
+  //                                 Navigator.pop(context);
+  //                               },
+  //                               child: const Icon(
+  //                                 Icons.close,
+  //                                 size: 20,
+  //                               )),
+  //                         ],
+  //                       ),
+  //                       SizedBox(
+  //                         height: height / 96,
+  //                       ),
+  //                       Image.asset(
+  //                         FamilyFinancePngimage.verifyicon,
+  //                         height: height / 6,
+  //                         fit: BoxFit.fitHeight,
+  //                       ),
+  //                       SizedBox(
+  //                         height: height / 96,
+  //                       ),
+  //                       Text(
+  //                         "Verify your phone number before we send code",
+  //                         maxLines: 2,
+  //                         overflow: TextOverflow.ellipsis,
+  //                         textAlign: TextAlign.center,
+  //                         style: pmedium.copyWith(
+  //                           fontSize: 18,
+  //                         ),
+  //                       ),
+  //                       SizedBox(
+  //                         height: height / 120,
+  //                       ),
+  //                       Text(
+  //                         "Is this correct? +880 1995 86 74 06",
+  //                         style: pmedium.copyWith(
+  //                             fontSize: 12, color: FamilyFinanceColor.textgray),
+  //                       ),
+  //                       SizedBox(
+  //                         height: height / 36,
+  //                       ),
+  //                       InkWell(
+  //                         splashColor: FamilyFinanceColor.transparent,
+  //                         highlightColor: FamilyFinanceColor.transparent,
+  //                         onTap: () {
+  //                           Navigator.push(context, MaterialPageRoute(
+  //                             builder: (context) {
+  //                               return const FamilyFinanceConfirmPhoneno();
+  //                             },
+  //                           ));
+  //                         },
+  //                         child: Container(
+  //                           height: height / 15,
+  //                           decoration: BoxDecoration(
+  //                             borderRadius: BorderRadius.circular(50),
+  //                             color: FamilyFinanceColor.appcolor,
+  //                           ),
+  //                           child: Center(
+  //                             child: Text(
+  //                               "Yes",
+  //                               style: pmedium.copyWith(
+  //                                   fontSize: 14,
+  //                                   color: FamilyFinanceColor.white),
+  //                             ),
+  //                           ),
+  //                         ),
+  //                       ),
+  //                       SizedBox(
+  //                         height: height / 96,
+  //                       ),
+  //                       InkWell(
+  //                         splashColor: FamilyFinanceColor.transparent,
+  //                         highlightColor: FamilyFinanceColor.transparent,
+  //                         onTap: () {
+  //                           Navigator.push(context, MaterialPageRoute(
+  //                             builder: (context) {
+  //                               return const FamilyFinanceAddemail();
+  //                             },
+  //                           ));
+  //                         },
+  //                         child: Container(
+  //                           height: height / 15,
+  //                           decoration: BoxDecoration(
+  //                               borderRadius: BorderRadius.circular(50),
+  //                               border: Border.all(
+  //                                 color: FamilyFinanceColor.appcolor,
+  //                               )),
+  //                           child: Center(
+  //                             child: Text(
+  //                               "No",
+  //                               style: pmedium.copyWith(
+  //                                   fontSize: 14,
+  //                                   color: FamilyFinanceColor.appcolor),
+  //                             ),
+  //                           ),
+  //                         ),
+  //                       ),
+  //                     ],
+  //                   ),
+  //                 ),
+  //               ),
+  //             ],
+  //           ));
+  //     },
+  //   );
+  // }
 
   void _register() async {
     Loader.show(
@@ -355,18 +417,22 @@ class _FamilyFinanceSignupMobileState extends State<FamilyFinanceSignupMobile> {
     try {
       final appDataController = Get.find<AppDataController>();
 
-      final response = await appDataController.login(
+      final response = await appDataController.register(
         UserModel(
           userFullName: userName,
           userName: phoneNumber,
+          phone: phoneNumber,
+          countryCode: selectedCountryCode,
           password: password,
+          createdAt: DateTime.now().toString(),
+          role: "USER",
         ),
       );
 
       if (response != null) {
         Loader.hide();
         // ignore: use_build_context_synchronously
-        showMsg(context, response.message);
+        showMsg(context, response.message.toString());
         // ignore: use_build_context_synchronously
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {

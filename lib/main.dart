@@ -1,6 +1,5 @@
 import 'package:family_finance_app/family_finance_app/ff_bindings/ff_bindings_storage.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/ff_welcome.dart';
-import 'package:family_finance_app/family_finance_app/ff_pages/ff_home/ff_home.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

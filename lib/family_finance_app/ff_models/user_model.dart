@@ -5,6 +5,7 @@ class UserModel {
   final String? phone;
   final String password;
   final String? createdAt;
+  final String? countryCode;
   final String? role;
 
   UserModel({
@@ -13,6 +14,7 @@ class UserModel {
     required this.userName,
     this.phone,
     required this.password,
+    this.countryCode,
     this.createdAt,
     this.role,
   });
@@ -24,6 +26,7 @@ class UserModel {
       userName: json['userName'] ?? '',
       phone: json['phone'] ?? '',
       password: json['password'] ?? '',
+      countryCode: json['countryCode'] ?? '',
       createdAt: json['createdAt'] ?? '',
       role: json['role'] ?? '',
     );
@@ -36,6 +39,7 @@ class UserModel {
       'userName': userName,
       'phone': phone,
       'password': password,
+      'countryCode': countryCode,
       'createdAt': createdAt,
       'role': role,
     };

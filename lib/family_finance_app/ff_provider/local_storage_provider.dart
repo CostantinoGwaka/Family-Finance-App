@@ -1,3 +1,4 @@
+import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_utils/constants.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,6 +24,16 @@ class LocalStorageProvider extends GetxController {
   Future<String> getToken() async {
     final pref = await SharedPreferences.getInstance();
     return pref.getString(accessToken) ?? '';
+  }
+
+  Future<bool> saveUserDetails(UserModel user) async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.setString(userInfo, user as String);
+  }
+
+  Future<String> getUserDetails() async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.getString(userInfo) ?? '';
   }
 
   Future<bool> saveLoginTime(int time) async {

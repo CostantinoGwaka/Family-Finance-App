@@ -43,7 +43,7 @@ class _FamilyFinanceWelcomeState extends State<FamilyFinanceWelcome> {
                 height: height / 36,
               ),
               Text(
-                "Create your\nFamilyFinance account",
+                "Create your\nFamily Finance account",
                 textAlign: TextAlign.center,
                 style: psemiBold.copyWith(fontSize: 25),
               ),
