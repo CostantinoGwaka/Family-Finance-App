@@ -1,6 +1,7 @@
 import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -170,21 +171,26 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
     final userName = _userNameController.text;
     final password = _passwordController.text;
 
-    final appDataController = Get.find<AppDataController>();
+    try {
+      final appDataController = Get.find<AppDataController>();
 
-    final response = await appDataController.login(
-      UserModel(userName: userName, password: password),
-    );
+      final response = await appDataController.login(
+        UserModel(userName: userName, password: password),
+      );
 
-    print(response);
-    if (response != null) {
-      // ignore: use_build_context_synchronously
-      showMsg(context, response.message);
-      // ignore: use_build_context_synchronously
-      Navigator.pop(context);
-    } else {
-      // ignore: use_build_context_synchronously
-      showMsg(context, "Login failed");
+      if (response != null) {
+        // ignore: use_build_context_synchronously
+        showMsg(context, response.message);
+        // ignore: use_build_context_synchronously
+        Navigator.pop(context);
+      } else {
+        // ignore: use_build_context_synchronously
+        showMsg(context, "Login failed");
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print("login error $e");
+      }
     }
   }
 }
