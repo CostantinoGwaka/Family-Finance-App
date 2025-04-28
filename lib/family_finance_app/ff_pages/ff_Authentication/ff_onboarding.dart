@@ -57,11 +57,11 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
               splashColor: FamilyFinanceColor.transparent,
               highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
-                // Navigator.push(context, MaterialPageRoute(
-                //   builder: (context) {
-                //     return const KutukuCreateAccount();
-                //   },
-                // ));
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const FamilyFinanceWelcome();
+                  },
+                ));
               },
               child: Container(
                 height: height / 15,
@@ -71,7 +71,7 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
                 ),
                 child: Center(
                   child: Text(
-                    "Next",
+                    "Skip",
                     style: pmedium.copyWith(
                         fontSize: 14, color: FamilyFinanceColor.white),
                   ),
@@ -107,11 +107,11 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
               splashColor: FamilyFinanceColor.transparent,
               highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
-                // Navigator.push(context, MaterialPageRoute(
-                //   builder: (context) {
-                //     return const KutukuCreateAccount();
-                //   },
-                // ));
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const FamilyFinanceWelcome();
+                  },
+                ));
               },
               child: Container(
                 height: height / 15,
@@ -121,7 +121,7 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
                 ),
                 child: Center(
                   child: Text(
-                    "Next",
+                    "Skip",
                     style: pmedium.copyWith(
                         fontSize: 14, color: FamilyFinanceColor.white),
                   ),

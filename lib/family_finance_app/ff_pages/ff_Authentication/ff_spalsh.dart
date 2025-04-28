@@ -37,13 +37,15 @@ class _FamilyFinanceSpalshState extends State<FamilyFinanceSpalsh> {
     width = size.width;
     return Scaffold(
       body: Center(
-          child: SizedBox(
-              width: width / 3,
-              child: Image.asset(
-                FamilyFinancePngimage.splashhicon,
-                height: height / 6,
-                fit: BoxFit.fitHeight,
-              ))),
+        child: SizedBox(
+          width: width / 3,
+          child: Image.asset(
+            FamilyFinancePngimage.splashhicon,
+            height: height / 6,
+            fit: BoxFit.fitHeight,
+          ),
+        ),
+      ),
     );
   }
 }

@@ -4,6 +4,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageProvider extends GetxController {
   //local storage
+
+  Future<bool> setfTime(String token) async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.setString(fTimeValue, token);
+  }
+
+  Future<String> getfTime() async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.getString(fTimeValue) ?? '';
+  }
+
   Future<bool> saveToken(String token) async {
     final pref = await SharedPreferences.getInstance();
     return pref.setString(accessToken, token);

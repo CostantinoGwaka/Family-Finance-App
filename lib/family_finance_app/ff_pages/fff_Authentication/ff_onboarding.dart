@@ -57,11 +57,11 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
               splashColor: FamilyFinanceColor.transparent,
               highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
-                // Navigator.push(context, MaterialPageRoute(
-                //   builder: (context) {
-                //     return const KutukuCreateAccount();
-                //   },
-                // ));
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const FamilyFinanceWelcome();
+                  },
+                ));
               },
               child: Container(
                 height: height / 15,
@@ -71,7 +71,7 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
                 ),
                 child: Center(
                   child: Text(
-                    "Next",
+                    "Skip",
                     style: pmedium.copyWith(
                         fontSize: 14, color: FamilyFinanceColor.white),
                   ),
@@ -96,7 +96,7 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
             ),
             const Spacer(),
             Text(
-              "Spend money\nabroad, and track\nyour expense",
+              "Spend money\nanytime, and track\nyour expense",
               style: pbold.copyWith(fontSize: 30),
               textAlign: TextAlign.center,
             ),
@@ -107,11 +107,11 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
               splashColor: FamilyFinanceColor.transparent,
               highlightColor: FamilyFinanceColor.transparent,
               onTap: () {
-                // Navigator.push(context, MaterialPageRoute(
-                //   builder: (context) {
-                //     return const KutukuCreateAccount();
-                //   },
-                // ));
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return const FamilyFinanceWelcome();
+                  },
+                ));
               },
               child: Container(
                 height: height / 15,
@@ -146,7 +146,7 @@ class _FamilyFinanceOnboardingState extends State<FamilyFinanceOnboarding> {
             ),
             const Spacer(),
             Text(
-              "Receive Money\nFrom Anywhere In\nThe World",
+              "Spend Money\nFrom Anywhere In\nThe World",
               style: pbold.copyWith(fontSize: 30),
               textAlign: TextAlign.center,
             ),
