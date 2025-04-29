@@ -3,6 +3,8 @@ import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontsty
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/expense_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_spending/ff_income_widget.dart';
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_spending/ff_spending_widget.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';
@@ -47,14 +49,6 @@ class _FamilyFinanceSpendingState extends State<FamilyFinanceSpending> {
     FamilyFinanceColor.lightorenge,
     FamilyFinanceColor.lightred
   ];
-
-  Future<List<ExpenseModel>> getAllExpense() async {
-    final controller = Get.find<AppDataController>();
-    String userId = await Get.find<LocalStorageProvider>().getUserId();
-
-    await controller.getAllBus(userId);
-    return controller.expenseList;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -292,139 +286,13 @@ class _FamilyFinanceSpendingState extends State<FamilyFinanceSpending> {
                 height: height / 36,
               ),
               if (selected == 0) ...[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Spending_list".tr,
-                      style: psemiBold.copyWith(fontSize: 18),
-                    ),
-                    Image.asset(FamilyFinancePngimage.filter,
-                        height: height / 32),
-                  ],
-                ),
-                SizedBox(
-                  height: height / 70,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 5,
-                  child: FutureBuilder<List<ExpenseModel>>(
-                    future: getAllExpense(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(child: CircularProgressIndicator());
-                      } else if (snapshot.hasError) {
-                        return Center(child: Text('Error: ${snapshot.error}'));
-                      } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                        return const Center(child: Text('No expenses found'));
-                      } else {
-                        final expenses = snapshot.data!;
-                        return ListView.builder(
-                          padding: EdgeInsets.all(0),
-                          itemCount: expenses.length < 5 ? expenses.length : 5,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                // horizontal: 16.0,
-                                vertical: 8.0,
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  // SizedBox(width: 12),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          expenses[index].notes.toString(),
-                                          style: pmedium.copyWith(fontSize: 15),
-                                        ),
-                                        Text(
-                                          expenses[index].spentOn.toString(),
-                                          style:
-                                              pregular.copyWith(fontSize: 12),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Text(
-                                    "TZS ${formatCurrency(expenses[index].amount)}",
-                                    style: psemiBold.copyWith(
-                                      fontSize: 14,
-                                      color: FamilyFinanceColor.red,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        );
-                      }
-                    },
-                  ),
-                ),
-
-                // ListView.separated(
-                //   separatorBuilder: (context, index) {
-                //     return Padding(
-                //       padding: EdgeInsets.symmetric(
-                //         horizontal: width / 36,
-                //       ),
-                //       child: Column(
-                //         children: [
-                //           SizedBox(
-                //             height: height / 96,
-                //           ),
-                //           const Divider(
-                //             color: FamilyFinanceColor.bggray,
-                //           ),
-                //           SizedBox(
-                //             height: height / 96,
-                //           ),
-                //         ],
-                //       ),
-                //     );
-                //   },
-                //   itemCount: controller.expenseList.length,
-                //   physics: const NeverScrollableScrollPhysics(),
-                //   shrinkWrap: true,
-                //   itemBuilder: (context, index) {
-                //     print("data error ${controller.expenseList[index]}");
-                //     return Row(
-                //       children: [
-                //         CircleAvatar(
-                //           radius: 25,
-                //           backgroundColor: FamilyFinanceColor.white,
-                //           backgroundImage: AssetImage(spendingimg[index]),
-                //         ),
-                //         SizedBox(
-                //           width: width / 36,
-                //         ),
-                //         Column(
-                //           crossAxisAlignment: CrossAxisAlignment.start,
-                //           children: [
-                //             Text(
-                //               spendinglist[index].toString(),
-                //               style: pmedium.copyWith(fontSize: 15),
-                //             ),
-                //             Text(
-                //               "1st Jan at 7:20pm",
-                //               style: pregular.copyWith(fontSize: 12),
-                //             ),
-                //           ],
-                //         ),
-                //         const Spacer(),
-                //         Text(
-                //           "-\$15.99",
-                //           style: psemiBold.copyWith(
-                //               fontSize: 14, color: FamilyFinanceColor.red),
-                //         ),
-                //       ],
-                //     );
-                //   },
-                // ),
+                SpendingSingleComponent()
+              ] else if (selected == 1) ...[
+                IncomeSingleComponent()
+              ] else if (selected == 2) ...[
+                SpendingSingleComponent()
+              ] else if (selected == 3) ...[
+                SpendingSingleComponent()
               ]
             ],
           ),

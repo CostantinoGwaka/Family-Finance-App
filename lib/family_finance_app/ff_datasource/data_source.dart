@@ -1,6 +1,7 @@
 import 'package:family_finance_app/family_finance_app/ff_models/auth_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/expense_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/income_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
 
 abstract class DataSource {
@@ -8,6 +9,7 @@ abstract class DataSource {
   Future<AuthModel?> logout();
   Future<GeneralResponseModel?> register(UserModel user);
   Future<List<ExpenseModel>> getAllExpense(String userId);
+  Future<List<IncomeModel>> getAllIncome(String userId);
   // Future<ResponseModel> addBus(Bus bus);
   // Future<List<Bus>> getAllBus();
   // Future<ResponseModel> addRoute(BusRoute busRoute);

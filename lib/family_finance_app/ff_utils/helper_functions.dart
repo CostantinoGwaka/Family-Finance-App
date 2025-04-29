@@ -1,6 +1,11 @@
 // ignore_for_file: unnecessary_import
+import 'dart:convert';
+
+import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/response_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -51,4 +56,37 @@ Future<bool> hasTokenExpired() async {
   final currentTime = DateTime.now();
 
   return currentTime.isAfter(expiryTime); // true if expired
+}
+
+Future<GeneralResponseModel> getResponseModel(http.Response response) async {
+  // ignore: unused_local_variable
+  ResponseStatus status = ResponseStatus.NONE;
+  GeneralResponseModel responseModel = GeneralResponseModel();
+
+  if (response.statusCode == 200) {
+    status = ResponseStatus.SAVED;
+    responseModel = GeneralResponseModel.fromJson(jsonDecode(response.body));
+    // responseModel.statusCode = status;
+  } else if (response.statusCode == 401 || response.statusCode == 403) {
+    if (await hasTokenExpired()) {
+      status = ResponseStatus.EXPIRED;
+    } else {
+      status = ResponseStatus.UNAUTHORIZED;
+    }
+    responseModel = GeneralResponseModel(
+      statusCode: 401,
+      message: 'Access denied. Please login as Admin',
+      response: {},
+    );
+  } else if (response.statusCode == 500 || response.statusCode == 400) {
+    final json = jsonDecode(response.body);
+    // final errorDetails = ErrorDetails.fromJson(json);
+    status = ResponseStatus.FAILED;
+    responseModel = GeneralResponseModel(
+      statusCode: 500,
+      message: json['message'] ?? 'An error occurred',
+      response: {},
+    );
+  }
+  return responseModel;
 }

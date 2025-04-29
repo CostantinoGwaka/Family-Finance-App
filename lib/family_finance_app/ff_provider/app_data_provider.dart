@@ -1,5 +1,7 @@
 import 'package:family_finance_app/family_finance_app/ff_datasource/app_data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_datasource/data_source.dart';
+import 'package:family_finance_app/family_finance_app/ff_datasource/expense_data_source.dart';
+import 'package:family_finance_app/family_finance_app/ff_datasource/income_data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/auth_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/expense_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
@@ -34,11 +36,6 @@ class AppDataController extends GetxController {
     // final localDataStoargeController = Get.find<LocalStorageProvider>();
 
     return response;
-  }
-
-  Future<void> getAllBus(String userId) async {
-    final result = await _dataSource.getAllExpense(userId);
-    _expenseList.assignAll(result); // updates the observable list
   }
 
   // Future<BusRoute?> getRouteByCityFromAndCityTo(
