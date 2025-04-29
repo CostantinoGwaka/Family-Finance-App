@@ -38,6 +38,7 @@ class _FamilyFinanceLoginState extends State<FamilyFinanceLogin> {
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
+    // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(

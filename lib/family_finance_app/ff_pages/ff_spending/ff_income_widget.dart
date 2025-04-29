@@ -1,9 +1,7 @@
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_color.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
-import 'package:family_finance_app/family_finance_app/ff_models/expense_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/income_model.dart';
-import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/income_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';

@@ -5,6 +5,7 @@ import 'dart:io';
 import 'dart:math';
 import 'package:family_finance_app/family_finance_app/ff_datasource/data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/auth_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/bill_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/expense_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/income_model.dart';
@@ -59,25 +60,26 @@ class IncomeDataSource extends DataSource {
 
   @override
   Future<List<ExpenseModel>> getAllExpense(String userId) {
-    // TODO: implement getAllExpense
     throw UnimplementedError();
   }
 
   @override
   Future<AuthModel?> login(UserModel user) {
-    // TODO: implement login
     throw UnimplementedError();
   }
 
   @override
   Future<AuthModel?> logout() {
-    // TODO: implement logout
     throw UnimplementedError();
   }
 
   @override
   Future<GeneralResponseModel?> register(UserModel user) {
-    // TODO: implement register
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<BillModel>> getAllBills(String userId) {
     throw UnimplementedError();
   }
 }

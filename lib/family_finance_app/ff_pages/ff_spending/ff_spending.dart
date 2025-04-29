@@ -1,14 +1,10 @@
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_color.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
-import 'package:family_finance_app/family_finance_app/ff_models/expense_model.dart';
-import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_spending/ff_bills_widget.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_spending/ff_income_widget.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_spending/ff_spending_widget.dart';
-import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
-import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';
-import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -290,7 +286,7 @@ class _FamilyFinanceSpendingState extends State<FamilyFinanceSpending> {
               ] else if (selected == 1) ...[
                 IncomeSingleComponent()
               ] else if (selected == 2) ...[
-                SpendingSingleComponent()
+                BillsSingleComponent()
               ] else if (selected == 3) ...[
                 SpendingSingleComponent()
               ]
