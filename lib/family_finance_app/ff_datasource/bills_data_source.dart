@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:family_finance_app/family_finance_app/ff_datasource/data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/auth_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/bill_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/budget_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/expense_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/income_model.dart';
@@ -31,8 +32,8 @@ class BillsDataSource extends DataSource {
       };
 
   @override
-  Future<List<ExpenseModel>> getAllExpense(String userId) async {
-    final url = '$baseUrl${"expense/getExpense/1"}';
+  Future<List<BillModel>> getAllBills(String userId) async {
+    final url = '$baseUrl${"bills/getBills/$userId"}';
     try {
       final response = await http.get(
         Uri.parse(url),
@@ -44,9 +45,7 @@ class BillsDataSource extends DataSource {
 
         if (decoded['response'] != null && decoded['response'] is List) {
           final List<dynamic> responseList = decoded['response'];
-          return responseList
-              .map((item) => ExpenseModel.fromJson(item))
-              .toList();
+          return responseList.map((item) => BillModel.fromJson(item)).toList();
         } else {
           return []; // Empty or invalid list
         }
@@ -79,7 +78,12 @@ class BillsDataSource extends DataSource {
   }
 
   @override
-  Future<List<BillModel>> getAllBills(String userId) {
+  Future<List<ExpenseModel>> getAllExpense(String userId) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<BudgetModel>> getAllBudget(String userId) {
     throw UnimplementedError();
   }
 }

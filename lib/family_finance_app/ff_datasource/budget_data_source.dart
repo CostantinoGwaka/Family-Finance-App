@@ -20,7 +20,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-class ExpenseDataSource extends DataSource {
+class BudgetDataSource extends DataSource {
   Map<String, String> get header => {'Content-Type': 'application/json'};
 
   final localDataStoargeController = Get.find<LocalStorageProvider>();
@@ -32,8 +32,8 @@ class ExpenseDataSource extends DataSource {
       };
 
   @override
-  Future<List<ExpenseModel>> getAllExpense(String userId) async {
-    final url = '$baseUrl${"expense/getExpense/$userId"}';
+  Future<List<BudgetModel>> getAllBudget(String userId) async {
+    final url = '$baseUrl${"budget/getBudget/$userId"}';
     try {
       final response = await http.get(
         Uri.parse(url),
@@ -46,7 +46,7 @@ class ExpenseDataSource extends DataSource {
         if (decoded['response'] != null && decoded['response'] is List) {
           final List<dynamic> responseList = decoded['response'];
           return responseList
-              .map((item) => ExpenseModel.fromJson(item))
+              .map((item) => BudgetModel.fromJson(item))
               .toList();
         } else {
           return []; // Empty or invalid list
@@ -85,7 +85,7 @@ class ExpenseDataSource extends DataSource {
   }
 
   @override
-  Future<List<BudgetModel>> getAllBudget(String userId) {
+  Future<List<ExpenseModel>> getAllExpense(String userId) {
     throw UnimplementedError();
   }
 }

@@ -22,6 +22,7 @@ class AppDataController extends GetxController {
     await localDataStoargeController.saveToken(response.accessToken);
     await localDataStoargeController.saveLoginTime(response.loginTime);
     await localDataStoargeController.saveUserDetails(response.userDetails);
+    print("userDetails ${response.userDetails.id.toString()}");
     await localDataStoargeController
         .saveUserid(response.userDetails.id.toString());
     await localDataStoargeController

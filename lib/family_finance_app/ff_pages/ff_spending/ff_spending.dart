@@ -2,6 +2,7 @@ import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_color.d
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_spending/ff_bills_widget.dart';
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_spending/ff_budget_widget.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_spending/ff_income_widget.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_spending/ff_spending_widget.dart';
 import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';
@@ -288,7 +289,7 @@ class _FamilyFinanceSpendingState extends State<FamilyFinanceSpending> {
               ] else if (selected == 2) ...[
                 BillsSingleComponent()
               ] else if (selected == 3) ...[
-                SpendingSingleComponent()
+                BudgetSingleComponent()
               ]
             ],
           ),

@@ -34,6 +34,8 @@ class FamilyFinanceApptranslation extends Translations {
           'Available_Balance': "Available Balance",
           'Spending_list': "Spending list",
           'Income_list': "Income list",
+          'Bill_list': "Bills list",
+          'Budget_list': "Budget list",
         },
         'ar_ab': {
           'Sign_up': "Sign up",
@@ -66,6 +68,8 @@ class FamilyFinanceApptranslation extends Translations {
           'Available_Balance': "Available Balance",
           'Spending_list': "Spending list",
           'Income_list': "Income list",
+          'Bill_list': "Bills list",
+          'Budget_list': "Budget list",
         },
       };
 }

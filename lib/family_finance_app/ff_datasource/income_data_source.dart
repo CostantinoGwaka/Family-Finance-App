@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:family_finance_app/family_finance_app/ff_datasource/data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/auth_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/bill_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/budget_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/expense_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/income_model.dart';
@@ -32,7 +33,7 @@ class IncomeDataSource extends DataSource {
 
   @override
   Future<List<IncomeModel>> getAllIncome(String userId) async {
-    final url = '$baseUrl${"income/getIncome/1"}';
+    final url = '$baseUrl${"income/getIncome/$userId"}';
     try {
       final response = await http.get(
         Uri.parse(url),
@@ -80,6 +81,11 @@ class IncomeDataSource extends DataSource {
 
   @override
   Future<List<BillModel>> getAllBills(String userId) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<BudgetModel>> getAllBudget(String userId) {
     throw UnimplementedError();
   }
 }

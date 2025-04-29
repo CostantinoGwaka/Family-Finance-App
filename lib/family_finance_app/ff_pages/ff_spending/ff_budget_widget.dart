@@ -1,33 +1,33 @@
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_color.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
-import 'package:family_finance_app/family_finance_app/ff_models/bill_model.dart';
-import 'package:family_finance_app/family_finance_app/ff_provider/bills_data_provider.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/budget_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/budget_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';
 import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class BillsSingleComponent extends StatefulWidget {
-  const BillsSingleComponent({super.key});
+class BudgetSingleComponent extends StatefulWidget {
+  const BudgetSingleComponent({super.key});
 
   @override
-  State<BillsSingleComponent> createState() => _BillsSingleComponentState();
+  State<BudgetSingleComponent> createState() => _BudgetSingleComponentState();
 }
 
-class _BillsSingleComponentState extends State<BillsSingleComponent> {
+class _BudgetSingleComponentState extends State<BudgetSingleComponent> {
   dynamic size;
   double height = 0.00;
   double width = 0.00;
   final themedata = Get.put(FamilyFinanceThemecontroler());
 
-  Future<List<BillModel>> getAllBills() async {
-    final controller = Get.find<BillsDataController>();
+  Future<List<BudgetModel>> getAllBudget() async {
+    final controller = Get.find<BudgetDataController>();
     String userId = await Get.find<LocalStorageProvider>().getUserId();
 
-    await controller.getAllBills(userId);
-    return controller.billsList;
+    await controller.getAllBudget(userId);
+    return controller.budgetList;
   }
 
   @override
@@ -41,7 +41,7 @@ class _BillsSingleComponentState extends State<BillsSingleComponent> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Bill_list".tr,
+              "Budget_list".tr,
               style: psemiBold.copyWith(fontSize: 18),
             ),
             Image.asset(FamilyFinancePngimage.filter, height: height / 32),
@@ -52,8 +52,8 @@ class _BillsSingleComponentState extends State<BillsSingleComponent> {
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height / 5,
-          child: FutureBuilder<List<BillModel>>(
-            future: getAllBills(),
+          child: FutureBuilder<List<BudgetModel>>(
+            future: getAllBudget(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
@@ -81,7 +81,7 @@ class _BillsSingleComponentState extends State<BillsSingleComponent> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  incomes[index].title.toString(),
+                                  incomes[index].month.toString(),
                                   style: pmedium.copyWith(fontSize: 15),
                                 ),
                                 Text(

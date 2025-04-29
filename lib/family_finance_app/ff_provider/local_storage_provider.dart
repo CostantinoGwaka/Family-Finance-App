@@ -54,12 +54,12 @@ class LocalStorageProvider extends GetxController {
 
   Future<bool> saveUserid(String userId) async {
     final pref = await SharedPreferences.getInstance();
-    return pref.setString(userId, userId);
+    return pref.setString(userIdCode, userId);
   }
 
   Future<String> getUserId() async {
     final pref = await SharedPreferences.getInstance();
-    return pref.getString(userId) ?? '0';
+    return pref.getString(userIdCode) ?? '0';
   }
 
   Future<bool> saveExpirationDuration(int duration) async {
