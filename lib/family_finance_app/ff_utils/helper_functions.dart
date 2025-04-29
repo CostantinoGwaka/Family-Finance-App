@@ -18,6 +18,15 @@ String getFormattedTime(TimeOfDay tm, {String pattern = 'HH:mm'}) {
   return DateFormat(pattern).format(DateTime(0, 0, 0, tm.hour, tm.minute));
 }
 
+String formatCurrency(num amount) {
+  final formatter = NumberFormat.currency(
+    locale: 'en_TZ', // or 'en_US', etc.
+    symbol: '',
+    decimalDigits: 0, // removes decimals
+  );
+  return formatter.format(amount);
+}
+
 int getGrandTotal(int discount, int totalSeatBooked, int price, int fee) {
   final subTotal = totalSeatBooked * price;
   final priceAfterDiscount = subTotal - ((subTotal * discount) / 100);

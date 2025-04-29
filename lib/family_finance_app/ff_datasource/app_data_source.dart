@@ -5,6 +5,7 @@ import 'dart:io';
 import 'dart:math';
 import 'package:family_finance_app/family_finance_app/ff_datasource/data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/auth_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/expense_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/response_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
@@ -60,7 +61,6 @@ class AppDataSource extends DataSource {
   @override
   Future<AuthModel?> login(UserModel user) async {
     final url = "$baseUrl${'auth/login'}";
-
     try {
       final response = await http.post(
         Uri.parse(url),
@@ -79,23 +79,55 @@ class AppDataSource extends DataSource {
     }
   }
 
-  // @override
-  // Future<List<Bus>> getAllBus() async {
-  //   final url = '$baseUrl${"bus/all"}';
-  //   try {
-  //     final response = await http.get(Uri.parse(url));
-  //     if (response.statusCode == 200) {
-  //       final mapList = json.decode(response.body) as List;
-  //       // return List.generate(
-  //       //   mapList.length,
-  //       //   (index) => Bus.fromJson(mapList[index]),
-  //       // );
-  //     }
-  //     return [];
-  //   } catch (error) {
-  //     rethrow;
-  //   }
-  // }
+  @override
+  Future<AuthModel?> logout() async {
+    final url = "$baseUrl${'auth/logout'}";
+
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: await authHeader,
+      );
+
+      final map = json.decode(response.body);
+      final authResponseModel = AuthModel.fromJson(map);
+      return authResponseModel;
+    } catch (error) {
+      if (kDebugMode) {
+        print(error);
+      }
+      return null;
+    }
+  }
+
+  @override
+  Future<List<ExpenseModel>> getAllExpense(String userId) async {
+    final url = '$baseUrl${"expense/getExpense/1"}';
+    try {
+      final response = await http.get(
+        Uri.parse(url),
+        headers: await authHeader,
+      );
+
+      if (response.statusCode == 200) {
+        final decoded = json.decode(response.body);
+
+        if (decoded['response'] != null && decoded['response'] is List) {
+          final List<dynamic> responseList = decoded['response'];
+          return responseList
+              .map((item) => ExpenseModel.fromJson(item))
+              .toList();
+        } else {
+          return []; // Empty or invalid list
+        }
+      } else {
+        throw Exception('Failed to load expenses: ${response.statusCode}');
+      }
+    } catch (error) {
+      print('getAllExpense error: $error');
+      rethrow;
+    }
+  }
 
   // @override
   // Future<List<BusReservation>> getReservationsByMobile(String mobile) async {

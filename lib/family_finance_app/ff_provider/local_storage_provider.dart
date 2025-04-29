@@ -16,8 +16,11 @@ class LocalStorageProvider extends GetxController {
     return pref.getString(fTimeValue) ?? '';
   }
 
-  Future<bool> saveToken(String token) async {
+  Future<bool> saveToken(String? token) async {
     final pref = await SharedPreferences.getInstance();
+    if (token == null) {
+      return pref.remove(accessToken);
+    }
     return pref.setString(accessToken, token);
   }
 
@@ -26,8 +29,11 @@ class LocalStorageProvider extends GetxController {
     return pref.getString(accessToken) ?? '';
   }
 
-  Future<bool> saveUserDetails(UserModel user) async {
+  Future<bool> saveUserDetails(UserModel? user) async {
     final pref = await SharedPreferences.getInstance();
+    if (user == null) {
+      return pref.remove(userInfo);
+    }
     return pref.setString(userInfo, user.toJson().toString());
   }
 
@@ -46,6 +52,16 @@ class LocalStorageProvider extends GetxController {
     return pref.getInt(loginTime) ?? 0;
   }
 
+  Future<bool> saveUserid(String userId) async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.setString(userId, userId);
+  }
+
+  Future<String> getUserId() async {
+    final pref = await SharedPreferences.getInstance();
+    return pref.getString(userId) ?? '0';
+  }
+
   Future<bool> saveExpirationDuration(int duration) async {
     final pref = await SharedPreferences.getInstance();
     return pref.setInt(expirationDuration, duration);
@@ -60,5 +76,12 @@ class LocalStorageProvider extends GetxController {
     final loginTime = await getLoginTime();
     final expDuration = await getExpirationDuration();
     return DateTime.now().millisecondsSinceEpoch - loginTime > expDuration;
+  }
+
+  Future<void> clearAllData() async {
+    await saveToken(null);
+    await saveLoginTime(0);
+    await saveUserDetails(null);
+    await saveExpirationDuration(0);
   }
 }

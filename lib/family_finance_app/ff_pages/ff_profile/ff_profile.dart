@@ -2,6 +2,8 @@ import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_color.d
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/ff_login.dart';
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/ff_welcome.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,13 +38,17 @@ class _FamilyFinanceProfileState extends State<FamilyFinanceProfile> {
               actions: [
                 ElevatedButton(
                   onPressed: () async {
-                    Get.to(() => const FamilyFinanceLogin());
+                    final localDataStoargeController =
+                        Get.find<LocalStorageProvider>();
+                    await localDataStoargeController.clearAllData();
+                    Get.offAll(() => const FamilyFinanceWelcome());
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: FamilyFinanceColor.appcolor),
-                  child: Text("Yes",
-                      style:
-                          pregular.copyWith(color: FamilyFinanceColor.white)),
+                  child: Text(
+                    "Yes",
+                    style: pregular.copyWith(color: FamilyFinanceColor.white),
+                  ),
                 ),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(

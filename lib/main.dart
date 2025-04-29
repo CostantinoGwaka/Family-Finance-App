@@ -1,4 +1,5 @@
 import 'package:family_finance_app/family_finance_app/ff_bindings/ff_bindings_storage.dart';
+import 'package:family_finance_app/family_finance_app/ff_dashboard/ff_dashboard.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/ff_welcome.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class _MyAppState extends State<MyApp> {
   final themedata = Get.put(FamilyFinanceThemecontroler());
   final fTime = Get.put(LocalStorageProvider());
   String? check;
+  bool hasExpired = true;
 
   @override
   void initState() {
@@ -39,6 +41,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _initializeFTime() async {
     check = await fTime.getfTime();
+    hasExpired = await fTime.hasTokenExpired();
     setState(() {});
   }
 
@@ -55,7 +58,11 @@ class _MyAppState extends State<MyApp> {
       locale: const Locale('en', 'US'),
       home: check == '0'
           ? const FamilyFinanceSpalsh()
-          : const FamilyFinanceWelcome(), // Replace with your actual home widget
+          : hasExpired
+              ? const FamilyFinanceWelcome()
+              : FamilyFinanceDashboard(
+                  "0",
+                ), // Replace with your actual home widget
     );
   }
 }
