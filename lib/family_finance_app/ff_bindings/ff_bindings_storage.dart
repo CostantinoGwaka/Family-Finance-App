@@ -4,6 +4,7 @@ import 'package:family_finance_app/family_finance_app/ff_provider/budget_data_pr
 import 'package:family_finance_app/family_finance_app/ff_provider/expense_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/income_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/statistics_data_provider.dart';
 import 'package:get/get.dart';
 
 class InitialBinding extends Bindings {
@@ -16,6 +17,7 @@ class InitialBinding extends Bindings {
     Get.put(ExpenseDataController(), permanent: true);
     Get.put(BillsDataController(), permanent: true);
     Get.put(BudgetDataController(), permanent: true);
+    Get.put(StatisticsDataController(), permanent: true);
 
     // Lazy loaded controllers
     // Get.lazyPut<AuthController>(() => AuthController());

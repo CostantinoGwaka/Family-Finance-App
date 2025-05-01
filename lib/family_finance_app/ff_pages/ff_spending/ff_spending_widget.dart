@@ -82,7 +82,7 @@ class _SpendingSingleComponentState extends State<SpendingSingleComponent> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  expenses[index].notes.toString(),
+                                  expenses[index].category.name.toString(),
                                   style: pmedium.copyWith(fontSize: 15),
                                 ),
                                 Text(

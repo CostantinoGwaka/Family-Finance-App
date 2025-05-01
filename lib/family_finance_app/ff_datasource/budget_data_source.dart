@@ -11,6 +11,7 @@ import 'package:family_finance_app/family_finance_app/ff_models/expense_model.da
 import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/income_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/response_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/total_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/user_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/app_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
@@ -86,6 +87,12 @@ class BudgetDataSource extends DataSource {
 
   @override
   Future<List<ExpenseModel>> getAllExpense(String userId) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<TotalSummary>> getTotalSummary(String userId) {
+    // TODO: implement getTotalSummary
     throw UnimplementedError();
   }
 }

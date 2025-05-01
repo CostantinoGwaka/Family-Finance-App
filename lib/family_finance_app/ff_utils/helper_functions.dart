@@ -32,6 +32,11 @@ String formatCurrency(num amount) {
   return formatter.format(amount);
 }
 
+String capitalize(String text) {
+  if (text.isEmpty) return text;
+  return text[0].toUpperCase() + text.substring(1);
+}
+
 int getGrandTotal(int discount, int totalSeatBooked, int price, int fee) {
   final subTotal = totalSeatBooked * price;
   final priceAfterDiscount = subTotal - ((subTotal * discount) / 100);

@@ -21,7 +21,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-class ExpenseDataSource extends DataSource {
+class StatisticsDataSource extends DataSource {
   Map<String, String> get header => {'Content-Type': 'application/json'};
 
   final localDataStoargeController = Get.find<LocalStorageProvider>();
@@ -33,8 +33,8 @@ class ExpenseDataSource extends DataSource {
       };
 
   @override
-  Future<List<ExpenseModel>> getAllExpense(String userId) async {
-    final url = '$baseUrl${"expense/getExpense/$userId"}';
+  Future<List<TotalSummary>> getTotalSummary(String userId) async {
+    final url = '$baseUrl${"statisticsTotal/total/$userId"}';
     try {
       final response = await http.get(
         Uri.parse(url),
@@ -47,13 +47,13 @@ class ExpenseDataSource extends DataSource {
         if (decoded['response'] != null && decoded['response'] is List) {
           final List<dynamic> responseList = decoded['response'];
           return responseList
-              .map((item) => ExpenseModel.fromJson(item))
+              .map((item) => TotalSummary.fromJson(item))
               .toList();
         } else {
           return []; // Empty or invalid list
         }
       } else {
-        throw Exception('Failed to load expenses: ${response.statusCode}');
+        throw Exception('Failed to load income: ${response.statusCode}');
       }
     } catch (error) {
       rethrow;
@@ -61,7 +61,7 @@ class ExpenseDataSource extends DataSource {
   }
 
   @override
-  Future<List<IncomeModel>> getAllIncome(String userId) {
+  Future<List<ExpenseModel>> getAllExpense(String userId) {
     throw UnimplementedError();
   }
 
@@ -91,7 +91,7 @@ class ExpenseDataSource extends DataSource {
   }
 
   @override
-  Future<List<TotalSummary>> getTotalSummary(String userId) {
+  Future<List<IncomeModel>> getAllIncome(String userId) {
     // TODO: implement getTotalSummary
     throw UnimplementedError();
   }

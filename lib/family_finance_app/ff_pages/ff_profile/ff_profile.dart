@@ -1,7 +1,6 @@
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_color.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
-import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/ff_login.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/ff_welcome.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';

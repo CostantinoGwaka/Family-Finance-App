@@ -1,7 +1,5 @@
 import 'package:family_finance_app/family_finance_app/ff_datasource/app_data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_datasource/data_source.dart';
-import 'package:family_finance_app/family_finance_app/ff_datasource/expense_data_source.dart';
-import 'package:family_finance_app/family_finance_app/ff_datasource/income_data_source.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/auth_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/expense_model.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/general_response_model.dart';
@@ -22,7 +20,6 @@ class AppDataController extends GetxController {
     await localDataStoargeController.saveToken(response.accessToken);
     await localDataStoargeController.saveLoginTime(response.loginTime);
     await localDataStoargeController.saveUserDetails(response.userDetails);
-    print("userDetails ${response.userDetails.id.toString()}");
     await localDataStoargeController
         .saveUserid(response.userDetails.id.toString());
     await localDataStoargeController

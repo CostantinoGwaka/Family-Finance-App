@@ -1,6 +1,10 @@
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_color.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/total_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/statistics_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';
+import 'package:family_finance_app/family_finance_app/ff_utils/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../ff_gloabelclass/ff_fontstyle.dart';
@@ -40,6 +44,14 @@ class _FamilyFinanceHomeState extends State<FamilyFinanceHome> {
     FamilyFinanceColor.lightorenge,
     FamilyFinanceColor.lightred
   ];
+
+  Future<List<TotalSummary>> getTotalSummary() async {
+    final controller = Get.find<StatisticsDataController>();
+    String userId = await Get.find<LocalStorageProvider>().getUserId();
+
+    await controller.getTotalSummary(userId);
+    return controller.totalList;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -433,72 +445,149 @@ class _FamilyFinanceHomeState extends State<FamilyFinanceHome> {
                           ]),
                       child: Padding(
                         padding: EdgeInsets.only(bottom: height / 36),
-                        child: ListView.separated(
-                          separatorBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: width / 36,
-                              ),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: height / 96,
+                        child: SizedBox(
+                          height: MediaQuery.of(context).size.height / 3.5,
+                          child: FutureBuilder<List<TotalSummary>>(
+                            future: getTotalSummary(),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Center(
+                                    child: CircularProgressIndicator());
+                              } else if (snapshot.hasError) {
+                                return Center(
+                                    child: Text('Error: ${snapshot.error}'));
+                              } else if (!snapshot.hasData ||
+                                  snapshot.data!.isEmpty) {
+                                return const Center(
+                                    child: Text('No total summary found'));
+                              } else {
+                                final totals = snapshot.data!;
+                                return ListView.builder(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: width / 36,
                                   ),
-                                  const Divider(
-                                    color: FamilyFinanceColor.bggray,
-                                  ),
-                                  SizedBox(
-                                    height: height / 96,
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                          itemCount: ttype.length,
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: width / 36,
-                              ),
-                              child: Row(
-                                children: [
-                                  CircleAvatar(
-                                    radius: 20,
-                                    backgroundColor: lightcolor[index],
-                                    child: Image.asset(
-                                      categoryimg[index],
-                                      height: height / 36,
-                                      fit: BoxFit.fitHeight,
-                                      color: categorycolor[index],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: width / 36,
-                                  ),
-                                  Text(
-                                    ttype[index],
-                                    style: pregular.copyWith(
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  Text(
-                                    tamount[index],
-                                    style: psemiBold.copyWith(
-                                        fontSize: 14,
-                                        color: FamilyFinanceColor.red),
-                                  ),
-                                  SizedBox(
-                                    width: width / 36,
-                                  ),
-                                  const Icon(Icons.arrow_forward_ios, size: 15),
-                                ],
-                              ),
-                            );
-                          },
+                                  itemCount:
+                                      totals.length < 5 ? totals.length : 5,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          // horizontal: 16.0,
+                                          vertical: 8.0,
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            CircleAvatar(
+                                              radius: 20,
+                                              backgroundColor:
+                                                  lightcolor[index],
+                                              child: Image.asset(
+                                                categoryimg[index],
+                                                height: height / 36,
+                                                fit: BoxFit.fitHeight,
+                                                color: categorycolor[0],
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: width / 36,
+                                            ),
+                                            Text(
+                                              capitalize(totals[index]
+                                                  .name
+                                                  .toString()),
+                                              style: pregular.copyWith(
+                                                fontSize: 14,
+                                              ),
+                                            ),
+                                            const Spacer(),
+                                            Text(
+                                              "TZS ${formatCurrency(totals[index].total)}",
+                                              style: psemiBold.copyWith(
+                                                  fontSize: 14,
+                                                  color:
+                                                      FamilyFinanceColor.red),
+                                            ),
+                                            SizedBox(
+                                              width: width / 36,
+                                            ),
+                                            const Icon(Icons.arrow_forward_ios,
+                                                size: 15),
+                                          ],
+                                        ));
+                                  },
+                                );
+                              }
+                            },
+                          ),
                         ),
+
+                        // ListView.separated(
+                        //   separatorBuilder: (context, index) {
+                        //     return Padding(
+                        //       padding: EdgeInsets.symmetric(
+                        //         horizontal: width / 36,
+                        //       ),
+                        //       child: Column(
+                        //         children: [
+                        //           SizedBox(
+                        //             height: height / 96,
+                        //           ),
+                        //           const Divider(
+                        //             color: FamilyFinanceColor.bggray,
+                        //           ),
+                        //           SizedBox(
+                        //             height: height / 96,
+                        //           ),
+                        //         ],
+                        //       ),
+                        //     );
+                        //   },
+                        //   itemCount: ttype.length,
+                        //   physics: const NeverScrollableScrollPhysics(),
+                        //   shrinkWrap: true,
+                        //    itemBuilder: (context, index) {
+                        //     return Padding(
+                        //       padding: EdgeInsets.symmetric(
+                        //         horizontal: width / 36,
+                        //       ),
+                        //       child:
+                        // Row(
+                        //         children: [
+                        //           CircleAvatar(
+                        //             radius: 20,
+                        //             backgroundColor: lightcolor[index],
+                        //             child: Image.asset(
+                        //               categoryimg[index],
+                        //               height: height / 36,
+                        //               fit: BoxFit.fitHeight,
+                        //               color: categorycolor[index],
+                        //             ),
+                        //           ),
+                        //           SizedBox(
+                        //             width: width / 36,
+                        //           ),
+                        //           Text(
+                        //             ttype[index],
+                        //             style: pregular.copyWith(
+                        //               fontSize: 14,
+                        //             ),
+                        //           ),
+                        //           const Spacer(),
+                        //           Text(
+                        //             tamount[index],
+                        //             style: psemiBold.copyWith(
+                        //                 fontSize: 14,
+                        //                 color: FamilyFinanceColor.red),
+                        //           ),
+                        //           SizedBox(
+                        //             width: width / 36,
+                        //           ),
+                        //           const Icon(Icons.arrow_forward_ios, size: 15),
+                        //         ],
+                        //       ),
+                        //     );
+                        //   },
+                        // ),
                       ),
                     ),
                     SizedBox(
