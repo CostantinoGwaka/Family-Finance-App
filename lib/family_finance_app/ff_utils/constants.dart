@@ -8,7 +8,7 @@ const String currency = 'TZS';
 
 //url
 const String localIp = "172.20.10.7";
-const String remoteIp = "192.168.1.171";
-const String activeIp = localIp;
+const String remoteIp = "192.168.1.10";
+const String activeIp = remoteIp;
 const String port = "8080";
 final String baseUrl = "http://$activeIp:$port/api/";
