@@ -35,7 +35,6 @@ class StatisticsDataSource extends DataSource {
   @override
   Future<List<TotalSummary>> getTotalSummary(String userId) async {
     final url = '$baseUrl${"family-finance/api/statisticsTotal/total/$userId"}';
-    print(url);
     try {
       final response = await http.get(
         Uri.parse(url),

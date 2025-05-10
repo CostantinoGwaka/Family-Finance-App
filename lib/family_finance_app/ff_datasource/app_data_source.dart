@@ -65,7 +65,6 @@ class AppDataSource extends DataSource {
   @override
   Future<AuthModel?> login(UserModel user) async {
     final url = "$baseUrl${'family-auth/api/auth/login'}";
-    print(url);
     try {
       final response = await http.post(
         Uri.parse(url),
