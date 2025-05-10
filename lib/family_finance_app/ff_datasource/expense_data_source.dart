@@ -34,7 +34,7 @@ class ExpenseDataSource extends DataSource {
 
   @override
   Future<List<ExpenseModel>> getAllExpense(String userId) async {
-    final url = '$baseUrl${"expense/getExpense/$userId"}';
+    final url = '$baseUrl${"family-finance/api/expense/getExpense/$userId"}';
     try {
       final response = await http.get(
         Uri.parse(url),

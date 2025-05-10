@@ -34,7 +34,7 @@ class AppDataSource extends DataSource {
 
   @override
   Future<GeneralResponseModel> register(UserModel userModel) async {
-    final url = "$baseUrl${'auth/register'}";
+    final url = "$baseUrl${'family-auth/api/auth/register'}";
 
     dynamic userData = userModel.toJson();
     try {
@@ -64,7 +64,8 @@ class AppDataSource extends DataSource {
 
   @override
   Future<AuthModel?> login(UserModel user) async {
-    final url = "$baseUrl${'auth/login'}";
+    final url = "$baseUrl${'family-auth/api/auth/login'}";
+    print(url);
     try {
       final response = await http.post(
         Uri.parse(url),
@@ -85,7 +86,7 @@ class AppDataSource extends DataSource {
 
   @override
   Future<AuthModel?> logout() async {
-    final url = "$baseUrl${'auth/logout'}";
+    final url = "$baseUrl${'family-auth/api/auth/logout'}";
 
     try {
       final response = await http.post(

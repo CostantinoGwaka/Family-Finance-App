@@ -34,7 +34,7 @@ class IncomeDataSource extends DataSource {
 
   @override
   Future<List<IncomeModel>> getAllIncome(String userId) async {
-    final url = '$baseUrl${"income/getIncome/$userId"}';
+    final url = '$baseUrl${"family-finance/api/income/getIncome/$userId"}';
     try {
       final response = await http.get(
         Uri.parse(url),
