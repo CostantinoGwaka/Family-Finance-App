@@ -9,8 +9,16 @@ class StatisticsDataController extends GetxController {
   final RxList<TotalSummary> _totalList = <TotalSummary>[].obs;
   List<TotalSummary> get totalList => _totalList;
 
+  final RxList<TotalSummary> _totalIncomeList = <TotalSummary>[].obs;
+  List<TotalSummary> get totalIncomeList => _totalIncomeList;
+
   Future<void> getTotalSummary(String userId) async {
     final result = await statisticsSource.getTotalSummary(userId);
     _totalList.assignAll(result); // updates the observable list
+  }
+
+  Future<void> getTotalIncomeSummary(String userId) async {
+    final result = await statisticsSource.getTotalIncomeSummary(userId);
+    _totalIncomeList.assignAll(result); // updates the observable list
   }
 }

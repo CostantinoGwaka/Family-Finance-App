@@ -92,7 +92,35 @@ class StatisticsDataSource extends DataSource {
 
   @override
   Future<List<IncomeModel>> getAllIncome(String userId) {
-    // TODO: implement getTotalSummary
     throw UnimplementedError();
+  }
+
+  @override
+  Future<List<TotalSummary>> getTotalIncomeSummary(String userId) async {
+    final url =
+        '$baseUrl${"family-finance/api/statisticsTotal/income/$userId"}';
+    try {
+      final response = await http.get(
+        Uri.parse(url),
+        headers: await authHeader,
+      );
+
+      if (response.statusCode == 200) {
+        final decoded = json.decode(response.body);
+
+        if (decoded['response'] != null && decoded['response'] is List) {
+          final List<dynamic> responseList = decoded['response'];
+          return responseList
+              .map((item) => TotalSummary.fromJson(item))
+              .toList();
+        } else {
+          return [];
+        }
+      } else {
+        throw Exception('Failed to load income: ${response.statusCode}');
+      }
+    } catch (error) {
+      rethrow;
+    }
   }
 }

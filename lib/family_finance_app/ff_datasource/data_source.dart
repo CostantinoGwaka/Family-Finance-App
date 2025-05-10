@@ -16,4 +16,5 @@ abstract class DataSource {
   Future<List<BillModel>> getAllBills(String userId);
   Future<List<BudgetModel>> getAllBudget(String userId);
   Future<List<TotalSummary>> getTotalSummary(String userId);
+  Future<List<TotalSummary>> getTotalIncomeSummary(String userId);
 }

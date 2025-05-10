@@ -53,6 +53,14 @@ class _FamilyFinanceHomeState extends State<FamilyFinanceHome> {
     return controller.totalList;
   }
 
+  Future<List<TotalSummary>> getTotalincomeSummary() async {
+    final controller = Get.find<StatisticsDataController>();
+    String userId = await Get.find<LocalStorageProvider>().getUserId();
+
+    await controller.getTotalIncomeSummary(userId);
+    return controller.totalIncomeList;
+  }
+
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
@@ -160,11 +168,35 @@ class _FamilyFinanceHomeState extends State<FamilyFinanceHome> {
                             SizedBox(
                               height: height / 56,
                             ),
-                            Text(
-                              "\$20,000",
-                              style: psemiBold.copyWith(
-                                  fontSize: 28,
-                                  color: FamilyFinanceColor.white),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: height / 36),
+                              child: FutureBuilder<List<TotalSummary>>(
+                                future: getTotalincomeSummary(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return const Center(
+                                        child: CircularProgressIndicator());
+                                  } else if (snapshot.hasError) {
+                                    return Center(
+                                        child:
+                                            Text('Error: ${snapshot.error}'));
+                                  } else if (!snapshot.hasData ||
+                                      snapshot.data!.isEmpty) {
+                                    return const Center(
+                                        child: Text('No total summary found'));
+                                  } else {
+                                    final totals = snapshot.data!;
+                                    return Text(
+                                      'TZS ${formatCurrency(totals[0].total)}',
+                                      style: psemiBold.copyWith(
+                                        fontSize: 20,
+                                        color: FamilyFinanceColor.white,
+                                      ),
+                                    );
+                                  }
+                                },
+                              ),
                             ),
                             SizedBox(
                               height: height / 96,

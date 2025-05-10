@@ -92,7 +92,11 @@ class IncomeDataSource extends DataSource {
 
   @override
   Future<List<TotalSummary>> getTotalSummary(String userId) {
-    // TODO: implement getTotalSummary
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<TotalSummary>> getTotalIncomeSummary(String userId) {
     throw UnimplementedError();
   }
 }
