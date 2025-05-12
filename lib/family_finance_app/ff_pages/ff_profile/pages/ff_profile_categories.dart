@@ -31,7 +31,7 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
 
   Future<void> _reloadData() async {
     await getAllCategories();
-    // setState(() {}); // Refresh UI after fetching data
+    setState(() {}); // Refresh UI after fetching data
   }
 
   final ScrollController _scrollController = ScrollController();
@@ -69,8 +69,8 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
           ),
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () {
-              showModalBottomSheet(
+            onPressed: () async {
+              final result = await showModalBottomSheet(
                 context: context,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -79,6 +79,11 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
                   return FfProfileAddCategories();
                 },
               );
+
+              if (result == 'category-added') {
+                // If the category was added successfully, reload the data
+                await _reloadData();
+              }
             },
           ),
         ],

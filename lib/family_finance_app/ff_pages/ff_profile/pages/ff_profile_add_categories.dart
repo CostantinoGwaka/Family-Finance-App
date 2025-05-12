@@ -48,7 +48,7 @@ class _FfProfileAddCategoriesState extends State<FfProfileAddCategories> {
       if (controller.savedResponse != null) {
         if (controller.savedResponse!.statusCode == 200) {
           // ignore: use_build_context_synchronously
-          Navigator.pop(context);
+          Navigator.pop(context, 'category-added');
           // ignore: use_build_context_synchronously
           showMsg(context, "Category added successfully");
         } else {
