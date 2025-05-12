@@ -1,10 +1,10 @@
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
 import 'package:family_finance_app/family_finance_app/ff_models/category_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_profile/pages/ff_profile_add_categories.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/categories_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';
 import 'package:family_finance_app/family_finance_app/ff_utils/profile/categories_view_item.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -70,7 +70,15 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              // Add action for notifications icon
+              showModalBottomSheet(
+                context: context,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                ),
+                builder: (context) {
+                  return FfProfileAddCategories();
+                },
+              );
             },
           ),
         ],
@@ -121,7 +129,7 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
                 },
               );
             } else {
-              return const Text("NITUSUE SERVER UNDER MAINTAINCE");
+              return const Text("SERVER UNDER MAINTAINCE");
             }
           },
         ),
