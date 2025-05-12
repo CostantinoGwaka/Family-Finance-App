@@ -22,4 +22,9 @@ class CategoryDataController extends GetxController {
     final result = await categoryDataSource.saveUserCategories(category);
     _savedResponse.value = result;
   }
+
+  Future<void> deleteUserCategoryById(String categoryId) async {
+    final result = await categoryDataSource.deleteUserCategoryById(categoryId);
+    _savedResponse.value = result;
+  }
 }

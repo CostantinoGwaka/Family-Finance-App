@@ -108,7 +108,11 @@ class IncomeDataSource extends DataSource {
 
   @override
   Future<ResponseModel> saveUserCategories(CategoryModel category) {
-    // TODO: implement saveUserCategories
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ResponseModel> deleteUserCategoryById(String categoryId) {
     throw UnimplementedError();
   }
 }

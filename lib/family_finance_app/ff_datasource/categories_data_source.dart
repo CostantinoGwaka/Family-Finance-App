@@ -133,4 +133,30 @@ class CategoriesDataSource extends DataSource {
       rethrow;
     }
   }
+
+  @override
+  Future<ResponseModel> deleteUserCategoryById(String categoryId) async {
+    final url =
+        '$baseUrl${"family-finance/api/category/deleteCategories/$categoryId"}';
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: await authHeader,
+      );
+
+      if (response.statusCode == 200) {
+        final decoded = json.decode(response.body);
+        print("reps :${decoded['response']}");
+        if (decoded['response']) {
+          return ResponseModel.fromJson(decoded);
+        } else {
+          throw Exception('Invalid response format');
+        }
+      } else {
+        throw Exception('Failed to load data: ${response.statusCode}');
+      }
+    } catch (error) {
+      rethrow;
+    }
+  }
 }

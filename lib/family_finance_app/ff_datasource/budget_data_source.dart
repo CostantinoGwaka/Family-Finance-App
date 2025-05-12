@@ -110,4 +110,9 @@ class BudgetDataSource extends DataSource {
   Future<ResponseModel> saveUserCategories(CategoryModel category) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<ResponseModel> deleteUserCategoryById(String categoryId) {
+    throw UnimplementedError();
+  }
 }

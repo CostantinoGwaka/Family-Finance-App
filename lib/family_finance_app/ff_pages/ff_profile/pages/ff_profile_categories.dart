@@ -29,16 +29,20 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
     return controller.categoryList;
   }
 
+  Future<List<CategoryModel>> deleteUserCategory(String categoryId) async {
+    final controller = Get.find<CategoryDataController>();
+
+    await controller.deleteUserCategoryById(categoryId);
+    return controller.categoryList;
+  }
+
   Future<void> _reloadData() async {
     await getAllCategories();
     setState(() {}); // Refresh UI after fetching data
   }
 
-  final ScrollController _scrollController = ScrollController();
-
   @override
   void dispose() {
-    _scrollController.dispose();
     super.dispose();
   }
 
@@ -106,29 +110,43 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
             } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
               return const Center(child: Text('No categories found'));
             } else if (snapshot.hasData) {
-              // Automatically scroll to the bottom after the widget is built
-              WidgetsBinding.instance.addPostFrameCallback((_) {
-                if (_scrollController.hasClients) {
-                  // Ensure the list scrolls to the bottom after new data is loaded
-                  _scrollController
-                      .jumpTo(_scrollController.position.maxScrollExtent);
-                }
-              });
               return ListView.builder(
-                controller: _scrollController, // Attach the controller
                 padding: EdgeInsets.zero,
                 physics: const BouncingScrollPhysics(),
                 itemCount: snapshot.data!.length,
+                // reverse: true,
                 itemBuilder: (_, index) {
-                  return Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                    child: Stack(
-                      children: [
-                        CategoryItemCard(
-                          category: snapshot.data![index],
-                        ),
-                      ],
+                  return Dismissible(
+                    key: Key(snapshot.data![index].id
+                        .toString()), // Unique key per item
+                    direction:
+                        DismissDirection.endToStart, // Swipe from right to left
+                    background: Container(
+                      color: Colors.red,
+                      alignment: Alignment.centerRight,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: const Icon(Icons.delete, color: Colors.white),
+                    ),
+                    onDismissed: (direction) {
+                      // Handle deletion logic
+                      setState(() {
+                        deleteUserCategory(snapshot.data![index].id.toString())
+                            .then((_) {
+                          // Remove the item from the list
+                          _reloadData;
+                        });
+                        // Optionally call API to delete from backend
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Item deleted')),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 5, vertical: 5),
+                      child: CategoryItemCard(
+                        category: snapshot.data![index],
+                      ),
                     ),
                   );
                 },

@@ -21,4 +21,5 @@ abstract class DataSource {
   Future<List<TotalSummary>> getTotalIncomeSummary(String userId);
   Future<List<CategoryModel>> getAllUserCategories(String userId);
   Future<ResponseModel> saveUserCategories(CategoryModel category);
+  Future<ResponseModel> deleteUserCategoryById(String categoryId);
 }
