@@ -22,7 +22,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-class AppDataSource extends DataSource {
+class CategoriesDataSource extends DataSource {
   Map<String, String> get header => {'Content-Type': 'application/json'};
 
   final localDataStoargeController = Get.find<LocalStorageProvider>();
@@ -34,79 +34,7 @@ class AppDataSource extends DataSource {
       };
 
   @override
-  Future<GeneralResponseModel> register(UserModel userModel) async {
-    final url = "$baseUrl${'family-auth/api/auth/register'}";
-
-    dynamic userData = userModel.toJson();
-    try {
-      final response = await http.post(
-        Uri.parse(url),
-        headers: header,
-        body: jsonEncode({
-          'countryCode': userData['countryCode'],
-          'userFullName': userData['userFullName'],
-          'userName': userData['userName'],
-          'phone': userData['phone'],
-          'password': userData['password'],
-          'createdAt': userData['createdAt'],
-          'role': userData['role'],
-        }),
-      );
-      final map = json.decode(response.body);
-      final authResponseModel = GeneralResponseModel.fromJson(map);
-      return await getResponseModel(response);
-    } catch (error) {
-      if (kDebugMode) {
-        print(error);
-      }
-      rethrow;
-    }
-  }
-
-  @override
-  Future<AuthModel?> login(UserModel user) async {
-    final url = "$baseUrl${'family-auth/api/auth/login'}";
-    try {
-      final response = await http.post(
-        Uri.parse(url),
-        headers: header,
-        body: json.encode(user.toJson()),
-      );
-
-      final map = json.decode(response.body);
-      final authResponseModel = AuthModel.fromJson(map);
-      return authResponseModel;
-    } catch (error) {
-      if (kDebugMode) {
-        print(error);
-      }
-      return null;
-    }
-  }
-
-  @override
-  Future<AuthModel?> logout() async {
-    final url = "$baseUrl${'family-auth/api/auth/logout'}";
-
-    try {
-      final response = await http.post(
-        Uri.parse(url),
-        headers: await authHeader,
-      );
-
-      final map = json.decode(response.body);
-      final authResponseModel = AuthModel.fromJson(map);
-      return authResponseModel;
-    } catch (error) {
-      if (kDebugMode) {
-        print(error);
-      }
-      return null;
-    }
-  }
-
-  @override
-  Future<List<ExpenseModel>> getAllExpense(String userId) {
+  Future<List<BudgetModel>> getAllBudget(String userId) async {
     throw UnimplementedError();
   }
 
@@ -116,12 +44,27 @@ class AppDataSource extends DataSource {
   }
 
   @override
+  Future<AuthModel?> login(UserModel user) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<AuthModel?> logout() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<GeneralResponseModel?> register(UserModel user) {
+    throw UnimplementedError();
+  }
+
+  @override
   Future<List<BillModel>> getAllBills(String userId) {
     throw UnimplementedError();
   }
 
   @override
-  Future<List<BudgetModel>> getAllBudget(String userId) {
+  Future<List<ExpenseModel>> getAllExpense(String userId) {
     throw UnimplementedError();
   }
 
@@ -136,7 +79,30 @@ class AppDataSource extends DataSource {
   }
 
   @override
-  Future<List<CategoryModel>> getAllUserCategories(String userId) {
-    throw UnimplementedError();
+  Future<List<CategoryModel>> getAllUserCategories(String userId) async {
+    final url = '$baseUrl${"family-finance/api/budget/getBudget/$userId"}';
+    try {
+      final response = await http.get(
+        Uri.parse(url),
+        headers: await authHeader,
+      );
+
+      if (response.statusCode == 200) {
+        final decoded = json.decode(response.body);
+
+        if (decoded['response'] != null && decoded['response'] is List) {
+          final List<dynamic> responseList = decoded['response'];
+          return responseList
+              .map((item) => CategoryModel.fromJson(item))
+              .toList();
+        } else {
+          return []; // Empty or invalid list
+        }
+      } else {
+        throw Exception('Failed to load expenses: ${response.statusCode}');
+      }
+    } catch (error) {
+      rethrow;
+    }
   }
 }
