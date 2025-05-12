@@ -2,6 +2,7 @@ import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_color.d
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
 import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_icons.dart';
 import 'package:family_finance_app/family_finance_app/ff_pages/ff_Authentication/ff_welcome.dart';
+import 'package:family_finance_app/family_finance_app/ff_pages/ff_profile/pages/ff_profile_categories.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';
 import 'package:flutter/material.dart';
@@ -247,28 +248,37 @@ class _FamilyFinanceProfileState extends State<FamilyFinanceProfile> {
                       SizedBox(
                         height: height / 150,
                       ),
-                      Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 22,
-                            backgroundColor: FamilyFinanceColor.lightorenge,
-                            child: Image.asset(
-                              FamilyFinancePngimage.bank,
-                              height: height / 46,
-                              color: FamilyFinanceColor.orenge,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return const FfProfileCategories();
+                            },
+                          ));
+                        },
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              radius: 22,
+                              backgroundColor: FamilyFinanceColor.lightorenge,
+                              child: Image.asset(
+                                FamilyFinancePngimage.bank,
+                                height: height / 46,
+                                color: FamilyFinanceColor.orenge,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: width / 26),
-                          Text(
-                            "Bank_Cards".tr,
-                            style: pmedium.copyWith(fontSize: 14),
-                          ),
-                          const Spacer(),
-                          const Icon(
-                            Icons.chevron_right,
-                            size: 25,
-                          ),
-                        ],
+                            SizedBox(width: width / 26),
+                            Text(
+                              "Category".tr,
+                              style: pmedium.copyWith(fontSize: 14),
+                            ),
+                            const Spacer(),
+                            const Icon(
+                              Icons.chevron_right,
+                              size: 25,
+                            ),
+                          ],
+                        ),
                       ),
                       SizedBox(
                         height: height / 150,

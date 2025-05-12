@@ -188,7 +188,7 @@ class _FamilyFinanceHomeState extends State<FamilyFinanceHome> {
                                   } else {
                                     final totals = snapshot.data!;
                                     return Text(
-                                      'TZS ${formatCurrency(totals[0].total)}',
+                                      'TZS ${formatCurrency(totals[0].total)}/=',
                                       style: psemiBold.copyWith(
                                         fontSize: 20,
                                         color: FamilyFinanceColor.white,
