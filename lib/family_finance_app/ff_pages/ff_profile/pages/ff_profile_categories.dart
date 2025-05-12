@@ -31,7 +31,7 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
 
   Future<void> _reloadData() async {
     await getAllCategories();
-    setState(() {}); // Refresh UI after fetching data
+    // setState(() {}); // Refresh UI after fetching data
   }
 
   final ScrollController _scrollController = ScrollController();

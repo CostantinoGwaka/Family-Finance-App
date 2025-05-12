@@ -1,12 +1,12 @@
 class CategoryModel {
-  final int id;
+  final int? id;
   final String userId;
   final String name;
   final String type;
   final String createdAt;
 
   CategoryModel({
-    required this.id,
+    this.id,
     required this.userId,
     required this.name,
     required this.type,

@@ -129,4 +129,9 @@ class StatisticsDataSource extends DataSource {
   Future<List<CategoryModel>> getAllUserCategories(String userId) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<ResponseModel> saveUserCategories(CategoryModel category) {
+    throw UnimplementedError();
+  }
 }

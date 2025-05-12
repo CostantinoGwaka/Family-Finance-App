@@ -8,9 +8,18 @@ class ResponseModel {
   Map<String, dynamic> object;
 
   ResponseModel({
-    required this.responseStatus,
+    this.responseStatus,
     required this.statusCode,
     required this.message,
     required this.object,
   });
+
+  factory ResponseModel.fromJson(Map<String, dynamic> json) {
+    return ResponseModel(
+      responseStatus: json['responseStatus'] ?? ResponseStatus.NONE,
+      statusCode: json['statusCode'] ?? 400,
+      message: json['message'] ?? '',
+      object: json['object'] ?? {},
+    );
+  }
 }

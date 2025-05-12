@@ -81,7 +81,7 @@ class CategoriesDataSource extends DataSource {
   @override
   Future<List<CategoryModel>> getAllUserCategories(String userId) async {
     final url =
-        '$baseUrl${"family-finance/api/category/getCategories//$userId"}';
+        '$baseUrl${"family-finance/api/category/getCategories/$userId"}';
     try {
       final response = await http.get(
         Uri.parse(url),
@@ -101,6 +101,33 @@ class CategoriesDataSource extends DataSource {
         }
       } else {
         throw Exception('Failed to load expenses: ${response.statusCode}');
+      }
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<ResponseModel> saveUserCategories(CategoryModel category) async {
+    final url = '$baseUrl${"family-finance/api/category/add"}';
+    try {
+      final response = await http.post(
+        Uri.parse(url),
+        headers: await authHeader,
+        body: json.encode(category.toJson()),
+      );
+
+      if (response.statusCode == 200) {
+        final decoded = json.decode(response.body);
+
+        if (decoded['response'] != null &&
+            decoded['response'] is Map<String, dynamic>) {
+          return ResponseModel.fromJson(decoded);
+        } else {
+          throw Exception('Invalid response format');
+        }
+      } else {
+        throw Exception('Failed to load data: ${response.statusCode}');
       }
     } catch (error) {
       rethrow;
