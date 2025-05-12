@@ -1,10 +1,12 @@
+import 'package:family_finance_app/family_finance_app/ff_gloabelclass/ff_fontstyle.dart';
+import 'package:family_finance_app/family_finance_app/ff_models/category_model.dart';
+import 'package:family_finance_app/family_finance_app/ff_provider/categories_data_provider.dart';
 import 'package:family_finance_app/family_finance_app/ff_provider/local_storage_provider.dart';
-import 'package:family_finance_app/family_finance_app/ff_provider/statistics_data_provider.dart';
-import 'package:family_finance_app/family_finance_app/ff_utils/TimUtil.dart';
+import 'package:family_finance_app/family_finance_app/ff_theme/ff_themecontroller.dart';
+import 'package:family_finance_app/family_finance_app/ff_utils/profile/categories_view_item.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 class FfProfileCategories extends StatefulWidget {
   const FfProfileCategories({super.key});
@@ -14,12 +16,17 @@ class FfProfileCategories extends StatefulWidget {
 }
 
 class _FfProfileCategoriesState extends State<FfProfileCategories> {
-  Future<List<Category>> getAllCategories() async {
-    final controller = Get.find<StatisticsDataController>();
+  dynamic size;
+  double height = 0.00;
+  double width = 0.00;
+  final themedata = Get.put(FamilyFinanceThemecontroler());
+
+  Future<List<CategoryModel>> getAllCategories() async {
+    final controller = Get.find<CategoryDataController>();
     String userId = await Get.find<LocalStorageProvider>().getUserId();
 
-    await controller.getTotalSummary(userId);
-    return []; //controller.totalList;
+    await controller.getAllCategories(userId);
+    return controller.categoryList;
   }
 
   Future<void> _reloadData() async {
@@ -42,20 +49,33 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
 
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "Categories",
-          style: TextStyle(
-            fontFamily: 'Gilroy Medium',
-            color: Color(0xfffffffd),
-            fontSize: 12,
-          ),
+          style: pmedium.copyWith(fontSize: 18),
         ),
-        backgroundColor: const Color(0xff181c35),
+        backgroundColor: Colors.white,
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              // Add action for search icon
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              // Add action for notifications icon
+            },
+          ),
+        ],
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             Navigator.pop(context); // Go back to the previous screen
           },
@@ -65,7 +85,7 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
         onRefresh: _reloadData,
         child: FutureBuilder(
           future: getAllCategories(),
-          builder: (context, AsyncSnapshot<List<Category>> snapshot) {
+          builder: (context, AsyncSnapshot<List<CategoryModel>> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
             } else if (snapshot.hasError) {
@@ -92,178 +112,8 @@ class _FfProfileCategoriesState extends State<FfProfileCategories> {
                         const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                     child: Stack(
                       children: [
-                        Card(
-                          elevation:
-                              2, // Slightly stronger shadow for a richer feel
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                16), // Smoother rounded corners
-                          ),
-                          child: Theme(
-                            data: Theme.of(context).copyWith(
-                              dividerColor:
-                                  Colors.transparent, // Hide default divider
-                            ),
-                            child: ExpansionTile(
-                              tilePadding: const EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 5), // Balanced padding
-                              title: Text(
-                                "test name",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize:
-                                      MediaQuery.of(context).size.width / 24,
-                                  color: Colors
-                                      .blueAccent, // Differentiates the player
-                                ),
-                              ),
-                              subtitle: Padding(
-                                padding: const EdgeInsets.only(top: 1),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    // Amount and Status with icons on the right
-                                    Expanded(
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text(
-                                            "TZS",
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  35,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  100),
-                                          Text(
-                                            "1000",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  30,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  70),
-                                          Icon(
-                                            Icons.check_circle,
-                                            color: Colors.green,
-                                            size: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                28,
-                                          ),
-                                          SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  70),
-                                          Text(
-                                            "test mame",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: MediaQuery.of(context)
-                                                      .size
-                                                      .width /
-                                                  30,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width /
-                                          28,
-                                    ),
-                                    // Time with icon on the left
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.access_time,
-                                          color: Colors.white70,
-                                          size: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              28,
-                                        ),
-                                        SizedBox(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                70),
-                                        //   TimUtil.getTimeAgo(snapshot
-                                        // .data![index].dateRegister)
-                                        Text(
-                                          "date",
-                                          style: TextStyle(
-                                            color: Colors.white70,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                32,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              leading: Icon(Icons.info_outlined,
-                                  color: Colors.white),
-                              trailing: Icon(
-                                Icons.keyboard_arrow_down,
-                                color: Colors.white,
-                              ),
-                              children: [],
-                            ),
-                          ),
-                        ),
-                        // Badge at the top-right corner
-                        Positioned(
-                          top: MediaQuery.of(context).size.width /
-                              70, // Adjust as needed
-                          right: MediaQuery.of(context).size.width /
-                              60, // Adjust as needed
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal:
-                                  MediaQuery.of(context).size.width / 70,
-                              vertical: MediaQuery.of(context).size.width / 70,
-                            ),
-                            decoration: BoxDecoration(
-                              color:
-                                  Colors.blueAccent, // Badge background color
-                              borderRadius:
-                                  BorderRadius.circular(12), // Rounded badge
-                            ),
-                            child: Text(
-                              "name", // Customize badge text
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize:
-                                    MediaQuery.of(context).size.height / 70,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
+                        CategoryItemCard(
+                          category: snapshot.data![index],
                         ),
                       ],
                     ),

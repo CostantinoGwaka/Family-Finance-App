@@ -80,7 +80,8 @@ class CategoriesDataSource extends DataSource {
 
   @override
   Future<List<CategoryModel>> getAllUserCategories(String userId) async {
-    final url = '$baseUrl${"family-finance/api/budget/getBudget/$userId"}';
+    final url =
+        '$baseUrl${"family-finance/api/category/getCategories//$userId"}';
     try {
       final response = await http.get(
         Uri.parse(url),
